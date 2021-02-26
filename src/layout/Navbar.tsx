@@ -4,10 +4,7 @@ import { Link } from 'react-router-dom'
 function Navbar() {
   const [toggle, setToggle] = useState<boolean>(false);
 
-  const [news, setNews] = useState<boolean>(false);
-  const [additionalInfo, setAdditionalInfo] = useState< boolean>(false);
-  const [library, setLibrary] = useState<boolean>(false);
-  const [gallery, setGallery] = useState<boolean>(false)
+  const [additionalInfo, setAdditionalInfo] = useState<boolean>(false);
   const [recruitation, setRecruitation] = useState<boolean>(false)
   const [lessons, setLessons] = useState<boolean>(false)
   const [contact, setContact] = useState<boolean>(false)  
@@ -18,9 +15,6 @@ function Navbar() {
   const [schoolBoard, setSchoolBoard] = useState<boolean>(false);   
   const [schoolDocuments, setSchoolDocuments] = useState<boolean>(false)
 
-  function handleNews() {
-    setNews(!news)
-  }
 
   function handleRecruitation() {
     setRecruitation(!recruitation)
@@ -30,15 +24,12 @@ function Navbar() {
     setLessons(!lessons)
   }
 
-  function transformNews() {
-    setNews(!news);
-  }
-
   function handleContact() {
     setContact(!contact)
   }
 
   function handleAdditionalInfo() {
+    console.log("addidional Info")
     setAdditionalInfo(!additionalInfo)
   }
 
@@ -51,7 +42,7 @@ function Navbar() {
   }
 
   function handleAdditionalLearningResource() {
-    setAdditionalInfo(!additionalInfo)
+    setAdditionalInfo(!additionalLearningResource)
   }
 
   function handleSchoolBoard() {
