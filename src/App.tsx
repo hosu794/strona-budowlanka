@@ -5,7 +5,8 @@ import Layout from './layout/Layout'
 
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 import Home from './layout/MainPage'
-import Post from './Post/Post'
+import Post from './Post/Posts'
+import Posts from './Post/Posts'
 const App = () => {
   return(
  
@@ -13,7 +14,7 @@ const App = () => {
       <Router>
      <Layout>
       <Route component={Home} exact path="/" />
-      <Route component={Post} exact path="/posts/:id" />
+      <Route component={Posts} exact path="/posts" />
       </Layout>
     </Router>
    </div>
