@@ -3,13 +3,11 @@ import './styles/index.css'
 
 import Layout from './layout/Layout'
 
-import {BrowserRouter as Router, Route} from 'react-router-dom'
+import {HashRouter  as Router, Route} from 'react-router-dom'
 import Home from './layout/MainPage'
-import Post from './Post/Posts'
 import Posts from './Post/Posts'
 const App = () => {
   return(
- 
    <div>
       <Router>
      <Layout>
