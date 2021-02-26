@@ -3,25 +3,21 @@ import './styles/index.css'
 
 import Layout from './layout/Layout'
 
-import {BrowserRouter, BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import {BrowserRouter as Router, Route} from 'react-router-dom'
+import Home from './layout/MainPage'
+import Post from './Post/Post'
 const App = () => {
   return(
  
    <div>
-      <BrowserRouter>
+      <Router>
      <Layout>
-      <Route component={SomeComponent} exact path="/" />
+      <Route component={Home} exact path="/" />
+      <Route component={Post} exact path="/posts/:id" />
       </Layout>
-    </BrowserRouter>
+    </Router>
    </div>
   )
 }
 
 export default App;
-
-
-const SomeComponent = () => (
-  <React.Fragment>
-    <h1>component</h1>
-  </React.Fragment>
-)

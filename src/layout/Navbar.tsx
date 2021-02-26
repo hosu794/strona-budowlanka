@@ -16,44 +16,43 @@ function Navbar() {
   const [schoolDocuments, setSchoolDocuments] = useState<boolean>(false)
 
 
-  function handleRecruitation() {
+  function handleRecruitation(): void {
     setRecruitation(!recruitation)
   }
 
-  function handleLessons() {
+  function handleLessons(): void {
     setLessons(!lessons)
   }
 
-  function handleContact() {
+  function handleContact(): void {
     setContact(!contact)
   }
 
-  function handleAdditionalInfo() {
-    console.log("addidional Info")
+  function handleAdditionalInfo(): void {
     setAdditionalInfo(!additionalInfo)
   }
 
-  function handleAboutSchool() {
+  function handleAboutSchool(): void {
     setAboutSchool(!aboutSchool)
   }
 
-  function handleEfs() {
+  function handleEfs(): void {
     setEfs(!efs)
   }
 
-  function handleAdditionalLearningResource() {
+  function handleAdditionalLearningResource(): void {
     setAdditionalInfo(!additionalLearningResource)
   }
 
-  function handleSchoolBoard() {
+  function handleSchoolBoard(): void {
     setSchoolBoard(!schoolBoard)
   }
 
-  function handleSchoolDocuments() {
+  function handleSchoolDocuments(): void {
     setSchoolDocuments(!schoolDocuments)
   }
 
-  function tranformHamburger() {
+  function tranformHamburger(): void {
     setToggle(!toggle);
 }
 
