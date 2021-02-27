@@ -2,19 +2,15 @@ import React from 'react'
 import './styles/index.css'
 import CookieConsent from 'react-cookie-consent'
 
-import Layout from './layout/Layout'
-
 import {HashRouter  as Router, Route} from 'react-router-dom'
 import Home from './layout/MainPage'
 import Posts from './Post/Posts'
-const App = () => {
+const App: React.FC<any> = () => {
   return(
    <div>
       <Router>
-     <Layout>
       <Route component={Home} exact path="/" />
       <Route component={Posts} exact path="/posts" />
-      </Layout>
     </Router>
     <CookieConsent
       overlay
