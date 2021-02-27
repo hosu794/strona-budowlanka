@@ -60,7 +60,7 @@ function Navbar() {
 return (
     <nav aria-label="primary" className="fixed p-2 w-screen bg-white shadow z-20 flex-col flex-grow pb-4 md:flex md:justify-center md:flex-row">
     <div className="flex mr-0 xl:mr-20 items-center">
-        <Link to="/"><img className="cursor-pointer" width="75px" height="75px" src={BrandIcon}/></Link>
+        <Link to="/"><img alt="Brand icon" className="cursor-pointer" width="75px" height="75px" src={BrandIcon}/></Link>
         <Link to="/"><h1 className="uppercase font-bold text-3xl tracking-wide cursor-pointer">ZS1MMZ</h1></Link>
         
     </div>
