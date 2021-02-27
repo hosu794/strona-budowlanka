@@ -2,6 +2,7 @@ import { useHistory } from 'react-router-dom'
 import ReactPaginate from 'react-paginate'
 
 import React from 'react'
+import Layout from '../layout/Layout'
 //TOOD Connect to posts grapsql api https://vpilip.com/how-build-simple-pagination-in-nextjs/
 
 const Posts = () => {
@@ -19,7 +20,7 @@ const Posts = () => {
     }
 
     return (
-        <React.Fragment>
+        <Layout>
                  <div className="min-h-screen flex flex-col justify-center items-center mt-20">
                  <div className="flex flex-row space-between pb-20 pt-20 w-8/12 justify-between">
                  <h1 className="uppercase text-2xl font-extrabold" style={{
@@ -100,7 +101,7 @@ const Posts = () => {
                         </div>
                 </div>
                 </div>
-        </React.Fragment>
+        </Layout>
     )
 }
 

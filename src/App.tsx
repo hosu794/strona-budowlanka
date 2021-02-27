@@ -5,7 +5,7 @@ import CookieConsent from 'react-cookie-consent'
 import {HashRouter  as Router, Route} from 'react-router-dom'
 import Home from './layout/MainPage'
 import Posts from './Post/Posts'
-const App = () => {
+const App: React.FC<any> = () => {
   return(
    <div>
       <Router>
