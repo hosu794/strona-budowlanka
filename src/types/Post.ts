@@ -1,8 +1,9 @@
 export interface IPost {
   node: {
-    id: string;
-    title: string;
-    content: string;
+    id: string,
+    title: string,
+    content: string, 
+    date: string
   };
 }
 
@@ -23,7 +24,8 @@ export interface IEdgesPostResult {
 export interface INodePostResult {
     author: any,
     categories: any, 
-    content: string 
+    content: string,
+    date: string, 
     title: string 
 }
 

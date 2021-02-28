@@ -18,6 +18,7 @@ const Posts = () => {
             id
             content
             title
+            date
             categories {
             edges {
                 node {
@@ -81,7 +82,7 @@ const Posts = () => {
                         {error && <div>Error</div>}
                         {loading && <div>...Loading</div>}
                        {data && data.posts.edges.map((item: IPost) => (
-                           <Post key={item.node.id} content={item.node.content} id={item.node.id} title={item.node.title} />
+                           <Post key={item.node.id} content={item.node.content} date={item.node.date} title={item.node.title} />
                        )) }
                       {hasMore && !loading ? <button className="text-2xl font-bold p-5" onClick={getMoreResults}>Załaduj więcej</button> 
                       : <span className="text-2xl font-bold p-5"></span>}
