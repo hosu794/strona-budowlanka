@@ -6,6 +6,7 @@ import { gql, useQuery } from '@apollo/react-hooks'
 import Post from './Post'
 import { IPost, IPostsResult } from '../types/Post'
 
+
 const Posts = () => {
 
     const [hasMore, setHasMore] = useState<boolean>(true);
