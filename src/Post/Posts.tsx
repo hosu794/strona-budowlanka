@@ -1,25 +1,68 @@
 import { useHistory } from 'react-router-dom'
-import ReactPaginate from 'react-paginate'
 
-import React from 'react'
+import React, { useState } from 'react'
 import Layout from '../layout/Layout'
-import { useQuery } from '@apollo/react-hooks'
-import { GET_POSTS } from '../requests/graphql'
+import { gql, useQuery } from '@apollo/react-hooks'
 import Post from './Post'
-import { IPost } from '../types/Post'
-//TOOD Connect to posts grapsql api https://vpilip.com/how-build-simple-pagination-in-nextjs/
+import { IPost, IPostsResult } from '../types/Post'
+
 
 const Posts = () => {
 
-    const {loading, data, error} = useQuery(GET_POSTS)
+    const [hasMore, setHasMore] = useState<boolean>(true);
+
+    const GET_POSTS = gql`
+    query PostsQuery($after: String) {
+    posts(first: 10, after: $after) {
+        edges {
+        node {
+            id
+            content
+            title
+            date
+            categories {
+            edges {
+                node {
+                id
+                }
+            }
+            }
+            author {
+            node {
+                id
+            }
+            }
+        }
+        }
+        pageInfo {
+        endCursor
+        hasNextPage
+        }
+    }
+    }
+    `
+    const {loading, data, error, fetchMore } = useQuery(GET_POSTS, {variables: { after: null}})
     
-    //Mock values to paginations
-    const currentPage = 0
-    const pageCount = 10
+    const getMoreResults = () => {
+
+        const {endCursor, hasNextPage} = data.posts.pageInfo
+        
+        setHasMore(hasNextPage)
+        
+        fetchMore({
+          variables: {after: endCursor},
+          updateQuery: (prevResult: IPostsResult, { fetchMoreResult }: any) => {
+             fetchMoreResult.posts.edges = [
+                 ...prevResult.posts.edges,
+                 ...fetchMoreResult.posts.edges
+             ]
+             return fetchMoreResult
+          }
+        })
+
+    }
 
     const history  = useHistory()
-
-    const pagginationHandler = () => {}
 
     const onClick = () => {
         history.goBack()
@@ -36,26 +79,14 @@ const Posts = () => {
                         <p className="font-extrabold text-lg cursor-pointer" onClick={onClick}>Powrót</p>
                     </div>
                  </div>
-                    <div className="w-auto flex flex-col items-center w-8/12 ">
-                   
-                       {data ? data.posts.nodes.map((item: any) => (
-                           <Post content={item.content} id={item.id} title={item.title} />
-                       )) : null }
-                        <div className="pt-5 pb-5 text-sm md:text-lg ">
-                            <ReactPaginate
-                                previousLabel={'previous'}
-                                nextLabel={'next'}
-                                breakLabel={'...'}
-                                breakClassName={'break-me'}
-                                activeClassName={'active'}
-                                containerClassName={'pagination'}
-                                initialPage={currentPage - 1}
-                                pageCount={pageCount}
-                                marginPagesDisplayed={2}
-                                pageRangeDisplayed={1}
-                                onPageChange={pagginationHandler}
-                        />                         
-                        </div>
+                    <div className="w-auto flex flex-col items-center w-8/12">
+                        {error && <div>Error</div>}
+                        {loading && <div>...Loading</div>}
+                       {data && data.posts.edges.map((item: IPost) => (
+                           <Post key={item.node.id} content={item.node.content} date={item.node.date} title={item.node.title} />
+                       )) }
+                      {hasMore && !loading ? <button className="text-xl font-bold p-7" onClick={getMoreResults}>Załaduj więcej</button> 
+                      : <span className="text-2xl font-bold p-7"></span>}
                 </div>
                 </div>
         </Layout>

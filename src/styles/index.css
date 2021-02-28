@@ -62,3 +62,7 @@ a {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.my-anchor-css-class {
+  font-weight: 600;
+}
