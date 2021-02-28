@@ -12,7 +12,7 @@ const Posts = () => {
 
     const GET_POSTS = gql`
     query PostsQuery($after: String) {
-    posts(first: 2, after: $after) {
+    posts(first: 10, after: $after) {
         edges {
         node {
             id
@@ -83,8 +83,8 @@ const Posts = () => {
                        {data && data.posts.edges.map((item: IPost) => (
                            <Post key={item.node.id} content={item.node.content} id={item.node.id} title={item.node.title} />
                        )) }
-                      {hasMore ? <button className="text-2xl font-bold p-5" onClick={getMoreResults}>Załaduj więcej</button> 
-                      : <span className="text-2xl font-bold p-5">Koniec Postów</span>}
+                      {hasMore && !loading ? <button className="text-2xl font-bold p-5" onClick={getMoreResults}>Załaduj więcej</button> 
+                      : <span className="text-2xl font-bold p-5"></span>}
                 </div>
                 </div>
         </Layout>
