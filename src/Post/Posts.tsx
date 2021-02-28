@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import Layout from '../layout/Layout'
 import { gql, useQuery } from '@apollo/react-hooks'
 import Post from './Post'
-import { IPost } from '../types/Post'
+import { IPost, IPostsResult } from '../types/Post'
 
 const Posts = () => {
 
@@ -49,7 +49,7 @@ const Posts = () => {
         
         fetchMore({
           variables: {after: endCursor},
-          updateQuery: (prevResult: any, { fetchMoreResult }: any) => {
+          updateQuery: (prevResult: IPostsResult, { fetchMoreResult }: any) => {
              fetchMoreResult.posts.edges = [
                  ...prevResult.posts.edges,
                  ...fetchMoreResult.posts.edges
