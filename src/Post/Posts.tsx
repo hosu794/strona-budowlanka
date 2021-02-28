@@ -85,8 +85,8 @@ const Posts = () => {
                        {data && data.posts.edges.map((item: IPost) => (
                            <Post key={item.node.id} content={item.node.content} date={item.node.date} title={item.node.title} />
                        )) }
-                      {hasMore && !loading ? <button className="text-2xl font-bold p-5" onClick={getMoreResults}>Załaduj więcej</button> 
-                      : <span className="text-2xl font-bold p-5"></span>}
+                      {hasMore && !loading ? <button className="text-xl font-bold p-7" onClick={getMoreResults}>Załaduj więcej</button> 
+                      : <span className="text-2xl font-bold p-7"></span>}
                 </div>
                 </div>
         </Layout>
