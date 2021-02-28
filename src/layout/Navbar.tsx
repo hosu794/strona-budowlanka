@@ -83,8 +83,6 @@ return (
             <span className="lg:text-sm xl:text-lg font-extrabold"><Link to="/gallery">Galeria</Link></span>
         </button>
         <div className="absolute z-10 hidden bg-grey-200 group-hover:block">
-            
-           
         </div>
     </div>  
 
@@ -114,7 +112,6 @@ return (
           </div>   
         </div>
     </div>  
-
 
     <div className="relative group">
         <button className="flex uppercase flex-row items-center w-screen px-4 py-4 mt-2 text-base text-left uppercase bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
@@ -155,7 +152,6 @@ return (
                     <p className="uppercase p-1">Internat</p>
                   </div>
                 </div>
-
                 <div className="flex flex-col">
 
                 <div className="p-7">
@@ -186,15 +182,12 @@ return (
                   <p className="uppercase p-1"><Link to="/timetable">Terminarz rad i zebrań</Link></p>
                   <p className="uppercase p-1"><Link to="/book-list">Wykaz podręczników</Link></p>
                 </div>
-
                 </div>
               <div>
                 </div>
               </div>
             </div>
         </div>
-   
-   
    </div>
    
     </div>  
@@ -206,31 +199,30 @@ return (
     </div>
       </div>
  
-
       <div className={toggle ? " md:block lg:hidden absolute top-0 right-0 z-0 w-8/12" : "md-navbar md:block lg:hidden absolute top-0 right-0 z-0 w-1/2"}>
         <div className="h-screen p-6 bg-red-custom overflow-y-auto">
             <div>
               <ul className="text-white flex justify-center sm:text-lg md:text-2xl uppercase text-align flex-col h-2/3 mt-10 font-bold">
-                <li className="p-5 uppercase cursor-pointer">Aktualnośći</li>
-                 <li className="p-5 uppercase cursor-pointer">Biblioteka</li>
-                <li className= "p-5 uppercase cursor-pointer">Galeria</li>
+                <li className="p-5 uppercase cursor-pointer"><Link to="/posts">Aktualnośći</Link></li>
+                 <li className="p-5 uppercase cursor-pointer"><Link to="/library">Biblioteka</Link></li>
+                <li className= "p-5 uppercase cursor-pointer"><Link to="/gallery">Galeria</Link></li>
                 <li onClick={handleRecruitation} className={recruitation ? "p-5 uppercase cursor-pointer underline" : "p-5 uppercase cursor-pointer"}>Rekrutacja</li>
                 {recruitation ? (
                    <ul className="flex flex-col justify-center align-items text-center">
-                   <li className="uppercase text-left pl-7">Oferta edukacyjna</li>
+                   <li className="uppercase text-left pl-7"><Link to="/education-offer">Oferta edukacyjna</Link></li>
                  </ul>
                 ) : null}
                 <li onClick={handleLessons} className={lessons ? "p-5 uppercase cursor-pointer underline" : "p-5 uppercase cursor-pointer"}>Dziennik</li>
                 {lessons ? (
                    <ul className="flex flex-col justify-center align-items">
-                   <li className="uppercase text-left pl-7 pb-2">Dziennik</li>
-                   <li className="uppercase text-left pl-7 pb-2">Vulcan</li>
+                   <li className="uppercase text-left pl-7 pb-2"><Link to="/lesson-plan">Plan Lekcji</Link></li>
+                   <li className="uppercase text-left pl-7 pb-2"><a href="https://uonetplus.vulcan.net.pl/powiatminski">Dziennik</a></li>
                  </ul>
                 ) : null}
                 <li onClick={handleContact} className={contact ? "p-5 uppercase cursor-pointer underline" : "p-5 uppercase cursor-pointer"}>Kontakt</li>
                 {contact ? (
                   <ul className="flex flex-col justify-center align-items text-center">
-                  <li className="uppercase text-left pl-7 pb-2">Pomoc psychologiczno-prawna</li>
+                  <li className="uppercase text-left pl-7 pb-2"><Link to="/mental-law-help">Pomoc psychologiczno-prawna</Link></li>
                 </ul>
                 ) : null}
                 <li onClick={handleAdditionalInfo} className={additionalInfo ? "p-5 uppercase cursor-pointer underline" : "p-5 uppercase cursor-pointer"}>Dodatkowe informacje</li>
@@ -239,47 +231,40 @@ return (
                    <li onClick={handleAboutSchool}  className={aboutSchool ? "uppercase text-left cursor-pointer pl-7 pb-2 underline" : "uppercase text-left cursor-pointer pl-7 pb-2"}>O Szkole</li>
                    {aboutSchool ? (
                       <ul className="flex flex-col justify-center align-items text-center">
-                      <li className="uppercase text-left pl-9 pb-4 ">Patron</li>
-                      <li className="uppercase text-left pl-9 pb-4 ">Wyposażenie</li>
-                      <li className="uppercase text-left pl-9 pb-4 ">Biblioteka</li>
-                      <li className="uppercase text-left pl-9 pb-4 ">Archiwum</li>
+                      <li className="uppercase text-left pl-9 pb-4 "><Link to="/school-patron">Patron</Link></li>
+                      <li className="uppercase text-left pl-9 pb-4 "><Link to="/equipment">Wyposażenie</Link></li>
+                      <li className="uppercase text-left pl-9 pb-4 "><Link to="/library">Biblioteka</Link></li>
+                      <li className="uppercase text-left pl-9 pb-4 "><Link to="/archives">Archiwum</Link></li>
                     </ul>
                    ) : null}
-                   <li onClick={handleEfs} className={efs ? "uppercase text-left cursor-pointer pl-7 pb-2 underline" : "uppercase text-left cursor-pointer pl-7 pb-2"}>EFS</li>
-                  {efs ? (
-                     <ul className="flex flex-col justify-center align-items text-center">
-                     <li className="uppercase text-left pl-9 pb-4 ">Zespoły Przedmiotowe</li>
-                     <li className="uppercase text-left pl-9 pb-4 ">Wyposażenie</li>
-                     <li className="uppercase text-left pl-9 pb-4 ">Biblioteka</li>
-                     <li className="uppercase text-left pl-9 pb-4 ">Archiwum</li>
-                   </ul>
-                  ) : null}
+                   <li onClick={handleEfs} className= "uppercase text-left cursor-pointer pl-7 pb-2">EFS</li>
+                 
                    <li onClick={handleAdditionalLearningResource} className={additionalLearningResource ? "uppercase text-left cursor-pointer pl-7 pb-2 underline" : "uppercase text-left cursor-pointer pl-7 pb-2"}>Dodatkowe materiały do nauki</li>
                    {additionalLearningResource ? (
                      <ul className="flex flex-col justify-center align-items text-center">
-                     <li className="uppercase text-left pl-9 pb-4 ">English Corner</li>
-                     <li className="uppercase text-left pl-9 pb-4 ">Akademia Cisco</li>
-                     <li className="uppercase text-left pl-9 pb-4 ">Akademia Suse Linux</li>
+                     <li className="uppercase text-left pl-9 pb-4 "><Link to="/english-corner">English Corner</Link></li>
+                     <li className="uppercase text-left pl-9 pb-4 "><Link to="/cisco-academy">Akademia Cisco</Link></li>
+                     <li className="uppercase text-left pl-9 pb-4 "><Link to="/linux-suse-academy">Akademia Suse Linux</Link></li>
                    </ul>
                    ) : null}
                    <li onClick={handleSchoolBoard} className={schoolBoard ? "uppercase text-left cursor-pointer pl-7 pb-2 underline" : "uppercase text-left cursor-pointer pl-7 pb-2"}>Rada Rodziców/Szkoły</li>
                    {schoolBoard ? (
                      <ul className="flex flex-col justify-center align-items text-center">
-                     <li className="uppercase text-left pl-9 pb-4 ">Rada Rodziców</li>
-                     <li className="uppercase text-left pl-9 pb-4 ">Samorząd</li>
+                     <li className="uppercase text-left pl-9 pb-4 "><Link to="/counsel-parents">Rada Rodziców</Link></li>
+                     <li className="uppercase text-left pl-9 pb-4 "><Link to="/local-government">Samorząd</Link></li>
                    </ul>
                    ) : null}
                    <li onClick={handleSchoolDocuments} className={schoolDocuments ? "uppercase text-left cursor-pointer pl-7 pb-2 underline" : "uppercase text-left cursor-pointer pl-7 pb-2"}>Dokumenty</li>
                    {schoolDocuments ? (
                      <ul className="flex flex-col justify-center align-items text-center">
-                     <li className="uppercase text-left pl-9 pb-4 ">Status Szkoły</li>
-                     <li className="uppercase text-left pl-9 pb-4 ">Szkoła</li>
-                     <li className="uppercase text-left pl-9 pb-4 ">Obowiązek informacyjny</li>
-                     <li className="uppercase text-left pl-9 pb-4 ">Procedury</li>
-                     <li className="uppercase text-left pl-9 pb-4 ">Dla Absolwentów</li>
-                     <li className="uppercase text-left pl-9 pb-4 ">Egzaminy</li>
-                     <li className="uppercase text-left pl-9 pb-4 ">Terminarz Rad i Zebrań</li>
-                     <li className="uppercase text-left pl-9 pb-4 ">Wykaz Podręczników</li>
+                     <li className="uppercase text-left pl-9 pb-4 "><Link to="/school-status">Status Szkoły</Link></li>
+                     <li className="uppercase text-left pl-9 pb-4 "><Link to="/school">Szkoła</Link></li>
+                     <li className="uppercase text-left pl-9 pb-4 "><Link to="/information-duty">Obowiązek informacyjny</Link></li>
+                     <li className="uppercase text-left pl-9 pb-4 "><Link to="/procedures">Procedury</Link></li>
+                     <li className="uppercase text-left pl-9 pb-4 "><Link to="/for-graduates">Dla Absolwentów</Link></li>
+                     <li className="uppercase text-left pl-9 pb-4 "><Link to="/exams">Egzaminy</Link></li>
+                     <li className="uppercase text-left pl-9 pb-4 "><Link to="/schedule-of-councils-and-meetings">Terminarz Rad i Zebrań</Link></li>
+                     <li className="uppercase text-left pl-9 pb-4 "><Link to="/book-list">Wykaz Podręczników</Link></li>
                    </ul>
                    ) : null}
                   </ul>
