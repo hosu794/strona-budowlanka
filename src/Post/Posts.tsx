@@ -1,17 +1,17 @@
 import { useHistory } from 'react-router-dom'
-
+import * as H from 'history';
 import React, { useState } from 'react'
 import Layout from '../layout/Layout'
-import { gql, useQuery } from '@apollo/react-hooks'
+import { DocumentNode, gql, QueryResult, useQuery } from '@apollo/react-hooks'
 import Post from './Post'
 import { IPost, IPostsResult } from '../types/Post'
+import { IPaginationInfo } from '../types/grapql'
 
-
-const Posts = () => {
+const Posts: React.FC<null> = () => {
 
     const [hasMore, setHasMore] = useState<boolean>(true);
 
-    const GET_POSTS = gql`
+    const GET_POSTS: DocumentNode = gql`
     query PostsQuery($after: String) {
     posts(first: 10, after: $after) {
         edges {
@@ -41,11 +41,11 @@ const Posts = () => {
     }
     }
     `
-    const {loading, data, error, fetchMore } = useQuery(GET_POSTS, {variables: { after: null}})
+    const {loading, data, error, fetchMore }: QueryResult<any, { after: null; }> = useQuery(GET_POSTS, {variables: { after: null}})
     
-    const getMoreResults = () => {
+    const getMoreResults = (): void => {
 
-        const {endCursor, hasNextPage} = data.posts.pageInfo
+        const {endCursor, hasNextPage}: IPaginationInfo = data.posts.pageInfo
         
         setHasMore(hasNextPage)
         
@@ -62,9 +62,9 @@ const Posts = () => {
 
     }
 
-    const history  = useHistory()
+    const history: H.History<any> = useHistory()
 
-    const onClick = () => {
+    const onClick = (): void => {
         history.goBack()
     }
 
