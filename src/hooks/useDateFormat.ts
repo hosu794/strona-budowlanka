@@ -1,7 +1,7 @@
-import moment from 'moment'
+import moment from "moment";
 
 const useDateFormat = (date: string) => {
-    return moment(date).subtract(10, 'days').calendar();
-}
+  return moment(date).subtract(10, "days").calendar();
+};
 
-export default useDateFormat
+export default useDateFormat;
