@@ -1,13 +1,15 @@
+import * as React from 'react'
+
+import Image from '../../assets/gallery.svg'
+
 const GalleryLandingPage = () => {
 
     return (
-        <main className="flex items-center justify-center h-screen bg-purple">    
+        <main className="flex items-center justify-center lg:h-auto h-screen bg-white">    
             <div className="h-screen w-screen flex justify-center items-center flex-col xl:justify-around space-x-10  xl:flex-row text-white">
-               <div>
-                   <div className="bg-gray-300 h-64 w-64 lg:w-96 lg:h-96">
-   
-                   </div>
-                   <h1 className="text-2xl mt-5 text-center mb-5 font-bold">Galeria</h1>
+               <div className="flex justify-center items-center flex-col">
+                    <img src={Image} alt="Gallery"/>
+                   <h1 className="text-5xl text-black text-center pt-10 font-bold">Galeria</h1>
                </div>
                </div>
         </main>
