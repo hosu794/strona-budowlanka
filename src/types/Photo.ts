@@ -1,4 +1,10 @@
-import { inflateRaw } from "zlib";
+
+export type PhotoProps = {
+    src: string, 
+    width: number, 
+    height: number
+}
+
 
 export interface IPhoto {
     src: string,

@@ -6,7 +6,8 @@ import { IPaginationInfo } from "../types/grapql"
 import * as H from 'history';
 import { useHistory } from 'react-router'
 import { IPhoto } from "../types/Photo"
-import { IMediaItem, INodeMediaItem } from "../types/MediaItem"
+import { INodeMediaItem } from "../types/MediaItem"
+import Photo from "./Photo"
 
 const Gallery: React.FC<null> = () => {
 
@@ -101,8 +102,8 @@ const getMoreResults = (): void => {
                         {loading && <div>...Loading</div>}
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2">
                        {photos && photos.map((item: IPhoto) => (
-                         <img src={item.src} height={item.height} width={item.width} />
-                       ))}
+                        <Photo src={item.src} height={item.height} width={item.width} />
+                        ))}
                         </div>
                       {hasMore && !loading ? <button className="text-xl font-bold p-7" onClick={getMoreResults}>Załaduj więcej</button> 
                       : <span className="text-2xl font-bold p-7"></span>}
