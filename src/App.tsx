@@ -22,7 +22,7 @@ const App: React.FC<any> = () => {
         style={{ background: "#2B373B" }}
         buttonStyle={{ color: "#4e503b", fontSize: "13px" }}
         expires={150}
-        debug={true}
+        debug={false}
       >
         <span className="text-sm">
           Używamy cookies i podobnych technologii m.in. w celach: świadczenia

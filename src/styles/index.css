@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap");
 @import "pagination.css";
 
+@import "loading.css";
 @import "hamburger.css";
 * {
   padding: 0;

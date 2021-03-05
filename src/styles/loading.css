@@ -1,0 +1,29 @@
+#birds {
+  animation: birds-animation 0.5s ease-in-out infinite alternate;
+}
+
+#nap {
+  animation: snoring 2.5s infinite ease-out;
+}
+
+@keyframes birds-animation {
+  from {
+    transform: translateY(15px);
+  }
+
+  to {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes snoring {
+  from {
+    transform: translateY(10px);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+}
