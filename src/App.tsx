@@ -6,7 +6,12 @@ import { HashRouter as Router, Route } from "react-router-dom";
 import Home from "./layout/MainPage";
 import Posts from "./Post/Posts";
 import Gallery from "./Gallery/Gallery";
-import Library from "./layout/MainPage/Library/Library";
+import Library from "./layout/Library/Library";
+import MentalHelp from "./layout/MentalHelp/MentalHelp";
+import EducationOffer from "./layout/EducationOffer/EducationOffer";
+import Contact from "./layout/Contact/Contact";
+import BIP from "./layout/BIP/BIP";
+import Patron from "./layout/Patron/Patron";
 
 const App: React.FC<any> = () => {
   return (
@@ -16,6 +21,11 @@ const App: React.FC<any> = () => {
         <Route component={Posts} exact path="/posts" />
         <Route component={Gallery} exact path="/gallery" />
         <Route component={Library} exact path="/library" />
+        <Route component={MentalHelp} exact path="/help" />
+        <Route component={EducationOffer} exact path="/education-offer" />
+        <Route component={Contact} exact path="/contact" />
+        <Route component={BIP} exact path="/bip" />
+        <Route component={Patron} exact path="/patron" />
       </Router>
       <CookieConsent
         overlay

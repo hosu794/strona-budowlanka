@@ -119,7 +119,12 @@ const Gallery: React.FC<null> = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2">
             {photos &&
               photos.map((item: IPhoto) => (
-                <Photo src={item.src} height={item.height} width={item.width} />
+                <Photo
+                  key={item.src}
+                  src={item.src}
+                  height={item.height}
+                  width={item.width}
+                />
               ))}
           </div>
           {hasMore && !loading ? (
