@@ -6,6 +6,8 @@ import { HashRouter as Router, Route } from "react-router-dom";
 import Home from "./layout/MainPage";
 import Posts from "./Post/Posts";
 import Gallery from "./Gallery/Gallery";
+import Library from "./layout/MainPage/Library/Library";
+
 const App: React.FC<any> = () => {
   return (
     <div>
@@ -13,6 +15,7 @@ const App: React.FC<any> = () => {
         <Route component={Home} exact path="/" />
         <Route component={Posts} exact path="/posts" />
         <Route component={Gallery} exact path="/gallery" />
+        <Route component={Library} exact path="/library" />
       </Router>
       <CookieConsent
         overlay
