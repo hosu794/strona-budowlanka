@@ -175,7 +175,6 @@ function Navbar() {
                     <p className="uppercase p-1">BIP</p>
                     <p className="uppercase p-1">Patron</p>
                     <p className="uppercase p-1">Wyposażenie </p>
-                    <p className="uppercase p-1">Biblioteka</p>
                     <p className="uppercase p-1">Archiwum</p>
                   </div>
 
