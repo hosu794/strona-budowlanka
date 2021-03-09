@@ -82,13 +82,13 @@ function Navbar() {
       </div>
 
       <div className="hidden flex items-center justify-start lg:flex">
-        <div className="relative group">
+        {/* <div className="relative group">
           <button className="flex flex-row items-center w-screen px-4 py-4 mt-2 text-base text-left uppercase bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
             <span className="lg:text-sm xl:text-lg font-extrabold">
               <Link to="/posts">Aktualności</Link>
             </span>
           </button>
-        </div>
+        </div> */}
 
         <div className="relative group">
           <button className="flex uppercase flex-row items-center w-screen px-4 py-4 mt-2 text-base text-left uppercase bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
@@ -266,9 +266,9 @@ function Navbar() {
         <div className="h-screen p-6 bg-red-custom overflow-y-auto">
           <div>
             <ul className="text-white flex justify-center sm:text-lg md:text-2xl uppercase text-align flex-col h-2/3 mt-10 font-bold">
-              <li className="p-5 uppercase cursor-pointer">
+              {/* <li className="p-5 uppercase cursor-pointer">
                 <Link to="/posts">Aktualnośći</Link>
-              </li>
+              </li> */}
               <li className="p-5 uppercase cursor-pointer">
                 <Link to="/library">Biblioteka</Link>
               </li>
