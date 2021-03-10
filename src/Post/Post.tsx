@@ -1,8 +1,6 @@
 import * as React from "react";
 import useDateFormat from "../hooks/useDateFormat";
 
-import ShowMoreText from "react-show-more-text";
-
 type PostProp = {
   title: string;
   content: string;
