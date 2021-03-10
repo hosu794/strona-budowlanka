@@ -16,17 +16,7 @@ const Post: React.FC<PostProp> = ({ title, content, date }) => {
         <h1 className="font-bold text-2xl">{title}</h1>
         <span className="font-semibold text-lg">({useDateFormat(date)})</span>
       </div>
-      <ShowMoreText
-        lines={5}
-        more="Pokaż więcej"
-        less="Pokaż mniej"
-        className="content-css"
-        anchorClass="my-anchor-css-class"
-        expanded={false}
-        width={1920}
-      >
-        <div dangerouslySetInnerHTML={{ __html: content }}></div>
-      </ShowMoreText>
+      <div dangerouslySetInnerHTML={{ __html: content }}></div>
     </div>
   );
 };
