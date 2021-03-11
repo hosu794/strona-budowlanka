@@ -12,10 +12,6 @@ import Photo from "./Photo";
 const Gallery: React.FC<null> = () => {
   const history: H.History<any> = useHistory();
 
-  const onClick = (): void => {
-    history.goBack();
-  };
-
   const [hasMore, setHasMore] = useState<boolean>(true);
   const [photos, setPhotos] = useState<IPhoto[]>([]);
 
@@ -104,14 +100,6 @@ const Gallery: React.FC<null> = () => {
           >
             Galeria
           </h1>
-          <div>
-            <p
-              className="font-extrabold text-lg cursor-pointer"
-              onClick={onClick}
-            >
-              Powrót
-            </p>
-          </div>
         </div>
         <div className="w-auto flex flex-col items-center w-8/12">
           {error && <div>Error</div>}
