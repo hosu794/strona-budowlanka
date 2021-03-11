@@ -172,17 +172,32 @@ function Navbar() {
                 <div className="flex flex-col">
                   <div className="p-7">
                     <h1 className="uppercase p-1 font-bold">O szkole</h1>
-                    <p className="uppercase p-1">BIP</p>
-                    <p className="uppercase p-1">Patron</p>
-                    <p className="uppercase p-1">Wyposażenie </p>
-                    <p className="uppercase p-1">Archiwum</p>
+                    <p className="uppercase p-1">
+                      <Link to="/bip">BIP</Link>
+                    </p>
+                    <p className="uppercase p-1">
+                      <Link to="/patron">Patron</Link>
+                    </p>
+                    <p className="uppercase p-1">
+                      <Link to="/equipment">Wyposażenie</Link>
+                    </p>
+                    <p className="uppercase p-1">
+                      <Link to="/archives">Archiwum</Link>
+                    </p>
                   </div>
-
                   <div className="p-7">
-                    <h1 className="uppercase font-bold p-1">EFS</h1>
-                    <p className="uppercase p-1">Zespoły Przedmiotowe</p>
-                    <p className="uppercase p-1">Pośrednictwo Pracy</p>
-                    <p className="uppercase p-1">Internat</p>
+                    <h1 className="uppercase font-bold p-1">
+                      <Link to="/efs">EFS</Link>
+                    </h1>
+                    <p className="uppercase p-1">
+                      <Link to="/">Zespoły Przedmiotowe</Link>
+                    </p>
+                    <p className="uppercase p-1">
+                      <Link to="/">Pośrednictwo Pracy</Link>
+                    </p>
+                    <p className="uppercase p-1">
+                      <Link to="/">Internat</Link>
+                    </p>
                   </div>
                 </div>
                 <div className="flex flex-col">
@@ -190,17 +205,27 @@ function Navbar() {
                     <h1 className="uppercase font-bold">
                       Dodatkowe materiały do nauki
                     </h1>
-                    <p className="uppercase p-1">English Corner</p>
-                    <p className="uppercase p-1">Akademia Cisco</p>
-                    <p className="uppercase p-1">Akademia Suse Linux</p>
+                    <p className="uppercase p-1">
+                      <Link to="/english-corner">English Corner</Link>
+                    </p>
+                    <p className="uppercase p-1">
+                      <Link to="/cisco-academy">Akademia Cisco</Link>
+                    </p>
+                    <p className="uppercase p-1">
+                      <Link to="/linux-suse-academy">Akademia Suse Linux</Link>
+                    </p>
                   </div>
 
                   <div className="p-7">
                     <h1 className="uppercase font-bold">
                       Rada Rodziców / Samorząd
                     </h1>
-                    <p className="uppercase p-1">Rada Rodziców</p>
-                    <p className="uppercase p-1">Samorząd</p>
+                    <p className="uppercase p-1">
+                      <Link to="/counsel-parents">Rada Rodziców</Link>
+                    </p>
+                    <p className="uppercase p-1">
+                      <Link to="/local-government">Samorząd</Link>
+                    </p>
                   </div>
                 </div>
 
