@@ -4,14 +4,11 @@ import React, { useEffect, useState } from "react";
 import Layout from "../layout/Layout";
 import { IPaginationInfo } from "../types/grapql";
 import * as H from "history";
-import { useHistory } from "react-router";
 import { IPhoto } from "../types/Photo";
 import { INodeMediaItem } from "../types/MediaItem";
 import Photo from "./Photo";
 
 const Gallery: React.FC<null> = () => {
-  const history: H.History<any> = useHistory();
-
   const [hasMore, setHasMore] = useState<boolean>(true);
   const [photos, setPhotos] = useState<IPhoto[]>([]);
 

@@ -120,6 +120,11 @@ function Navbar() {
                   <Link to="/education-offer">Oferta edukacyjna</Link>
                 </p>
               </div>
+              <div className="p-2">
+                <p className="uppercase text-white text-lg">
+                  <Link to="/recrutation">Proces rekrutacji</Link>
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -133,7 +138,12 @@ function Navbar() {
           <div className="absolute z-10 hidden bg-grey-200 group-hover:block">
             <div className="p-4 font-bold text-white bg-green-custom shadow-lg rounded-lg">
               <p className="uppercase p-1">
-                <Link to="/vulcan">Vulcan</Link>
+                <a
+                  href="https://uonetplus-uczen.vulcan.net.pl/powiatminski"
+                  target="no_blank"
+                >
+                  Vulcan
+                </a>
               </p>
               <p className="uppercase p-1">
                 <Link to="/lessons">Plan Lekcji</Link>
@@ -312,8 +322,11 @@ function Navbar() {
               </li>
               {recruitation ? (
                 <ul className="flex flex-col justify-center align-items text-center">
-                  <li className="uppercase text-left pl-7">
+                  <li className="uppercase text-left pl-7 p-2">
                     <Link to="/education-offer">Oferta edukacyjna</Link>
+                  </li>
+                  <li className="uppercase text-left pl-7 p-2">
+                    <Link to="/recrutation">Proces rekrutacji</Link>
                   </li>
                 </ul>
               ) : null}
@@ -383,7 +396,7 @@ function Navbar() {
                   {aboutSchool ? (
                     <ul className="flex flex-col justify-center align-items text-center">
                       <li className="uppercase text-left pl-9 pb-4 ">
-                        <Link to="/school-patron">Patron</Link>
+                        <Link to="/patron">Patron</Link>
                       </li>
                       <li className="uppercase text-left pl-9 pb-4 ">
                         <Link to="/equipment">Wyposażenie</Link>

@@ -13,6 +13,7 @@ import Contact from "./layout/Contact/Contact";
 import BIP from "./layout/BIP/BIP";
 import Patron from "./layout/Patron/Patron";
 import NotFound from "./layout/NotFound";
+import Recrutation from "./layout/Recruitation/Recrutation";
 
 const App: React.FC<any> = () => {
   return (
@@ -27,6 +28,7 @@ const App: React.FC<any> = () => {
           <Route component={Contact} exact path="/contact" />
           <Route component={BIP} exact path="/bip" />
           <Route component={Patron} exact path="/patron" />
+          <Route component={Recrutation} exact path="/recrutation" />
           <Route component={NotFound} />
         </Switch>
       </Router>
