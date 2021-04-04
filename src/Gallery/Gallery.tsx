@@ -4,6 +4,7 @@ import { API_SERVER } from "../constants";
 
 import axios from "axios";
 import { IFolder } from "../types/Folder";
+import GalleryFolder from "./GalleryFolder";
 
 const Gallery: React.FC<null> = () => {
   const [loading, setLoading] = useState<boolean>(true);
@@ -46,11 +47,12 @@ const Gallery: React.FC<null> = () => {
         <div className="w-auto flex flex-col items-center w-8/12">
           {data &&
             data.map((item) => (
-              <div>
-                <h1>Id: {item.id}</h1>
-                <p>Tytuł: {item.absolute}</p>
-                <p>Twórca: {item.owner}</p>
-              </div>
+              <GalleryFolder
+                key={item.id}
+                id={item.id}
+                title={item.absolute}
+                owner={item.owner}
+              />
             ))}
           {loading && (
             <div>
