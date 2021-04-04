@@ -14,6 +14,7 @@ import BIP from "./layout/BIP/BIP";
 import Patron from "./layout/Patron/Patron";
 import NotFound from "./layout/NotFound";
 import Recrutation from "./layout/Recruitation/Recrutation";
+import GalleryFolderMedias from "./Gallery/GalleryFolderMedias";
 
 const App: React.FC<any> = () => {
   return (
@@ -22,6 +23,11 @@ const App: React.FC<any> = () => {
         <Switch>
           <Route component={Posts} exact path="/" />
           <Route component={Gallery} exact path="/gallery" />
+          <Route
+            component={GalleryFolderMedias}
+            exact
+            path="/gallery/folder/:id"
+          />
           <Route component={Library} exact path="/library" />
           <Route component={MentalHelp} exact path="/help" />
           <Route component={EducationOffer} exact path="/education-offer" />

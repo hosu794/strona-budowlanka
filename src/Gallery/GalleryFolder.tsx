@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import Layout from "../layout/Layout";
 import { FolderProps } from "../types/Folder";
 
 const GalleryFolder: React.FC<FolderProps> = ({ title, owner, id }) => {

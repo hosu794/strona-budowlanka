@@ -9,3 +9,7 @@ export type FolderProps = {
   id: number;
   owner: number;
 };
+
+export interface IFolderParam {
+  id: string | undefined;
+}
