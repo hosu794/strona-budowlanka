@@ -78,7 +78,7 @@ const Posts: React.FC<null> = () => {
             Aktualnośći
           </h1>
         </div>
-        <div className="w-auto flex flex-col items-center w-8/12">
+        <div className="w-auto flex flex-col items-center w-10/12">
           {error && <div>Error</div>}
           {loading && (
             <div>

@@ -1,13 +1,15 @@
 import React from "react";
 
-import axios from "axios";
 import { IMediaItem } from "../types/MediaItem";
 
 const GalleryFolderMedia: React.FC<IMediaItem> = ({ ID, guid }) => {
   return (
     <React.Fragment>
-      <h1>Image id: {ID}</h1>
-      <img src={guid} alt="" />
+      <img
+        src={guid}
+        className="object-contain h-48 w-full sm:w-1/2 md:w-1/5 p-2"
+        alt=""
+      />
     </React.Fragment>
   );
 };
