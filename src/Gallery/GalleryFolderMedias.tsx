@@ -11,54 +11,61 @@ import GalleryFolderMedia from "./GalleryFolderMedia";
 const GalleryFolderMedias: React.FC<null> = () => {
   const params: IFolderParam = useParams();
 
-  const [data, setData] = useState<any>([]);
-  const [currentPage, setCurrentPage] = useState<number>(0);
+  const [currentPage, setCurrentPage] = useState<any>(0);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<boolean>(false);
   const [hasMore, setHasMore] = useState<boolean>(false);
+  const [content, setContent] = useState<any>([]);
+  const [nextPage, setNextPage] = useState<number>(0);
+  const [previousPage, setPreviousPage] = useState<number>(0);
+
+  const dispatchPaginatedData = useCallback(
+    (data: any): void => {
+      setContent([...content, ...data.content]);
+      setHasMore(data.hasMore);
+      setNextPage(data.nextPage);
+      setPreviousPage(data.prevPage);
+      setLoading(false);
+    },
+    [content]
+  );
 
   const fetchPagedMedias = useCallback(
     (page: number) => {
       axios
         .get(`${API_SERVER}wp-json/api/v1/images/${params.id}?page=${page}`)
         .then((response) => {
-          console.log(response.data);
-          return setData(response.data);
+          return dispatchPaginatedData(response.data);
         })
         .then(() => setLoading(false))
         .catch((err) => {
-          console.warn(err);
+          return setError(err);
         });
     },
-    [params.id]
+    [dispatchPaginatedData, params.id]
   );
 
   useEffect(() => {
-    console.log(currentPage);
     fetchPagedMedias(currentPage);
-  }, [currentPage, fetchPagedMedias]);
+  }, [currentPage]);
 
-  const getMoreResults = (): void => {
-    const { currentPage: page, nextPage, pageCount, prevPage } = data;
-
-    //Dispatch hasMore value
-
-    setData((state: any) => (state.currentPage = state.currentPage + 1));
-
-    fetchPagedMedias(page);
-  };
+  const handleClick = () => setCurrentPage(Number(currentPage) + 1);
 
   return (
     <Layout>
       <div className="p-20">
         <h1>Medias {params.id}</h1>
         {loading ? <div>...Loading</div> : null}
-        {data.content
-          ? data.content.map((item: any) => (
-              <GalleryFolderMedia guid={item.guid} ID={item.ID} key={item.ID} />
+        {content
+          ? content.map((item: any, index: number) => (
+              <GalleryFolderMedia guid={item.guid} ID={item.ID} key={index} />
             ))
           : null}
-        <button>Load More</button>
+        {hasMore ? (
+          <button onClick={handleClick}>Load More</button>
+        ) : (
+          "Koniec postów"
+        )}
       </div>
     </Layout>
   );
