@@ -2,6 +2,9 @@ export interface INodeMediaItem {
   node: IMediaItem;
 }
 
+export type GalleryFolderProps = {
+  folderId: string | undefined; 
+}
 
 export interface IMediaItemAuthor {
   email?: string;
