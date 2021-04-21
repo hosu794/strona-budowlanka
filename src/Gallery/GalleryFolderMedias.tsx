@@ -7,7 +7,11 @@ import { IFolderParam } from "../types/Folder";
 import axios from "axios";
 import { API_SERVER } from "../constants";
 import GalleryFolderMedia from "./GalleryFolderMedia";
+<<<<<<< Updated upstream
 import GalleryFolderTitle from "./GalleryFolderTitle";
+=======
+import GalleryFolderMediaTitle from "./GalleryFolderMediaTitle";
+>>>>>>> Stashed changes
 
 const GalleryFolderMedias: React.FC<null> = () => {
   const params: IFolderParam = useParams();
