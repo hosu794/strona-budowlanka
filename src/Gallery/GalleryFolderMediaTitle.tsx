@@ -12,7 +12,7 @@ const GalleryFolderMediaTitle: React.FC<GalleryFolderMediaTitleProps> = ({
   const [title, setTitle] = useState("");
 
   const dispatchResponse = (data: any): void => {
-    console.log(data);
+    console.log(data.name);
     setTitle(data.name);
   };
 
@@ -21,7 +21,7 @@ const GalleryFolderMediaTitle: React.FC<GalleryFolderMediaTitleProps> = ({
       .get(`${API_SERVER}/wp-json/api/v1/folders/${id}`)
 
       .then((response) => {
-        return dispatchResponse(response);
+        return dispatchResponse(response.data);
       })
       .catch((error: any) => {
         console.warn(error);
@@ -34,7 +34,7 @@ const GalleryFolderMediaTitle: React.FC<GalleryFolderMediaTitleProps> = ({
 
   return (
     <React.Fragment>
-      <h1>Current Folder name: {title}</h1>
+      <h1>{title && title}</h1>
     </React.Fragment>
   );
 };

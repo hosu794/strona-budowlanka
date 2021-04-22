@@ -29,8 +29,6 @@ const Gallery: React.FC<null> = () => {
     console.log(`Fetching a feed...`);
   }, []);
 
-  const getMoreResults = () => {};
-
   return (
     <Layout>
       <div className="min-h-screen flex flex-col justify-center items-center mt-20">

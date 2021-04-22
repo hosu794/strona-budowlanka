@@ -7,11 +7,8 @@ import { IFolderParam } from "../types/Folder";
 import axios from "axios";
 import { API_SERVER } from "../constants";
 import GalleryFolderMedia from "./GalleryFolderMedia";
-<<<<<<< Updated upstream
 import GalleryFolderTitle from "./GalleryFolderTitle";
-=======
 import GalleryFolderMediaTitle from "./GalleryFolderMediaTitle";
->>>>>>> Stashed changes
 
 const GalleryFolderMedias: React.FC<null> = () => {
   const params: IFolderParam = useParams();
@@ -170,7 +167,7 @@ const GalleryFolderMedias: React.FC<null> = () => {
           </div>
         )}
         <div className="flex flex-wrap pt-10 min-h-screen">
-          <GalleryFolderTitle folderId={params.id} />
+          <GalleryFolderMediaTitle id={params.id} />
           {content
             ? content.map((item: any, index: number) => (
                 <GalleryFolderMedia guid={item.guid} ID={item.ID} key={index} />
