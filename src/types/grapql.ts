@@ -1,4 +1,4 @@
 export interface IPaginationInfo {
-    endCursor: boolean, 
-    hasNextPage: boolean
+  endCursor: boolean;
+  hasNextPage: boolean;
 }

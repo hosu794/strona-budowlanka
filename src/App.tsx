@@ -2,7 +2,7 @@ import React from "react";
 import "./styles/index.css";
 import CookieConsent from "react-cookie-consent";
 
-import { HashRouter as Router, Route } from "react-router-dom";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./layout/MainPage";
 import Posts from "./Post/Posts";
 import Gallery from "./Gallery/Gallery";
@@ -12,19 +12,33 @@ import EducationOffer from "./layout/EducationOffer/EducationOffer";
 import Contact from "./layout/Contact/Contact";
 import BIP from "./layout/BIP/BIP";
 import Patron from "./layout/Patron/Patron";
+import NotFound from "./layout/NotFound";
+import Recrutation from "./layout/Recruitation/Recrutation";
+import GalleryFolderMedias from "./Gallery/GalleryFolderMedias";
+import SubjectItems from "./layout/SubjectItems/SubjectItems";
 
 const App: React.FC<any> = () => {
   return (
     <div>
       <Router>
-        <Route component={Posts} exact path="/" />
-        <Route component={Gallery} exact path="/gallery" />
-        <Route component={Library} exact path="/library" />
-        <Route component={MentalHelp} exact path="/help" />
-        <Route component={EducationOffer} exact path="/education-offer" />
-        <Route component={Contact} exact path="/contact" />
-        <Route component={BIP} exact path="/bip" />
-        <Route component={Patron} exact path="/patron" />
+        <Switch>
+          <Route component={Posts} exact path="/" />
+          <Route component={Gallery} exact path="/gallery" />
+          <Route
+            component={GalleryFolderMedias}
+            exact
+            path="/gallery/folder/:id"
+          />
+          <Route component={Library} exact path="/library" />
+          <Route component={MentalHelp} exact path="/help" />
+          <Route component={EducationOffer} exact path="/education-offer" />
+          <Route component={Contact} exact path="/contact" />
+          <Route component={BIP} exact path="/bip" />
+          <Route component={Patron} exact path="/patron" />
+          <Route component={Recrutation} exact path="/recrutation" />
+          <Route component={SubjectItems} exact path="/subject/teams" />
+          <Route component={NotFound} />
+        </Switch>
       </Router>
       <CookieConsent
         overlay

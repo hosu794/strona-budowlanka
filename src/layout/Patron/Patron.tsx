@@ -1,29 +1,20 @@
 import * as React from "react";
 
-import { useHistory } from "react-router";
-import Layout from "../Layout";
 import * as H from "history";
 
 import Image from "../../assets/kazimierz.jpg";
 import CategoryLayout from "../CategoryLayout";
 
 const Patron = () => {
-  const history: H.History<any> = useHistory();
-
-  const onClick = (): void => {
-    history.goBack();
-  };
-
   return (
     <CategoryLayout title="Patron">
-      <h1 className="uppercase text-2xl">Patron</h1>
-      <p>
+      <p className="pt-3 pb-3">
         Przełomowy dla historii szkoły okazał się rok 2000. Zbiegły się w nim
         trzy wielkie uroczystości: 55-lecie szkoły, nadanie imienia oraz zjazd
         absolwentów.
       </p>
 
-      <p>
+      <p className="pt-4 pb-3">
         Od września 1999 roku uczniowie, rodzice i nauczyciele pracowali nad
         wyborem patrona. Ostatecznie od 21 grudnia 1999 roku Zespół Szkół Nr 1
         nosi nazwę imienia Kazimierza Wielkiego.
@@ -44,14 +35,14 @@ const Patron = () => {
 
       <br />
 
-      <p>
+      <p className="pb-3">
         <b>Kazimierz Wielki</b> był jedynym synem Władysława Łokietka i Jadwigi,
         księżnej wielkopolskiej. Urodził się w 1310 roku w miasteczku Kowal na
         Kujawach. Otrzymał bardzo surowe wychowanie od pobożnej matki, ojciec
         zaś wprowadzał go w sztukę rządzenia od dziecięcych lat.
       </p>
 
-      <div className="flex flex-row justify-content align-items">
+      <div className="flex flex-col md:flex-row justify-content align-items">
         <img src={Image} alt="Kazimierz Wielki" />
         <div className="p-3">
           <p>
@@ -79,7 +70,7 @@ const Patron = () => {
           </p>
         </div>
       </div>
-      <p>
+      <p className="pb-3 pt-3">
         Panowanie Kazimierza Wielkiego stworzyło warunki do okrzepnięcia naszego
         kraju po okresie rozbicia dzielnicowego i dało podstawy świetności
       </p>

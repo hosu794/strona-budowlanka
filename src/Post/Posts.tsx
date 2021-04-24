@@ -1,4 +1,3 @@
-import { useHistory } from "react-router-dom";
 import * as H from "history";
 import React, { useState } from "react";
 import Layout from "../layout/Layout";
@@ -66,12 +65,6 @@ const Posts: React.FC<null> = () => {
     });
   };
 
-  const history: H.History<any> = useHistory();
-
-  const onClick = (): void => {
-    history.goBack();
-  };
-
   return (
     <Layout>
       <div className="min-h-screen flex flex-col justify-center items-center mt-20">
@@ -84,16 +77,8 @@ const Posts: React.FC<null> = () => {
           >
             Aktualnośći
           </h1>
-          <div>
-            <p
-              className="font-extrabold text-lg cursor-pointer"
-              onClick={onClick}
-            >
-              Powrót
-            </p>
-          </div>
         </div>
-        <div className="w-auto flex flex-col items-center w-8/12">
+        <div className="w-auto flex flex-col items-center w-10/12">
           {error && <div>Error</div>}
           {loading && (
             <div>

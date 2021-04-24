@@ -120,6 +120,11 @@ function Navbar() {
                   <Link to="/education-offer">Oferta edukacyjna</Link>
                 </p>
               </div>
+              <div className="p-2">
+                <p className="uppercase text-white text-lg">
+                  <Link to="/recrutation">Proces rekrutacji</Link>
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -133,7 +138,12 @@ function Navbar() {
           <div className="absolute z-10 hidden bg-grey-200 group-hover:block">
             <div className="p-4 font-bold text-white bg-green-custom shadow-lg rounded-lg">
               <p className="uppercase p-1">
-                <Link to="/vulcan">Vulcan</Link>
+                <a
+                  href="https://uonetplus-uczen.vulcan.net.pl/powiatminski"
+                  target="no_blank"
+                >
+                  Vulcan
+                </a>
               </p>
               <p className="uppercase p-1">
                 <Link to="/lessons">Plan Lekcji</Link>
@@ -172,17 +182,32 @@ function Navbar() {
                 <div className="flex flex-col">
                   <div className="p-7">
                     <h1 className="uppercase p-1 font-bold">O szkole</h1>
-                    <p className="uppercase p-1">BIP</p>
-                    <p className="uppercase p-1">Patron</p>
-                    <p className="uppercase p-1">Wyposażenie </p>
-                    <p className="uppercase p-1">Archiwum</p>
+                    <p className="uppercase p-1">
+                      <Link to="/bip">BIP</Link>
+                    </p>
+                    <p className="uppercase p-1">
+                      <Link to="/patron">Patron</Link>
+                    </p>
+                    <p className="uppercase p-1">
+                      <Link to="/equipment">Wyposażenie</Link>
+                    </p>
+                    <p className="uppercase p-1">
+                      <Link to="/archives">Archiwum</Link>
+                    </p>
                   </div>
-
                   <div className="p-7">
-                    <h1 className="uppercase font-bold p-1">EFS</h1>
-                    <p className="uppercase p-1">Zespoły Przedmiotowe</p>
-                    <p className="uppercase p-1">Pośrednictwo Pracy</p>
-                    <p className="uppercase p-1">Internat</p>
+                    <h1 className="uppercase font-bold p-1">
+                      <Link to="/efs">EFS</Link>
+                    </h1>
+                    <p className="uppercase p-1">
+                      <Link to="/subject/teams">Zespoły Przedmiotowe</Link>
+                    </p>
+                    <p className="uppercase p-1">
+                      <Link to="/job/placement">Pośrednictwo Pracy</Link>
+                    </p>
+                    <p className="uppercase p-1">
+                      <Link to="/">Internat</Link>
+                    </p>
                   </div>
                 </div>
                 <div className="flex flex-col">
@@ -190,17 +215,27 @@ function Navbar() {
                     <h1 className="uppercase font-bold">
                       Dodatkowe materiały do nauki
                     </h1>
-                    <p className="uppercase p-1">English Corner</p>
-                    <p className="uppercase p-1">Akademia Cisco</p>
-                    <p className="uppercase p-1">Akademia Suse Linux</p>
+                    <p className="uppercase p-1">
+                      <Link to="/english-corner">English Corner</Link>
+                    </p>
+                    <p className="uppercase p-1">
+                      <Link to="/cisco-academy">Akademia Cisco</Link>
+                    </p>
+                    <p className="uppercase p-1">
+                      <Link to="/linux-suse-academy">Akademia Suse Linux</Link>
+                    </p>
                   </div>
 
                   <div className="p-7">
                     <h1 className="uppercase font-bold">
                       Rada Rodziców / Samorząd
                     </h1>
-                    <p className="uppercase p-1">Rada Rodziców</p>
-                    <p className="uppercase p-1">Samorząd</p>
+                    <p className="uppercase p-1">
+                      <Link to="/counsel-parents">Rada Rodziców</Link>
+                    </p>
+                    <p className="uppercase p-1">
+                      <Link to="/local-government">Samorząd</Link>
+                    </p>
                   </div>
                 </div>
 
@@ -287,8 +322,11 @@ function Navbar() {
               </li>
               {recruitation ? (
                 <ul className="flex flex-col justify-center align-items text-center">
-                  <li className="uppercase text-left pl-7">
+                  <li className="uppercase text-left pl-7 p-2">
                     <Link to="/education-offer">Oferta edukacyjna</Link>
+                  </li>
+                  <li className="uppercase text-left pl-7 p-2">
+                    <Link to="/recrutation">Proces rekrutacji</Link>
                   </li>
                 </ul>
               ) : null}
@@ -358,7 +396,7 @@ function Navbar() {
                   {aboutSchool ? (
                     <ul className="flex flex-col justify-center align-items text-center">
                       <li className="uppercase text-left pl-9 pb-4 ">
-                        <Link to="/school-patron">Patron</Link>
+                        <Link to="/patron">Patron</Link>
                       </li>
                       <li className="uppercase text-left pl-9 pb-4 ">
                         <Link to="/equipment">Wyposażenie</Link>

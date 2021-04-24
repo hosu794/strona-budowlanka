@@ -1,13 +1,9 @@
 import * as React from "react";
+import Layout from "./Layout";
 
-import * as H from "history";
-import Layout, { ILayout } from "./Layout";
+import NotFoundImage from "../assets/404.svg";
 
-interface ICategoryLayout extends ILayout {
-  title: string;
-}
-
-const CategoryLayout = ({ children, title }: ICategoryLayout) => {
+const NotFound = () => {
   return (
     <Layout>
       <div className="min-h-screen flex flex-col justify-center items-center mt-20">
@@ -18,15 +14,15 @@ const CategoryLayout = ({ children, title }: ICategoryLayout) => {
               color: "#3559A4",
             }}
           >
-            {title}
+            Strona nie znaleziona
           </h1>
         </div>
-        <div className="w-auto flex flex-col w-8/12">
-          <div>{children}</div>
+        <div className="flex justify-center items-center">
+          <img src={NotFoundImage} alt="not found" />
         </div>
       </div>
     </Layout>
   );
 };
 
-export default CategoryLayout;
+export default NotFound;
