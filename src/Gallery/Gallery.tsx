@@ -1,89 +1,33 @@
-import { DocumentNode, QueryResult, useQuery } from "@apollo/react-hooks";
-import gql from "graphql-tag";
 import React, { useEffect, useState } from "react";
 import Layout from "../layout/Layout";
-import { IPaginationInfo } from "../types/grapql";
-import * as H from "history";
-import { IPhoto } from "../types/Photo";
-import { INodeMediaItem } from "../types/MediaItem";
-import Photo from "./Photo";
+import { API_SERVER } from "../constants";
+
+import axios from "axios";
+import { IFolder } from "../types/Folder";
+import GalleryFolder from "./GalleryFolder";
 
 const Gallery: React.FC<null> = () => {
-  const [hasMore, setHasMore] = useState<boolean>(true);
-  const [photos, setPhotos] = useState<IPhoto[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [data, setData] = useState<IFolder[]>([]);
 
-  const GET_IMAGES: DocumentNode = gql`
-    query ImagesQuery($after: String) {
-      mediaItems(first: 20, after: $after) {
-        edges {
-          node {
-            id
-            date
-            title
-            sourceUrl
-            author {
-              node {
-                email
-                nickname
-              }
-            }
-            mediaDetails {
-              height
-              width
-            }
-          }
-        }
-        pageInfo {
-          endCursor
-          hasNextPage
-          hasPreviousPage
-        }
-      }
-    }
-  `;
-
-  const {
-    loading,
-    data,
-    error,
-    fetchMore,
-  }: QueryResult<any, { after: null }> = useQuery(GET_IMAGES, {
-    variables: { after: null },
-  });
+  const getFolders = () => {
+    axios
+      .get(`${API_SERVER}/wp-json/api/v1/folders`)
+      .then((response) => {
+        console.log(response.data);
+        setLoading(false);
+        setData(response.data);
+      })
+      .catch((err: Error) => {
+        setLoading(false);
+        console.error(err);
+      });
+  };
 
   useEffect(() => {
-    if (data) {
-      const photos: Array<IPhoto> = data.mediaItems.edges.map(
-        (element: INodeMediaItem) => ({
-          src: element.node.sourceUrl,
-          width: element.node.mediaDetails.width,
-          height: element.node.mediaDetails.height,
-        })
-      );
-
-      setPhotos(photos);
-    }
-  }, [data]);
-
-  const getMoreResults = (): void => {
-    const {
-      endCursor,
-      hasNextPage,
-    }: IPaginationInfo = data.mediaItems.pageInfo;
-
-    setHasMore(hasNextPage);
-
-    fetchMore({
-      variables: { after: endCursor },
-      updateQuery: (prevResult: any, { fetchMoreResult }: any) => {
-        fetchMoreResult.mediaItems.edges = [
-          ...prevResult.mediaItems.edges,
-          ...fetchMoreResult.mediaItems.edges,
-        ];
-        return fetchMoreResult;
-      },
-    });
-  };
+    getFolders();
+    console.log(`Fetching a feed...`);
+  }, []);
 
   return (
     <Layout>
@@ -99,7 +43,15 @@ const Gallery: React.FC<null> = () => {
           </h1>
         </div>
         <div className="w-auto flex flex-col items-center w-8/12">
-          {error && <div>Error</div>}
+          {data &&
+            data.map((item) => (
+              <GalleryFolder
+                key={item.id}
+                id={item.id}
+                title={item.absolute}
+                owner={item.owner}
+              />
+            ))}
           {loading && (
             <div>
               <svg
@@ -210,24 +162,7 @@ const Gallery: React.FC<null> = () => {
               </svg>
             </div>
           )}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2">
-            {photos &&
-              photos.map((item: IPhoto) => (
-                <Photo
-                  key={item.src}
-                  src={item.src}
-                  height={item.height}
-                  width={item.width}
-                />
-              ))}
-          </div>
-          {hasMore && !loading ? (
-            <button className="text-xl font-bold p-7" onClick={getMoreResults}>
-              Załaduj więcej
-            </button>
-          ) : (
-            <span className="text-2xl font-bold p-7"></span>
-          )}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2"></div>
         </div>
       </div>
     </Layout>
