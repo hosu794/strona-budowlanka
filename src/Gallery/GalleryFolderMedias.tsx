@@ -7,7 +7,6 @@ import { IFolderParam } from "../types/Folder";
 import axios from "axios";
 import { API_SERVER } from "../constants";
 import GalleryFolderMedia from "./GalleryFolderMedia";
-import GalleryFolderTitle from "./GalleryFolderTitle";
 import GalleryFolderMediaTitle from "./GalleryFolderMediaTitle";
 
 const GalleryFolderMedias: React.FC<null> = () => {

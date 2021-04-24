@@ -34,7 +34,7 @@ const GalleryFolderMediaTitle: React.FC<GalleryFolderMediaTitleProps> = ({
 
   return (
     <React.Fragment>
-      <h1>{title && title}</h1>
+      <h1 className="pt-10">{title && title}</h1>
     </React.Fragment>
   );
 };

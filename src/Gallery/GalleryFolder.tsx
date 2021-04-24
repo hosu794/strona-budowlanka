@@ -5,7 +5,7 @@ const GalleryFolder: React.FC<FolderProps> = ({ title, owner, id }) => {
   const linkToImages = `/gallery/folder/${id}`;
 
   return (
-    <div className="bg-white rounded-xl shadow-md overflow-hidden w-1/2 m-5">
+    <div className="bg-white rounded-xl shadow-md overflow-hidden w-full md:w-1/2 m-5">
       <div className="md:flex">
         <div className="p-8">
           <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold ">

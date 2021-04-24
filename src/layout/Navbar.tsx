@@ -200,10 +200,10 @@ function Navbar() {
                       <Link to="/efs">EFS</Link>
                     </h1>
                     <p className="uppercase p-1">
-                      <Link to="/">Zespoły Przedmiotowe</Link>
+                      <Link to="/subject/teams">Zespoły Przedmiotowe</Link>
                     </p>
                     <p className="uppercase p-1">
-                      <Link to="/">Pośrednictwo Pracy</Link>
+                      <Link to="/job/placement">Pośrednictwo Pracy</Link>
                     </p>
                     <p className="uppercase p-1">
                       <Link to="/">Internat</Link>

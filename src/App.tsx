@@ -15,6 +15,7 @@ import Patron from "./layout/Patron/Patron";
 import NotFound from "./layout/NotFound";
 import Recrutation from "./layout/Recruitation/Recrutation";
 import GalleryFolderMedias from "./Gallery/GalleryFolderMedias";
+import SubjectItems from "./layout/SubjectItems/SubjectItems";
 
 const App: React.FC<any> = () => {
   return (
@@ -35,6 +36,7 @@ const App: React.FC<any> = () => {
           <Route component={BIP} exact path="/bip" />
           <Route component={Patron} exact path="/patron" />
           <Route component={Recrutation} exact path="/recrutation" />
+          <Route component={SubjectItems} exact path="/subject/teams" />
           <Route component={NotFound} />
         </Switch>
       </Router>

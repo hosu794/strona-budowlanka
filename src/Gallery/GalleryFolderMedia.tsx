@@ -7,7 +7,7 @@ const GalleryFolderMedia: React.FC<IMediaItem> = ({ ID, guid }) => {
     <React.Fragment>
       <img
         src={guid}
-        className="object-contain h-48 w-full sm:w-1/2 md:w-1/5 p-2"
+        className="object-contain h-52 w-full sm:w-1/2 md:w-1/5 p-1"
         alt=""
       />
     </React.Fragment>
