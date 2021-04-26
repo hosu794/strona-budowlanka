@@ -1,10 +1,9 @@
 import * as React from "react";
-
 import CategoryLayout from "../CategoryLayout";
 
-const BIP = () => {
+const EFS = () => {
   return (
-    <CategoryLayout title="BIP">
+    <CategoryLayout title="EFS">
       <div className="p-5">
         <h1 className="text-lg md:text-3xl font-bold pb-3">
           Projekt - Przyjazna i atrakcyjna szkoła gwarancją dobrego
@@ -29,4 +28,4 @@ const BIP = () => {
   );
 };
 
-export default BIP;
+export default EFS;

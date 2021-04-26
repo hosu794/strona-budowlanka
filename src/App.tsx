@@ -10,13 +10,14 @@ import Library from "./layout/Library/Library";
 import MentalHelp from "./layout/MentalHelp/MentalHelp";
 import EducationOffer from "./layout/EducationOffer/EducationOffer";
 import Contact from "./layout/Contact/Contact";
-import BIP from "./layout/BIP/BIP";
+import EFS from "./layout/EFS/EFS";
 import Patron from "./layout/Patron/Patron";
 import NotFound from "./layout/NotFound";
 import Recrutation from "./layout/Recruitation/Recrutation";
 import GalleryFolderMedias from "./Gallery/GalleryFolderMedias";
 import SubjectItems from "./layout/SubjectItems/SubjectItems";
 import JobPlacement from "./layout/JobPlacement/JobPlacement";
+import Archives from "./layout/Archives/Archives";
 
 const App: React.FC<any> = () => {
   return (
@@ -34,11 +35,12 @@ const App: React.FC<any> = () => {
           <Route component={MentalHelp} exact path="/help" />
           <Route component={EducationOffer} exact path="/education-offer" />
           <Route component={Contact} exact path="/contact" />
-          <Route component={BIP} exact path="/bip" />
+          <Route component={EFS} exact path="/efs" />
           <Route component={Patron} exact path="/patron" />
           <Route component={Recrutation} exact path="/recrutation" />
           <Route component={SubjectItems} exact path="/subject/teams" />
           <Route component={JobPlacement} exact path="/job/placement" />
+          <Route component={Archives} exact path="/archives" />
           <Route component={NotFound} />
         </Switch>
       </Router>

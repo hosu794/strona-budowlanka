@@ -206,7 +206,8 @@ function Navbar() {
                       <Link to="/job/placement">Pośrednictwo Pracy</Link>
                     </p>
                     <p className="uppercase p-1">
-                      <Link to="/">Internat</Link>
+                      <a href="http://www.zs1mm.home.pl/internat/">Internat</a>
+                      {/* <Link to="/">Internat</Link> */}
                     </p>
                   </div>
                 </div>
