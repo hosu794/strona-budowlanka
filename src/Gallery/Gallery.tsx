@@ -31,8 +31,8 @@ const Gallery: React.FC<null> = () => {
 
   return (
     <Layout>
-      <div className="min-h-screen flex flex-col justify-center items-center mt-20">
-        <div className="flex flex-row space-between pb-20 pt-20 w-8/12 justify-between">
+      <div className="min-h-screen flex flex-col justify-center items-center mt-10 sm:mt-20">
+        <div className="flex flex-row space-between pb-5 pt-5 md:pb-20 md:pt-20 justify-between">
           <h1
             className="uppercase text-2xl font-extrabold"
             style={{
@@ -55,6 +55,7 @@ const Gallery: React.FC<null> = () => {
           {loading && (
             <div>
               <svg
+                className="w-full"
                 width="431"
                 height="560"
                 viewBox="0 0 431 560"

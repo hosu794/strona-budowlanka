@@ -58,6 +58,7 @@ const GalleryFolderMedias: React.FC<null> = () => {
         {loading && (
           <div className="pt-12 flex flex-col items-center sm:h-full sm:w-full">
             <svg
+              className="w-full"
               width="431"
               height="560"
               viewBox="0 0 431 560"
