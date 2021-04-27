@@ -54,7 +54,7 @@ const GalleryFolderMedias: React.FC<null> = () => {
 
   return (
     <Layout>
-      <div className="p-20">
+      <div className="p-20 min-h-screen flex flex-col justify-center items-center">
         {loading && (
           <div className="pt-12 flex flex-col items-center sm:h-full sm:w-full">
             <svg
@@ -166,7 +166,7 @@ const GalleryFolderMedias: React.FC<null> = () => {
             </svg>
           </div>
         )}
-        <div className="flex flex-wrap pt-10 min-h-screen">
+        <div className="flex flex-wrap pt-10 min-h-1/3">
           <GalleryFolderMediaTitle id={params.id} />
           {content
             ? content.map((item: any, index: number) => (
