@@ -1,8 +1,21 @@
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import BrandIcon from "../assets/favicon.png";
 
+import axios from "axios";
+import { API_SERVER } from "../constants";
+
 function Navbar() {
+  const fetchSubsites = useCallback(() => {
+    axios.get(`${API_SERVER}wp-json/api/v1/subsites`).then((response) => {
+      console.log(response.data);
+    });
+  }, []);
+
+  useEffect(() => {
+    fetchSubsites();
+  });
+
   const [toggle, setToggle] = useState<boolean>(false);
 
   const [additionalInfo, setAdditionalInfo] = useState<boolean>(false);
@@ -12,10 +25,8 @@ function Navbar() {
 
   const [aboutSchool, setAboutSchool] = useState<boolean>(false);
   const [efs, setEfs] = useState<boolean>(false);
-  const [
-    additionalLearningResource,
-    setAdditionalLearningResource,
-  ] = useState<boolean>(false);
+  const [additionalLearningResource, setAdditionalLearningResource] =
+    useState<boolean>(false);
   const [schoolBoard, setSchoolBoard] = useState<boolean>(false);
   const [schoolDocuments, setSchoolDocuments] = useState<boolean>(false);
 

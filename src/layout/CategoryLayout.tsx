@@ -1,6 +1,5 @@
 import * as React from "react";
 
-import * as H from "history";
 import Layout, { ILayout } from "./Layout";
 
 interface ICategoryLayout extends ILayout {
