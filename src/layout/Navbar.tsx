@@ -6,15 +6,18 @@ import axios from "axios";
 import { API_SERVER } from "../constants";
 
 function Navbar() {
+  const [subsites, setSubsites] = useState<any>();
+
   const fetchSubsites = useCallback(() => {
     axios.get(`${API_SERVER}wp-json/api/v1/subsites`).then((response) => {
       console.log(response.data);
+      setSubsites(response.data);
     });
   }, []);
 
   useEffect(() => {
     fetchSubsites();
-  });
+  }, []);
 
   const [toggle, setToggle] = useState<boolean>(false);
 
@@ -193,6 +196,16 @@ function Navbar() {
                 <div className="flex flex-col">
                   <div className="p-7">
                     <h1 className="uppercase p-1 font-bold">O szkole</h1>
+                    {subsites &&
+                      subsites.map((item: any) => {
+                        const link = `subsite/${item.ID}`;
+
+                        return (
+                          <p className="uppercase p-1">
+                            <Link to={link}>{item.post_title}</Link>
+                          </p>
+                        );
+                      })}
                     <p className="uppercase p-1">
                       <Link to="/bip">BIP</Link>
                     </p>
