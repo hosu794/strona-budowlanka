@@ -3,7 +3,6 @@ import "./styles/index.css";
 import CookieConsent from "react-cookie-consent";
 
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
-import Home from "./layout/MainPage";
 import Posts from "./Post/Posts";
 import Gallery from "./Gallery/Gallery";
 import Library from "./layout/Library/Library";
@@ -18,12 +17,14 @@ import GalleryFolderMedias from "./Gallery/GalleryFolderMedias";
 import SubjectItems from "./layout/SubjectItems/SubjectItems";
 import JobPlacement from "./layout/JobPlacement/JobPlacement";
 import Archives from "./layout/Archives/Archives";
+import Subsite from "./layout/Subsites/Subsite";
 
 const App: React.FC<any> = () => {
   return (
     <div>
       <Router>
         <Switch>
+          <Route component={Subsite} exact path="/subsite/:id" />
           <Route component={Posts} exact path="/" />
           <Route component={Gallery} exact path="/gallery" />
           <Route

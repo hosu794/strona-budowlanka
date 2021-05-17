@@ -1,8 +1,24 @@
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import BrandIcon from "../assets/favicon.png";
 
+import axios from "axios";
+import { API_SERVER } from "../constants";
+
 function Navbar() {
+  const [subsites, setSubsites] = useState<any>();
+
+  const fetchSubsites = useCallback(() => {
+    axios.get(`${API_SERVER}wp-json/api/v1/subsites`).then((response) => {
+      console.log(response.data);
+      setSubsites(response.data);
+    });
+  }, []);
+
+  useEffect(() => {
+    fetchSubsites();
+  }, []);
+
   const [toggle, setToggle] = useState<boolean>(false);
 
   const [additionalInfo, setAdditionalInfo] = useState<boolean>(false);
@@ -12,10 +28,8 @@ function Navbar() {
 
   const [aboutSchool, setAboutSchool] = useState<boolean>(false);
   const [efs, setEfs] = useState<boolean>(false);
-  const [
-    additionalLearningResource,
-    setAdditionalLearningResource,
-  ] = useState<boolean>(false);
+  const [additionalLearningResource, setAdditionalLearningResource] =
+    useState<boolean>(false);
   const [schoolBoard, setSchoolBoard] = useState<boolean>(false);
   const [schoolDocuments, setSchoolDocuments] = useState<boolean>(false);
 
@@ -180,97 +194,23 @@ function Navbar() {
             <div className="text-white px-2 pt-2 pb-4 bg-green-custom shadow-lg rounded-lg">
               <div className="flex flex-row p-10 text-lg tracking-wide">
                 <div className="flex flex-col">
-                  <div className="p-7">
-                    <h1 className="uppercase p-1 font-bold">O szkole</h1>
-                    <p className="uppercase p-1">
-                      <Link to="/bip">BIP</Link>
-                    </p>
-                    <p className="uppercase p-1">
-                      <Link to="/patron">Patron</Link>
-                    </p>
-                    <p className="uppercase p-1">
-                      <Link to="/equipment">Wyposażenie</Link>
-                    </p>
-                    <p className="uppercase p-1">
-                      <Link to="/archives">Archiwum</Link>
-                    </p>
-                  </div>
-                  <div className="p-7">
-                    <h1 className="uppercase font-bold p-1">
-                      <Link to="/efs">EFS</Link>
-                    </h1>
-                    <p className="uppercase p-1">
-                      <Link to="/subject/teams">Zespoły Przedmiotowe</Link>
-                    </p>
-                    <p className="uppercase p-1">
-                      <Link to="/job/placement">Pośrednictwo Pracy</Link>
-                    </p>
-                    <p className="uppercase p-1">
-                      <a href="http://www.zs1mm.home.pl/internat/">Internat</a>
-                      {/* <Link to="/">Internat</Link> */}
-                    </p>
-                  </div>
-                </div>
-                <div className="flex flex-col">
-                  <div className="p-7">
-                    <h1 className="uppercase font-bold">
-                      Dodatkowe materiały do nauki
-                    </h1>
-                    <p className="uppercase p-1">
-                      <Link to="/english-corner">English Corner</Link>
-                    </p>
-                    <p className="uppercase p-1">
-                      <Link to="/cisco-academy">Akademia Cisco</Link>
-                    </p>
-                    <p className="uppercase p-1">
-                      <Link to="/linux-suse-academy">Akademia Suse Linux</Link>
-                    </p>
-                  </div>
+                  <div className="p-3">
+                    {subsites &&
+                      subsites.map((item: any) => {
+                        const link = `subsite/${item.ID}`;
 
-                  <div className="p-7">
-                    <h1 className="uppercase font-bold">
-                      Rada Rodziców / Samorząd
-                    </h1>
-                    <p className="uppercase p-1">
-                      <Link to="/counsel-parents">Rada Rodziców</Link>
-                    </p>
-                    <p className="uppercase p-1">
-                      <Link to="/local-government">Samorząd</Link>
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex flex-col">
-                  <div className="p-7">
-                    <h1 className="uppercase font-bold font-bold text-xl mb-3">
-                      Dokumenty
-                    </h1>
-                    <p className="uppercase p-1">
-                      <Link to="/school-statute">Statut szkoły</Link>
-                    </p>
-                    <p className="uppercase p-1">
-                      <Link to="/school">Szkoła</Link>
-                    </p>
-                    <p className="uppercase p-1">
-                      <Link to="/information-obligation">
-                        Obowiązek informacyjny
-                      </Link>
-                    </p>
-                    <p className="uppercase p-1">
-                      <Link to="/procedures">Procedury</Link>
-                    </p>
-                    <p className="uppercase p-1">
-                      <Link to="/for-graduates">Dla abolwentów</Link>
-                    </p>
-                    <p className="uppercase p-1">
-                      <Link to="/exams">Egzaminy</Link>
-                    </p>
-                    <p className="uppercase p-1">
-                      <Link to="/timetable">Terminarz rad i zebrań</Link>
-                    </p>
-                    <p className="uppercase p-1">
-                      <Link to="/book-list">Wykaz podręczników</Link>
-                    </p>
+                        if (
+                          item.post_title === "Automatycznie zapisany szkic"
+                        ) {
+                          return;
+                        } else {
+                          return (
+                            <p className="uppercase p-3 font-bold">
+                              <Link to={link}>{item.post_title}</Link>
+                            </p>
+                          );
+                        }
+                      })}
                   </div>
                 </div>
                 <div></div>
@@ -302,9 +242,9 @@ function Navbar() {
         <div className="h-screen p-6 bg-red-custom overflow-y-auto">
           <div>
             <ul className="text-white flex justify-center sm:text-lg md:text-2xl uppercase text-align flex-col h-2/3 mt-10 font-bold">
-              {/* <li className="p-5 uppercase cursor-pointer">
+              <li className="p-5 uppercase cursor-pointer">
                 <Link to="/posts">Aktualnośći</Link>
-              </li> */}
+              </li>
               <li className="p-5 uppercase cursor-pointer">
                 <Link to="/library">Biblioteka</Link>
               </li>
@@ -384,126 +324,20 @@ function Navbar() {
               </li>
               {additionalInfo ? (
                 <ul className="flex flex-col justify-center align-items text-center">
-                  <li
-                    onClick={handleAboutSchool}
-                    className={
-                      aboutSchool
-                        ? "uppercase text-left cursor-pointer pl-7 pb-2 underline"
-                        : "uppercase text-left cursor-pointer pl-7 pb-2"
-                    }
-                  >
-                    O Szkole
-                  </li>
-                  {aboutSchool ? (
-                    <ul className="flex flex-col justify-center align-items text-center">
-                      <li className="uppercase text-left pl-9 pb-4 ">
-                        <Link to="/patron">Patron</Link>
-                      </li>
-                      <li className="uppercase text-left pl-9 pb-4 ">
-                        <Link to="/equipment">Wyposażenie</Link>
-                      </li>
-                      <li className="uppercase text-left pl-9 pb-4 ">
-                        <Link to="/library">Biblioteka</Link>
-                      </li>
-                      <li className="uppercase text-left pl-9 pb-4 ">
-                        <Link to="/archives">Archiwum</Link>
-                      </li>
-                    </ul>
-                  ) : null}
-                  <li
-                    onClick={handleEfs}
-                    className="uppercase text-left cursor-pointer pl-7 pb-2"
-                  >
-                    EFS
-                  </li>
+                  {subsites &&
+                    subsites.map((item: any) => {
+                      const link = `subsite/${item.ID}`;
 
-                  <li
-                    onClick={handleAdditionalLearningResource}
-                    className={
-                      additionalLearningResource
-                        ? "uppercase text-left cursor-pointer pl-7 pb-2 underline"
-                        : "uppercase text-left cursor-pointer pl-7 pb-2"
-                    }
-                  >
-                    Dodatkowe materiały do nauki
-                  </li>
-                  {additionalLearningResource ? (
-                    <ul className="flex flex-col justify-center align-items text-center">
-                      <li className="uppercase text-left pl-9 pb-4 ">
-                        <Link to="/english-corner">English Corner</Link>
-                      </li>
-                      <li className="uppercase text-left pl-9 pb-4 ">
-                        <Link to="/cisco-academy">Akademia Cisco</Link>
-                      </li>
-                      <li className="uppercase text-left pl-9 pb-4 ">
-                        <Link to="/linux-suse-academy">
-                          Akademia Suse Linux
-                        </Link>
-                      </li>
-                    </ul>
-                  ) : null}
-                  <li
-                    onClick={handleSchoolBoard}
-                    className={
-                      schoolBoard
-                        ? "uppercase text-left cursor-pointer pl-7 pb-2 underline"
-                        : "uppercase text-left cursor-pointer pl-7 pb-2"
-                    }
-                  >
-                    Rada Rodziców/Szkoły
-                  </li>
-                  {schoolBoard ? (
-                    <ul className="flex flex-col justify-center align-items text-center">
-                      <li className="uppercase text-left pl-9 pb-4 ">
-                        <Link to="/counsel-parents">Rada Rodziców</Link>
-                      </li>
-                      <li className="uppercase text-left pl-9 pb-4 ">
-                        <Link to="/local-government">Samorząd</Link>
-                      </li>
-                    </ul>
-                  ) : null}
-                  <li
-                    onClick={handleSchoolDocuments}
-                    className={
-                      schoolDocuments
-                        ? "uppercase text-left cursor-pointer pl-7 pb-2 underline"
-                        : "uppercase text-left cursor-pointer pl-7 pb-2"
-                    }
-                  >
-                    Dokumenty
-                  </li>
-                  {schoolDocuments ? (
-                    <ul className="flex flex-col justify-center align-items text-center">
-                      <li className="uppercase text-left pl-9 pb-4 ">
-                        <Link to="/school-status">Status Szkoły</Link>
-                      </li>
-                      <li className="uppercase text-left pl-9 pb-4 ">
-                        <Link to="/school">Szkoła</Link>
-                      </li>
-                      <li className="uppercase text-left pl-9 pb-4 ">
-                        <Link to="/information-duty">
-                          Obowiązek informacyjny
-                        </Link>
-                      </li>
-                      <li className="uppercase text-left pl-9 pb-4 ">
-                        <Link to="/procedures">Procedury</Link>
-                      </li>
-                      <li className="uppercase text-left pl-9 pb-4 ">
-                        <Link to="/for-graduates">Dla Absolwentów</Link>
-                      </li>
-                      <li className="uppercase text-left pl-9 pb-4 ">
-                        <Link to="/exams">Egzaminy</Link>
-                      </li>
-                      <li className="uppercase text-left pl-9 pb-4 ">
-                        <Link to="/schedule-of-councils-and-meetings">
-                          Terminarz Rad i Zebrań
-                        </Link>
-                      </li>
-                      <li className="uppercase text-left pl-9 pb-4 ">
-                        <Link to="/book-list">Wykaz Podręczników</Link>
-                      </li>
-                    </ul>
-                  ) : null}
+                      if (item.post_title === "Automatycznie zapisany szkic") {
+                        return;
+                      } else {
+                        return (
+                          <p className="uppercase p-3 font-bold">
+                            <Link to={link}>{item.post_title}</Link>
+                          </p>
+                        );
+                      }
+                    })}
                 </ul>
               ) : null}
             </ul>
