@@ -16,7 +16,7 @@ const Post: React.FC<PostProp> = ({ title, content, date }) => {
   };
 
   return (
-    <div className="p-5">
+    <div className="p-5 min-h-full	min-w-full">
       <div className="flex flex-col pb-3">
         <h1 className="font-bold text-2xl">{title}</h1>
         <span className="font-semibold text-lg">({useDateFormat(date)})</span>
