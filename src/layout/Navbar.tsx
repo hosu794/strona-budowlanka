@@ -194,107 +194,23 @@ function Navbar() {
             <div className="text-white px-2 pt-2 pb-4 bg-green-custom shadow-lg rounded-lg">
               <div className="flex flex-row p-10 text-lg tracking-wide">
                 <div className="flex flex-col">
-                  <div className="p-7">
-                    <h1 className="uppercase p-1 font-bold">O szkole</h1>
+                  <div className="p-3">
                     {subsites &&
                       subsites.map((item: any) => {
                         const link = `subsite/${item.ID}`;
 
-                        return (
-                          <p className="uppercase p-1">
-                            <Link to={link}>{item.post_title}</Link>
-                          </p>
-                        );
+                        if (
+                          item.post_title === "Automatycznie zapisany szkic"
+                        ) {
+                          return;
+                        } else {
+                          return (
+                            <p className="uppercase p-3 font-bold">
+                              <Link to={link}>{item.post_title}</Link>
+                            </p>
+                          );
+                        }
                       })}
-                    <p className="uppercase p-1">
-                      <Link to="/bip">BIP</Link>
-                    </p>
-                    <p className="uppercase p-1">
-                      <Link to="/patron">Patron</Link>
-                    </p>
-                    <p className="uppercase p-1">
-                      <Link to="/equipment">Wyposażenie</Link>
-                    </p>
-                    <p className="uppercase p-1">
-                      <Link to="/archives">Archiwum</Link>
-                    </p>
-                  </div>
-                  <div className="p-7">
-                    <h1 className="uppercase font-bold p-1">
-                      <Link to="/efs">EFS</Link>
-                    </h1>
-                    <p className="uppercase p-1">
-                      <Link to="/subject/teams">Zespoły Przedmiotowe</Link>
-                    </p>
-                    <p className="uppercase p-1">
-                      <Link to="/job/placement">Pośrednictwo Pracy</Link>
-                    </p>
-                    <p className="uppercase p-1">
-                      <a href="http://www.zs1mm.home.pl/internat/">Internat</a>
-                      {/* <Link to="/">Internat</Link> */}
-                    </p>
-                  </div>
-                </div>
-                <div className="flex flex-col">
-                  <div className="p-7">
-                    <h1 className="uppercase font-bold">
-                      Dodatkowe materiały do nauki
-                    </h1>
-                    <p className="uppercase p-1">
-                      <Link to="/english-corner">English Corner</Link>
-                    </p>
-                    <p className="uppercase p-1">
-                      <Link to="/cisco-academy">Akademia Cisco</Link>
-                    </p>
-                    <p className="uppercase p-1">
-                      <Link to="/linux-suse-academy">Akademia Suse Linux</Link>
-                    </p>
-                  </div>
-
-                  <div className="p-7">
-                    <h1 className="uppercase font-bold">
-                      Rada Rodziców / Samorząd
-                    </h1>
-                    <p className="uppercase p-1">
-                      <Link to="/counsel-parents">Rada Rodziców</Link>
-                    </p>
-                    <p className="uppercase p-1">
-                      <Link to="/local-government">Samorząd</Link>
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex flex-col">
-                  <div className="p-7">
-                    <h1 className="uppercase font-bold font-bold text-xl mb-3">
-                      Dokumenty
-                    </h1>
-                    <p className="uppercase p-1">
-                      <Link to="/school-statute">Statut szkoły</Link>
-                    </p>
-                    <p className="uppercase p-1">
-                      <Link to="/school">Szkoła</Link>
-                    </p>
-                    <p className="uppercase p-1">
-                      <Link to="/information-obligation">
-                        Obowiązek informacyjny
-                      </Link>
-                    </p>
-                    <p className="uppercase p-1">
-                      <Link to="/procedures">Procedury</Link>
-                    </p>
-                    <p className="uppercase p-1">
-                      <Link to="/for-graduates">Dla abolwentów</Link>
-                    </p>
-                    <p className="uppercase p-1">
-                      <Link to="/exams">Egzaminy</Link>
-                    </p>
-                    <p className="uppercase p-1">
-                      <Link to="/timetable">Terminarz rad i zebrań</Link>
-                    </p>
-                    <p className="uppercase p-1">
-                      <Link to="/book-list">Wykaz podręczników</Link>
-                    </p>
                   </div>
                 </div>
                 <div></div>
@@ -326,9 +242,9 @@ function Navbar() {
         <div className="h-screen p-6 bg-red-custom overflow-y-auto">
           <div>
             <ul className="text-white flex justify-center sm:text-lg md:text-2xl uppercase text-align flex-col h-2/3 mt-10 font-bold">
-              {/* <li className="p-5 uppercase cursor-pointer">
+              <li className="p-5 uppercase cursor-pointer">
                 <Link to="/posts">Aktualnośći</Link>
-              </li> */}
+              </li>
               <li className="p-5 uppercase cursor-pointer">
                 <Link to="/library">Biblioteka</Link>
               </li>
