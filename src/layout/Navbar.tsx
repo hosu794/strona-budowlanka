@@ -197,7 +197,7 @@ function Navbar() {
                   <div className="p-3">
                     {subsites &&
                       subsites.map((item: any) => {
-                        const link = `subsite/${item.ID}`;
+                        const link = `/subsite/${item.ID}`;
 
                         if (
                           item.post_title === "Automatycznie zapisany szkic"
