@@ -7,17 +7,22 @@ import { API_SERVER } from "../constants";
 
 function Navbar() {
   const [subsites, setSubsites] = useState<any>();
+  const [loading, setLoading] = useState<boolean>(true);
 
   const fetchSubsites = useCallback(() => {
-    axios.get(`${API_SERVER}wp-json/api/v1/subsites`).then((response) => {
-      console.log(response.data);
-      setSubsites(response.data);
-    });
+    axios
+      .get(`${API_SERVER}wp-json/api/v1/subsites`)
+      .then((response) => {
+        setSubsites(response.data);
+      })
+      .then((response: any) => {
+        return setLoading(false);
+      });
   }, []);
 
   useEffect(() => {
     fetchSubsites();
-  }, []);
+  }, [fetchSubsites]);
 
   const [toggle, setToggle] = useState<boolean>(false);
 
@@ -202,6 +207,7 @@ function Navbar() {
                         if (
                           item.post_title === "Automatycznie zapisany szkic"
                         ) {
+                          // eslint-disable-next-line array-callback-return
                           return;
                         } else {
                           return (
@@ -211,6 +217,7 @@ function Navbar() {
                           );
                         }
                       })}
+                    {loading && "Ładowanie..."}
                   </div>
                 </div>
                 <div></div>

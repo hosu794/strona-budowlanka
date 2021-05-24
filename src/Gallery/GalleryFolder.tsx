@@ -35,16 +35,22 @@ const GalleryFolder: React.FC<FolderProps> = ({ title, owner, id }) => {
       <div className="md:flex">
         <div className="p-8">
           <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold ">
-            <h1
-              className="text-xl"
-              style={{
-                color: "#3559A4",
-              }}
-            >
-              <Link to={linkToImages}>{title}</Link>
-            </h1>
             {loading && "Ładowanie..."}
-            {data && <img src={data.guid} alt="Zdjęcie katalogu" />}
+            {data && (
+              <div>
+                <Link to={linkToImages}>
+                  <h1
+                    className="text-xl"
+                    style={{
+                      color: "#3559A4",
+                    }}
+                  >
+                    {title}
+                  </h1>
+                  <img src={data.guid} alt="Zdjęcie katalogu" />
+                </Link>
+              </div>
+            )}
           </div>
         </div>
       </div>
