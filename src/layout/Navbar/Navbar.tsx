@@ -1,9 +1,10 @@
 import { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import BrandIcon from "../assets/favicon.png";
+import BrandIcon from "../../assets/favicon.png";
 
 import axios from "axios";
-import { API_SERVER } from "../constants";
+import { API_SERVER } from "../../constants";
+import NavbarSubsite from "./NavbarSubsite";
 
 function Navbar() {
   const [subsites, setSubsites] = useState<any>();
@@ -11,8 +12,9 @@ function Navbar() {
 
   const fetchSubsites = useCallback(() => {
     axios
-      .get(`${API_SERVER}wp-json/api/v1/subsites`)
+      .get(`${API_SERVER}wp-json/api/v1/categories`)
       .then((response) => {
+        console.log(response.data);
         setSubsites(response.data);
       })
       .then((response: any) => {
@@ -202,20 +204,13 @@ function Navbar() {
                   <div className="p-3">
                     {subsites &&
                       subsites.map((item: any) => {
-                        const link = `/subsite/${item.ID}`;
-
-                        if (
-                          item.post_title === "Automatycznie zapisany szkic"
-                        ) {
-                          // eslint-disable-next-line array-callback-return
-                          return;
-                        } else {
-                          return (
-                            <p className="uppercase p-3 font-bold">
-                              <Link to={link}>{item.post_title}</Link>
-                            </p>
-                          );
-                        }
+                        return (
+                          <NavbarSubsite
+                            name={item.name}
+                            id={item[0]}
+                            key={item[0]}
+                          />
+                        );
                       })}
                     {loading && "Ładowanie..."}
                   </div>
