@@ -197,18 +197,23 @@ function Navbar() {
               Dodatkowe informacje
             </span>
           </button>
-          <div className="absolute z-10 right-0.5 hidden group-hover:block">
+          <div
+            className="absolute z-10 right-0.5 hidden group-hover:block"
+            style={{
+              width: "70vw",
+            }}
+          >
             <div className="text-white px-2 pt-2 pb-4 bg-green-custom shadow-lg rounded-lg">
               <div className="flex flex-row p-10 text-lg tracking-wide">
                 <div className="flex flex-col">
-                  <div className="p-3">
+                  <div className="p-3 flex flex-wrap">
                     {subsites &&
                       subsites.map((item: any) => {
                         return (
                           <NavbarSubsite
                             name={item.name}
                             id={item[0]}
-                            key={item[0]}
+                            key={item.name}
                           />
                         );
                       })}
@@ -325,7 +330,7 @@ function Navbar() {
                 <ul className="flex flex-col justify-center align-items text-center">
                   {subsites &&
                     subsites.map((item: any) => {
-                      const link = `subsite/${item.ID}`;
+                      const link = `/subsite/${item.ID}`;
 
                       if (item.post_title === "Automatycznie zapisany szkic") {
                         return;

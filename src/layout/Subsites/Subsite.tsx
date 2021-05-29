@@ -12,6 +12,8 @@ const Subsite = () => {
   const params: IFolderParam = useParams();
 
   const fetchSubsite = React.useCallback(() => {
+    console.log(params.id);
+
     axios
       .get(`${API_SERVER}wp-json/api/v1/subsite/${params.id}`)
       .then((response) => {
