@@ -1,9 +1,11 @@
 import { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import BrandIcon from "../assets/favicon.png";
+import BrandIcon from "../../assets/favicon.png";
 
 import axios from "axios";
-import { API_SERVER } from "../constants";
+import { API_SERVER } from "../../constants";
+import NavbarSubsite from "./NavbarSubsite";
+import NavbarSubsiteMobile from "./NavbarSubsiteMobile";
 
 function Navbar() {
   const [subsites, setSubsites] = useState<any>();
@@ -11,8 +13,9 @@ function Navbar() {
 
   const fetchSubsites = useCallback(() => {
     axios
-      .get(`${API_SERVER}wp-json/api/v1/subsites`)
+      .get(`${API_SERVER}wp-json/api/v1/categories`)
       .then((response) => {
+        console.log(response.data);
         setSubsites(response.data);
       })
       .then((response: any) => {
@@ -195,27 +198,25 @@ function Navbar() {
               Dodatkowe informacje
             </span>
           </button>
-          <div className="absolute z-10 right-0.5 hidden group-hover:block">
+          <div
+            className="absolute z-10 right-0.5 hidden group-hover:block"
+            style={{
+              width: "70vw",
+            }}
+          >
             <div className="text-white px-2 pt-2 pb-4 bg-green-custom shadow-lg rounded-lg">
               <div className="flex flex-row p-10 text-lg tracking-wide">
                 <div className="flex flex-col">
-                  <div className="p-3">
+                  <div className="p-3 flex flex-wrap">
                     {subsites &&
                       subsites.map((item: any) => {
-                        const link = `/subsite/${item.ID}`;
-
-                        if (
-                          item.post_title === "Automatycznie zapisany szkic"
-                        ) {
-                          // eslint-disable-next-line array-callback-return
-                          return;
-                        } else {
-                          return (
-                            <p className="uppercase p-3 font-bold">
-                              <Link to={link}>{item.post_title}</Link>
-                            </p>
-                          );
-                        }
+                        return (
+                          <NavbarSubsite
+                            name={item.name}
+                            id={item[0]}
+                            key={item.name}
+                          />
+                        );
                       })}
                     {loading && "Ładowanie..."}
                   </div>
@@ -330,18 +331,15 @@ function Navbar() {
                 <ul className="flex flex-col justify-center align-items text-center">
                   {subsites &&
                     subsites.map((item: any) => {
-                      const link = `subsite/${item.ID}`;
-
-                      if (item.post_title === "Automatycznie zapisany szkic") {
-                        return;
-                      } else {
-                        return (
-                          <p className="uppercase p-3 font-bold">
-                            <Link to={link}>{item.post_title}</Link>
-                          </p>
-                        );
-                      }
+                      return (
+                        <NavbarSubsiteMobile
+                          name={item.name}
+                          id={item[0]}
+                          key={item.name}
+                        />
+                      );
                     })}
+                  {loading && "Ładowanie..."}
                 </ul>
               ) : null}
             </ul>
