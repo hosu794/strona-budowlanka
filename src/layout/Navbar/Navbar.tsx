@@ -104,13 +104,13 @@ function Navbar() {
       </div>
 
       <div className="hidden flex items-center justify-start lg:flex">
-        {/* <div className="relative group">
+        <div className="relative group">
           <button className="flex flex-row items-center w-screen px-4 py-4 mt-2 text-base text-left uppercase bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
             <span className="lg:text-sm xl:text-lg font-extrabold">
               <Link to="/posts">Aktualności</Link>
             </span>
           </button>
-        </div> */}
+        </div>
 
         <div className="relative group">
           <button className="flex uppercase flex-row items-center w-screen px-4 py-4 mt-2 text-base text-left uppercase bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">

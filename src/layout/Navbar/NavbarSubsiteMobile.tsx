@@ -28,6 +28,7 @@ const NavbarSubsiteMobile = ({ name, id }: any) => {
       {subsites &&
         subsites.map((item: any) => (
           <NavbarSubsiteItem
+            categoryId={id}
             item={item}
             post_title={item.post_title}
             id={item.ID}
@@ -40,8 +41,8 @@ const NavbarSubsiteMobile = ({ name, id }: any) => {
 
 export default NavbarSubsiteMobile;
 
-const NavbarSubsiteItem = ({ post_title, id, item }: any) => {
-  const link = `/subsite/${id}`;
+const NavbarSubsiteItem = ({ post_title, id, item, categoryId }: any) => {
+  const link = `/subsite/${id}/${categoryId}`;
 
   return (
     <Link to={link}>

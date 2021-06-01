@@ -5,6 +5,7 @@ import CategoryLayout from "../CategoryLayout";
 
 import axios from "axios";
 import { API_SERVER } from "../../constants";
+import SubsiteLayout from "../SubsiteLayout";
 
 const Subsite = () => {
   const [subsite, setSubsite] = React.useState<any>({});
@@ -12,7 +13,7 @@ const Subsite = () => {
   const params: IFolderParam = useParams();
 
   const fetchSubsite = React.useCallback(() => {
-    console.log(params.id);
+    console.log("Params: ", params);
 
     axios
       .get(`${API_SERVER}wp-json/api/v1/subsite/${params.id}`)
@@ -27,15 +28,15 @@ const Subsite = () => {
   }, [fetchSubsite]);
 
   return (
-    <CategoryLayout title={subsite && subsite.post_title}>
+    <SubsiteLayout title={subsite && subsite.post_title}>
       <h1>Subsite</h1>
       {subsite && (
         <div
-          className="content"
+          className="content mb-10"
           dangerouslySetInnerHTML={{ __html: subsite.post_content }}
         ></div>
       )}
-    </CategoryLayout>
+    </SubsiteLayout>
   );
 };
 

@@ -18,14 +18,16 @@ import SubjectItems from "./layout/SubjectItems/SubjectItems";
 import JobPlacement from "./layout/JobPlacement/JobPlacement";
 import Archives from "./layout/Archives/Archives";
 import Subsite from "./layout/Subsites/Subsite";
+import Home from "./layout/MainPage";
 
 const App: React.FC<any> = () => {
   return (
     <div>
       <Router>
         <Switch>
-          <Route component={Subsite} exact path="/subsite/:id" />
-          <Route component={Posts} exact path="/" />
+          <Route component={Subsite} exact path="/subsite/:id/:category" />
+          <Route component={Home} exact path="/" />
+          <Route component={Posts} exact path="/posts" />
           <Route component={Gallery} exact path="/gallery" />
           <Route
             component={GalleryFolderMedias}
