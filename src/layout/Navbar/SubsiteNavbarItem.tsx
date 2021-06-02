@@ -1,7 +1,12 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
 
-const SubsiteNavbarItem = ({ item, params }: any) => {
+import { SubsiteNavbarItemProps } from "../../types/Subsite";
+
+const SubsiteNavbarItem: React.FC<SubsiteNavbarItemProps> = ({
+  item,
+  params,
+}) => {
   const link = `/subsite/${item.ID}/${params.category}`;
 
   const isCurrentPage =
