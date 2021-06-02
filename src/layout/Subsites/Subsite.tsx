@@ -13,15 +13,12 @@ const Subsite = () => {
   const params: IFolderParam = useParams();
 
   const fetchSubsite = React.useCallback(() => {
-    console.log("Params: ", params);
-
     axios
       .get(`${API_SERVER}wp-json/api/v1/subsite/${params.id}`)
       .then((response) => {
         setSubsite(response.data[0]);
-        console.log(response.data[0]);
       });
-  }, [params.id]);
+  }, [params]);
 
   React.useEffect(() => {
     fetchSubsite();

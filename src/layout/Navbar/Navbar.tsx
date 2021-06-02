@@ -15,7 +15,6 @@ function Navbar() {
     axios
       .get(`${API_SERVER}wp-json/api/v1/categories`)
       .then((response) => {
-        console.log(response.data);
         setSubsites(response.data);
       })
       .then((response: any) => {

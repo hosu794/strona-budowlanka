@@ -11,7 +11,6 @@ const NavbarSubsite = ({ name, id }: any) => {
     axios
       .get(`${API_SERVER}wp-json/api/v1/subsites/${id}`)
       .then((response) => {
-        console.log(response.data);
         setSubsites(response.data);
       })
       .then(() => {
@@ -33,6 +32,7 @@ const NavbarSubsite = ({ name, id }: any) => {
             item={item}
             post_title={item.post_title}
             id={item.ID}
+            key={item.ID}
           />
         ))}
       {loading && <div>Loading...</div>}

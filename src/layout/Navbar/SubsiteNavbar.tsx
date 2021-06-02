@@ -6,6 +6,7 @@ import axios from "axios";
 import { API_SERVER } from "../../constants";
 import NavbarSubsite from "./NavbarSubsite";
 import NavbarSubsiteMobile from "./NavbarSubsiteMobile";
+import SubsiteNavbarItem from "./SubsiteNavbarItem";
 
 function SubsiteNavbar() {
   const [subsites, setSubsites] = useState<any>();
@@ -30,7 +31,6 @@ function SubsiteNavbar() {
     axios
       .get(`${API_SERVER}wp-json/api/v1/categories`)
       .then((response) => {
-        console.log(response.data);
         setSubsites(response.data);
       })
       .then((response: any) => {
@@ -380,20 +380,9 @@ function SubsiteNavbar() {
         <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
           <div className="text-sm lg:flex-grow">
             {categorySubsite &&
-              categorySubsite.map((item: any) => {
-                const link = `/subsite/${item.ID}/${params.category}`;
-
-                const isCurrentPage =
-                  params.id === item.ID
-                    ? "font-bold block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white text-white mr-4"
-                    : "block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white text-white mr-4";
-
-                return (
-                  <Link to={link}>
-                    <button className={isCurrentPage}>{item.post_title}</button>
-                  </Link>
-                );
-              })}
+              categorySubsite.map((item: any) => (
+                <SubsiteNavbarItem key={item.ID} item={item} params={params} />
+              ))}
           </div>
         </div>
       </nav>
