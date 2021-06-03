@@ -1,4 +1,3 @@
-import * as H from "history";
 import React, { useState } from "react";
 import Layout from "../layout/Layout";
 import { DocumentNode, gql, QueryResult, useQuery } from "@apollo/react-hooks";
@@ -39,14 +38,10 @@ const Posts: React.FC<null> = () => {
       }
     }
   `;
-  const {
-    loading,
-    data,
-    error,
-    fetchMore,
-  }: QueryResult<any, { after: null }> = useQuery(GET_POSTS, {
-    variables: { after: null },
-  });
+  const { loading, data, error, fetchMore }: QueryResult<any, { after: null }> =
+    useQuery(GET_POSTS, {
+      variables: { after: null },
+    });
 
   const getMoreResults = (): void => {
     const { endCursor, hasNextPage }: IPaginationInfo = data.posts.pageInfo;

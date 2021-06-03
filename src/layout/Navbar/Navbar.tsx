@@ -15,7 +15,6 @@ function Navbar() {
     axios
       .get(`${API_SERVER}wp-json/api/v1/categories`)
       .then((response) => {
-        console.log(response.data);
         setSubsites(response.data);
       })
       .then((response: any) => {
@@ -34,13 +33,6 @@ function Navbar() {
   const [lessons, setLessons] = useState<boolean>(false);
   const [contact, setContact] = useState<boolean>(false);
 
-  const [aboutSchool, setAboutSchool] = useState<boolean>(false);
-  const [efs, setEfs] = useState<boolean>(false);
-  const [additionalLearningResource, setAdditionalLearningResource] =
-    useState<boolean>(false);
-  const [schoolBoard, setSchoolBoard] = useState<boolean>(false);
-  const [schoolDocuments, setSchoolDocuments] = useState<boolean>(false);
-
   function handleRecruitation(): void {
     setRecruitation(!recruitation);
   }
@@ -55,26 +47,6 @@ function Navbar() {
 
   function handleAdditionalInfo(): void {
     setAdditionalInfo(!additionalInfo);
-  }
-
-  function handleAboutSchool(): void {
-    setAboutSchool(!aboutSchool);
-  }
-
-  function handleEfs(): void {
-    setEfs(!efs);
-  }
-
-  function handleAdditionalLearningResource(): void {
-    setAdditionalInfo(!additionalLearningResource);
-  }
-
-  function handleSchoolBoard(): void {
-    setSchoolBoard(!schoolBoard);
-  }
-
-  function handleSchoolDocuments(): void {
-    setSchoolDocuments(!schoolDocuments);
   }
 
   function tranformHamburger(): void {
@@ -104,13 +76,13 @@ function Navbar() {
       </div>
 
       <div className="hidden flex items-center justify-start lg:flex">
-        {/* <div className="relative group">
+        <div className="relative group">
           <button className="flex flex-row items-center w-screen px-4 py-4 mt-2 text-base text-left uppercase bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
             <span className="lg:text-sm xl:text-lg font-extrabold">
               <Link to="/posts">Aktualności</Link>
             </span>
           </button>
-        </div> */}
+        </div>
 
         <div className="relative group">
           <button className="flex uppercase flex-row items-center w-screen px-4 py-4 mt-2 text-base text-left uppercase bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
