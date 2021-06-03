@@ -348,11 +348,11 @@ function SubsiteNavbar() {
                 {additionalInfo ? (
                   <ul className="flex flex-col justify-center align-items text-center">
                     {subsites &&
-                      subsites.map((item: any) => {
+                      subsites.map((item: ISubsite) => {
                         return (
                           <NavbarSubsiteMobile
                             name={item.name}
-                            id={item[0]}
+                            id={item.ID}
                             key={item.name}
                           />
                         );
@@ -381,7 +381,7 @@ function SubsiteNavbar() {
         <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
           <div className="text-sm lg:flex-grow">
             {categorySubsite &&
-              categorySubsite.map((item: any) => (
+              categorySubsite.map((item: ISubsite) => (
                 <SubsiteNavbarItem key={item.ID} item={item} params={params} />
               ))}
           </div>

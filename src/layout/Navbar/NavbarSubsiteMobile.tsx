@@ -13,7 +13,7 @@ const NavbarSubsiteMobile: React.FC<NavbarSubsiteMobileProps> = ({
   name,
   id,
 }) => {
-  const [subsites, setSubsites] = React.useState<any>();
+  const [subsites, setSubsites] = React.useState<Array<ISubsite>>();
   const [loading, setLoading] = React.useState<boolean>(true);
 
   const fetchSubsites = React.useCallback(() => {

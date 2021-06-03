@@ -33,13 +33,6 @@ function Navbar() {
   const [lessons, setLessons] = useState<boolean>(false);
   const [contact, setContact] = useState<boolean>(false);
 
-  const [aboutSchool, setAboutSchool] = useState<boolean>(false);
-  const [efs, setEfs] = useState<boolean>(false);
-  const [additionalLearningResource, setAdditionalLearningResource] =
-    useState<boolean>(false);
-  const [schoolBoard, setSchoolBoard] = useState<boolean>(false);
-  const [schoolDocuments, setSchoolDocuments] = useState<boolean>(false);
-
   function handleRecruitation(): void {
     setRecruitation(!recruitation);
   }
@@ -54,26 +47,6 @@ function Navbar() {
 
   function handleAdditionalInfo(): void {
     setAdditionalInfo(!additionalInfo);
-  }
-
-  function handleAboutSchool(): void {
-    setAboutSchool(!aboutSchool);
-  }
-
-  function handleEfs(): void {
-    setEfs(!efs);
-  }
-
-  function handleAdditionalLearningResource(): void {
-    setAdditionalInfo(!additionalLearningResource);
-  }
-
-  function handleSchoolBoard(): void {
-    setSchoolBoard(!schoolBoard);
-  }
-
-  function handleSchoolDocuments(): void {
-    setSchoolDocuments(!schoolDocuments);
   }
 
   function tranformHamburger(): void {
