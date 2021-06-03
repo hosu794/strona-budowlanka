@@ -1,7 +1,6 @@
 import * as React from "react";
 import { useParams } from "react-router";
 import { IFolderParam } from "../../types/Folder";
-import CategoryLayout from "../CategoryLayout";
 
 import axios from "axios";
 import { API_SERVER } from "../../constants";

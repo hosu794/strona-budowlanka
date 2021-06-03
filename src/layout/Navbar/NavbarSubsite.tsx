@@ -3,7 +3,12 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 import { API_SERVER } from "../../constants";
 
-const NavbarSubsite = ({ name, id }: any) => {
+type NavbarSubsiteProps = {
+  name: string;
+  id: string;
+};
+
+const NavbarSubsite: React.FC<NavbarSubsiteProps> = ({ name, id }) => {
   const [subsites, setSubsites] = React.useState<any>();
   const [loading, setLoading] = React.useState<boolean>(true);
 
@@ -30,7 +35,6 @@ const NavbarSubsite = ({ name, id }: any) => {
         subsites.map((item: any) => (
           <NavbarSubsiteItem
             categoryId={id}
-            item={item}
             post_title={item.post_title}
             id={item.ID}
             key={item.ID}
@@ -42,8 +46,17 @@ const NavbarSubsite = ({ name, id }: any) => {
 };
 
 export default NavbarSubsite;
+type NavbarSubsiteItemProps = {
+  post_title: string;
+  id: string;
+  categoryId: string;
+};
 
-const NavbarSubsiteItem = ({ post_title, id, item, categoryId }: any) => {
+const NavbarSubsiteItem: React.FC<NavbarSubsiteItemProps> = ({
+  post_title,
+  id,
+  categoryId,
+}: any) => {
   const link = `/subsite/${id}/${categoryId}`;
 
   return (

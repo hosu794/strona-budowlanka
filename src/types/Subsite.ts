@@ -10,6 +10,7 @@ export type SubsiteNavbarItemProps = {
 }
 
 export interface ISubsite {
+    name: string;
     ID: string; 
     comment_count: string; 
     comment_status: string; 

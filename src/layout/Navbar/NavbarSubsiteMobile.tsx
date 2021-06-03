@@ -2,8 +2,17 @@ import * as React from "react";
 import axios from "axios";
 import { API_SERVER } from "../../constants";
 import { Link } from "react-router-dom";
+import { ISubsite } from "../../types/Subsite";
 
-const NavbarSubsiteMobile = ({ name, id }: any) => {
+type NavbarSubsiteMobileProps = {
+  name: string;
+  id: string;
+};
+
+const NavbarSubsiteMobile: React.FC<NavbarSubsiteMobileProps> = ({
+  name,
+  id,
+}) => {
   const [subsites, setSubsites] = React.useState<any>();
   const [loading, setLoading] = React.useState<boolean>(true);
 
@@ -26,10 +35,9 @@ const NavbarSubsiteMobile = ({ name, id }: any) => {
     <div className="p-4">
       <h1 className="font-extrabold">{name}</h1>
       {subsites &&
-        subsites.map((item: any) => (
+        subsites.map((item: ISubsite) => (
           <NavbarSubsiteItem
             categoryId={id}
-            item={item}
             post_title={item.post_title}
             id={item.ID}
           />
@@ -41,7 +49,17 @@ const NavbarSubsiteMobile = ({ name, id }: any) => {
 
 export default NavbarSubsiteMobile;
 
-const NavbarSubsiteItem = ({ post_title, id, item, categoryId }: any) => {
+type NavbarSubsiteItemProps = {
+  post_title: string;
+  id: string;
+  categoryId: string;
+};
+
+const NavbarSubsiteItem: React.FC<NavbarSubsiteItemProps> = ({
+  post_title,
+  id,
+  categoryId,
+}: any) => {
   const link = `/subsite/${id}/${categoryId}`;
 
   return (

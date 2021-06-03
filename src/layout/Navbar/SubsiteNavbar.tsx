@@ -7,9 +7,10 @@ import { API_SERVER } from "../../constants";
 import NavbarSubsite from "./NavbarSubsite";
 import NavbarSubsiteMobile from "./NavbarSubsiteMobile";
 import SubsiteNavbarItem from "./SubsiteNavbarItem";
+import { ISubsite } from "../../types/Subsite";
 
 function SubsiteNavbar() {
-  const [subsites, setSubsites] = useState<any>();
+  const [subsites, setSubsites] = useState<Array<ISubsite>>();
   const [loading, setLoading] = useState<boolean>(true);
   const [categorySubsite, setCategorySubsite] = useState<any>();
   const [categoryLoading, setCategoryLoading] = useState<any>();
