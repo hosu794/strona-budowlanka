@@ -14,12 +14,13 @@ function Navbar() {
   const fetchSubsites = useCallback(() => {
     axios
       .get(`${API_SERVER}wp-json/api/v1/categories`)
-      .then((response) => {
+      .then((response: any) => {
         setSubsites(response.data);
       })
       .then((response: any) => {
         return setLoading(false);
-      });
+      })
+      .catch((error: any) => console.log(error));
   }, []);
 
   useEffect(() => {

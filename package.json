@@ -1,4 +1,5 @@
 {
+  "proxy": "http://serwer2124775.home.pl",
   "name": "budowlanka-strona",
   "homepage": ".",
   "version": "0.1.0",

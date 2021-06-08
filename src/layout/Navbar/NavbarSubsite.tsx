@@ -39,7 +39,7 @@ const NavbarSubsite: React.FC<NavbarSubsiteProps> = ({ name, id }) => {
             key={item.ID}
           />
         ))}
-      {loading && <div>Loading...</div>}
+      {loading && <div>Ładowanie...</div>}
     </div>
   );
 };

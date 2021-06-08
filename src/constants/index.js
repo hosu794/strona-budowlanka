@@ -1,1 +1,1 @@
-export const API_SERVER = "http://serwer2124775.home.pl/";
+export const API_SERVER = "https://serwer2124775.home.pl/";
