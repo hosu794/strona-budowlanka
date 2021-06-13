@@ -11,9 +11,9 @@ function Navbar() {
   const [subsites, setSubsites] = useState<any>();
   const [loading, setLoading] = useState<boolean>(true);
 
-  const fetchSubsites = useCallback(() => {
+  const fetchSubsitesCategories = useCallback(() => {
     axios
-      .get(`${API_SERVER}wp-json/api/v1/categories`)
+      .get(`${API_SERVER}wp-json/api/v1/categories/subsites`)
       .then((response: any) => {
         setSubsites(response.data);
       })
@@ -23,9 +23,21 @@ function Navbar() {
       .catch((error: any) => console.log(error));
   }, []);
 
+  // const fetchSubsites = useCallback(() => {
+  //   axios
+  //     .get(`${API_SERVER}wp-json/api/v1/categories`)
+  //     .then((response: any) => {
+  //       setSubsites(response.data);
+  //     })
+  //     .then((response: any) => {
+  //       return setLoading(false);
+  //     })
+  //     .catch((error: any) => console.log(error));
+  // }, []);
+
   useEffect(() => {
-    fetchSubsites();
-  }, [fetchSubsites]);
+    fetchSubsitesCategories();
+  }, [fetchSubsitesCategories]);
 
   const [toggle, setToggle] = useState<boolean>(false);
 
@@ -184,11 +196,7 @@ function Navbar() {
                     {subsites &&
                       subsites.map((item: any) => {
                         return (
-                          <NavbarSubsite
-                            name={item.name}
-                            id={item[0]}
-                            key={item.name}
-                          />
+                          <NavbarSubsite item={item} key={item.category.ID} />
                         );
                       })}
                     {loading && "Ładowanie..."}
@@ -306,9 +314,8 @@ function Navbar() {
                     subsites.map((item: any) => {
                       return (
                         <NavbarSubsiteMobile
-                          name={item.name}
-                          id={item[0]}
-                          key={item.name}
+                          item={item}
+                          key={item.category.ID}
                         />
                       );
                     })}
