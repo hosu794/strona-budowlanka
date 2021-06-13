@@ -28,9 +28,9 @@ function SubsiteNavbar() {
       });
   }, [params.category]);
 
-  const fetchSubsites = useCallback(() => {
+  const fetchSubsitesCategories = useCallback(() => {
     axios
-      .get(`${API_SERVER}wp-json/api/v1/categories`)
+      .get(`${API_SERVER}wp-json/api/v1/categories/subsites`)
       .then((response) => {
         setSubsites(response.data);
       })
@@ -40,9 +40,9 @@ function SubsiteNavbar() {
   }, []);
 
   useEffect(() => {
-    fetchSubsites();
+    fetchSubsitesCategories();
     fetchSubsiteByCategory();
-  }, [fetchSubsites, fetchSubsiteByCategory]);
+  }, [fetchSubsitesCategories, fetchSubsiteByCategory]);
 
   const [toggle, setToggle] = useState<boolean>(false);
 
@@ -230,9 +230,8 @@ function SubsiteNavbar() {
                         subsites.map((item: any) => {
                           return (
                             <NavbarSubsite
-                              name={item.name}
-                              id={item[0]}
-                              key={item.name}
+                              item={item}
+                              key={item.category.term_id}
                             />
                           );
                         })}
@@ -329,7 +328,7 @@ function SubsiteNavbar() {
                 {contact ? (
                   <ul className="flex flex-col justify-center align-items text-center">
                     <li className="uppercase text-left pl-7 pb-2">
-                      <Link to="/mental-law-help">
+                      <Link to="/mental-law-helpSubsiteNavbar">
                         Pomoc psychologiczno-prawna
                       </Link>
                     </li>
@@ -348,12 +347,11 @@ function SubsiteNavbar() {
                 {additionalInfo ? (
                   <ul className="flex flex-col justify-center align-items text-center">
                     {subsites &&
-                      subsites.map((item: ISubsite) => {
+                      subsites.map((item: any) => {
                         return (
                           <NavbarSubsiteMobile
-                            name={item.name}
-                            id={item.ID}
-                            key={item.name}
+                            item={item}
+                            key={item.category.term_id}
                           />
                         );
                       })}
@@ -366,18 +364,7 @@ function SubsiteNavbar() {
         </div>
       </nav>
       <nav className="flex items-center justify-between flex-wrap bg-green-custom p-6 shadow">
-        <div className="block lg:hidden">
-          <button className="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
-            <svg
-              className="fill-current h-3 w-3"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <title>Menu</title>
-              <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-            </svg>
-          </button>
-        </div>
+        <div className="block lg:hidden"></div>
         <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
           <div className="text-sm lg:flex-grow">
             {categorySubsite &&

@@ -4,42 +4,23 @@ import { Link } from "react-router-dom";
 import { API_SERVER } from "../../constants";
 
 type NavbarSubsiteProps = {
-  name: string;
-  id: string;
+  item: any;
 };
 
-const NavbarSubsite: React.FC<NavbarSubsiteProps> = ({ name, id }) => {
-  const [subsites, setSubsites] = React.useState<any>();
-  const [loading, setLoading] = React.useState<boolean>(true);
-
-  const fetchSubsites = React.useCallback(() => {
-    axios
-      .get(`${API_SERVER}wp-json/api/v1/subsites/${id}`)
-      .then((response) => {
-        setSubsites(response.data);
-      })
-      .then(() => {
-        return setLoading(false);
-      });
-  }, [id]);
-
-  React.useEffect(() => {
-    fetchSubsites();
-  }, [fetchSubsites]);
-
+const NavbarSubsite: React.FC<NavbarSubsiteProps> = ({ item }) => {
   return (
     <div className="p-4">
-      <h1 className="font-bold">{name}</h1>
-      {subsites &&
-        subsites.map((item: any) => (
+      <h1 className="font-bold">{item.category.name}</h1>
+      {item &&
+        item.content.map((i: any) => (
           <NavbarSubsiteItem
-            categoryId={id}
-            post_title={item.post_title}
-            id={item.ID}
-            key={item.ID}
+            categoryId={item.category.term_id}
+            post_title={i.post_title}
+            id={i.ID}
+            key={i.ID}
           />
         ))}
-      {loading && <div>Ładowanie...</div>}
+      {/* {loading && <div>Ładowanie...</div>} */}
     </div>
   );
 };

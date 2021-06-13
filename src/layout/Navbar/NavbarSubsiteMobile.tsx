@@ -5,44 +5,39 @@ import { Link } from "react-router-dom";
 import { ISubsite } from "../../types/Subsite";
 
 type NavbarSubsiteMobileProps = {
-  name: string;
-  id: string;
+  item: any;
 };
 
-const NavbarSubsiteMobile: React.FC<NavbarSubsiteMobileProps> = ({
-  name,
-  id,
-}) => {
+const NavbarSubsiteMobile: React.FC<NavbarSubsiteMobileProps> = ({ item }) => {
   const [subsites, setSubsites] = React.useState<Array<ISubsite>>();
   const [loading, setLoading] = React.useState<boolean>(true);
 
-  const fetchSubsites = React.useCallback(() => {
-    axios
-      .get(`${API_SERVER}wp-json/api/v1/subsites/${id}`)
-      .then((response) => {
-        setSubsites(response.data);
-      })
-      .then(() => {
-        return setLoading(false);
-      });
-  }, [id]);
+  // const fetchSubsites = React.useCallback(() => {
+  //   axios
+  //     .get(`${API_SERVER}wp-json/api/v1/subsites/${id}`)
+  //     .then((response) => {
+  //       setSubsites(response.data);
+  //     })
+  //     .then(() => {
+  //       return setLoading(false);
+  //     });
+  // }, [id]);
 
-  React.useEffect(() => {
-    fetchSubsites();
-  }, [fetchSubsites]);
+  // React.useEffect(() => {
+  //   fetchSubsites();
+  // }, [fetchSubsites]);
 
   return (
     <div className="p-4">
-      <h1 className="font-extrabold">{name}</h1>
-      {subsites &&
-        subsites.map((item: ISubsite) => (
+      <h1 className="font-extrabold">{item.category.name}</h1>
+      {item &&
+        item.content.map((i: any) => (
           <NavbarSubsiteItem
-            categoryId={id}
-            post_title={item.post_title}
-            id={item.ID}
+            categoryId={item.category.term_id}
+            post_title={i.post_title}
+            id={i.ID}
           />
         ))}
-      {loading && <div>Loading...</div>}
     </div>
   );
 };
