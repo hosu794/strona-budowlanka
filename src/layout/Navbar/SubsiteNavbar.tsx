@@ -7,13 +7,13 @@ import { API_SERVER } from "../../constants";
 import NavbarSubsite from "./NavbarSubsite";
 import NavbarSubsiteMobile from "./NavbarSubsiteMobile";
 import SubsiteNavbarItem from "./SubsiteNavbarItem";
-import { ISubsite } from "../../types/Subsite";
+import { ISubsite, ItemType } from "../../types/Subsite";
 
 function SubsiteNavbar() {
-  const [subsites, setSubsites] = useState<Array<ISubsite>>();
+  const [subsites, setSubsites] = useState<Array<ItemType>>();
   const [loading, setLoading] = useState<boolean>(true);
-  const [categorySubsite, setCategorySubsite] = useState<any>();
-  const [categoryLoading, setCategoryLoading] = useState<any>();
+  const [categorySubsite, setCategorySubsite] = useState<Array<ISubsite>>();
+  const [, setCategoryLoading] = useState<boolean>();
 
   const params = useParams<any>();
 
@@ -51,11 +51,6 @@ function SubsiteNavbar() {
   const [lessons, setLessons] = useState<boolean>(false);
   const [contact, setContact] = useState<boolean>(false);
 
-  const [aboutSchool, setAboutSchool] = useState<boolean>(false);
-  const [efs, setEfs] = useState<boolean>(false);
-  const [additionalLearningResource, setAdditionalLearningResource] =
-    useState<boolean>(false);
-  const [schoolBoard, setSchoolBoard] = useState<boolean>(false);
   const [schoolDocuments, setSchoolDocuments] = useState<boolean>(false);
 
   function handleRecruitation(): void {
@@ -74,22 +69,7 @@ function SubsiteNavbar() {
     setAdditionalInfo(!additionalInfo);
   }
 
-  function handleAboutSchool(): void {
-    setAboutSchool(!aboutSchool);
-  }
-
-  function handleEfs(): void {
-    setEfs(!efs);
-  }
-
-  function handleAdditionalLearningResource(): void {
-    setAdditionalInfo(!additionalLearningResource);
-  }
-
-  function handleSchoolBoard(): void {
-    setSchoolBoard(!schoolBoard);
-  }
-
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   function handleSchoolDocuments(): void {
     setSchoolDocuments(!schoolDocuments);
   }
@@ -227,7 +207,7 @@ function SubsiteNavbar() {
                   <div className="flex flex-col">
                     <div className="p-3 flex flex-wrap">
                       {subsites &&
-                        subsites.map((item: any) => {
+                        subsites.map((item: ItemType) => {
                           return (
                             <NavbarSubsite
                               item={item}
@@ -347,7 +327,7 @@ function SubsiteNavbar() {
                 {additionalInfo ? (
                   <ul className="flex flex-col justify-center align-items text-center">
                     {subsites &&
-                      subsites.map((item: any) => {
+                      subsites.map((item: ItemType) => {
                         return (
                           <NavbarSubsiteMobile
                             item={item}

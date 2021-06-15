@@ -6,6 +6,7 @@ import axios from "axios";
 import { API_SERVER } from "../../constants";
 import NavbarSubsite from "./NavbarSubsite";
 import NavbarSubsiteMobile from "./NavbarSubsiteMobile";
+import { ItemType } from "../../types/Subsite";
 
 function Navbar() {
   const [subsites, setSubsites] = useState<any>();
@@ -22,18 +23,6 @@ function Navbar() {
       })
       .catch((error: any) => console.log(error));
   }, []);
-
-  // const fetchSubsites = useCallback(() => {
-  //   axios
-  //     .get(`${API_SERVER}wp-json/api/v1/categories`)
-  //     .then((response: any) => {
-  //       setSubsites(response.data);
-  //     })
-  //     .then((response: any) => {
-  //       return setLoading(false);
-  //     })
-  //     .catch((error: any) => console.log(error));
-  // }, []);
 
   useEffect(() => {
     fetchSubsitesCategories();
@@ -194,9 +183,12 @@ function Navbar() {
                 <div className="flex flex-col">
                   <div className="p-3 flex flex-wrap">
                     {subsites &&
-                      subsites.map((item: any) => {
+                      subsites.map((item: ItemType) => {
                         return (
-                          <NavbarSubsite item={item} key={item.category.ID} />
+                          <NavbarSubsite
+                            item={item}
+                            key={item.category.term_id}
+                          />
                         );
                       })}
                     {loading && "Ładowanie..."}
@@ -311,11 +303,11 @@ function Navbar() {
               {additionalInfo ? (
                 <ul className="flex flex-col justify-center align-items text-center">
                   {subsites &&
-                    subsites.map((item: any) => {
+                    subsites.map((item: ItemType) => {
                       return (
                         <NavbarSubsiteMobile
                           item={item}
-                          key={item.category.ID}
+                          key={item.category.term_id}
                         />
                       );
                     })}

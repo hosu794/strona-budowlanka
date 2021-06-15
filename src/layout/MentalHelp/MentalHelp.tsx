@@ -1,7 +1,5 @@
 import * as React from "react";
 
-import { useHistory } from "react-router";
-import * as H from "history";
 import CategoryLayout from "../CategoryLayout";
 
 const MentalHelp = () => {

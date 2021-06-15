@@ -1,10 +1,9 @@
-import axios from "axios";
 import * as React from "react";
 import { Link } from "react-router-dom";
-import { API_SERVER } from "../../constants";
+import { ItemType } from "../../types/Subsite";
 
 type NavbarSubsiteProps = {
-  item: any;
+  item: ItemType;
 };
 
 const NavbarSubsite: React.FC<NavbarSubsiteProps> = ({ item }) => {
@@ -20,7 +19,6 @@ const NavbarSubsite: React.FC<NavbarSubsiteProps> = ({ item }) => {
             key={i.ID}
           />
         ))}
-      {/* {loading && <div>Ładowanie...</div>} */}
     </div>
   );
 };
