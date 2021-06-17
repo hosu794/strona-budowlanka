@@ -9,13 +9,30 @@ import NavbarSubsiteMobile from "./NavbarSubsiteMobile";
 import SubsiteNavbarItem from "./SubsiteNavbarItem";
 import { ISubsite, ItemType } from "../../types/Subsite";
 
+import SchoolNavbarSubsite from "./SchoolNavbarSubsite";
+
 function SubsiteNavbar() {
   const [subsites, setSubsites] = useState<Array<ItemType>>();
   const [loading, setLoading] = useState<boolean>(true);
   const [categorySubsite, setCategorySubsite] = useState<Array<ISubsite>>();
+  const [schoolSubsites, setSchoolSubsites] = useState<any>();
+  const [loadingSchool, setSchoolLoading] = useState<boolean>(true);
   const [, setCategoryLoading] = useState<boolean>();
 
   const params = useParams<any>();
+
+  const fetchSchoolSubsites = useCallback(() => {
+    axios
+      .get(`${API_SERVER}wp-json/api/v1/school/subsites`)
+      .then((response: any) => {
+        console.log(response.data);
+        setSchoolSubsites(response.data);
+      })
+      .then((response: any) => {
+        return setSchoolLoading(false);
+      })
+      .catch((error: any) => console.log(error));
+  }, []);
 
   const fetchSubsiteByCategory = useCallback(() => {
     axios
@@ -42,7 +59,8 @@ function SubsiteNavbar() {
   useEffect(() => {
     fetchSubsitesCategories();
     fetchSubsiteByCategory();
-  }, [fetchSubsitesCategories, fetchSubsiteByCategory]);
+    fetchSchoolSubsites();
+  }, [fetchSubsitesCategories, fetchSubsiteByCategory, fetchSchoolSubsites]);
 
   const [toggle, setToggle] = useState<boolean>(false);
 
@@ -116,6 +134,43 @@ function SubsiteNavbar() {
                 <Link to="/library">Biblioteka</Link>
               </span>
             </button>
+          </div>
+
+          <div className="relative group">
+            <button className="flex uppercase flex-row items-center w-screen px-4 py-4 mt-2 text-base text-left uppercase bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
+              <span className="lg:text-sm xl:text-lg font-extrabold">
+                Szkoła
+              </span>
+            </button>
+            <div
+              className="absolute z-10 right-0.5 hidden group-hover:block"
+              style={
+                {
+                  // width: "40vw",
+                }
+              }
+            >
+              <div className="text-white px-2 pt-2 pb-4 bg-green-custom shadow-lg rounded-lg">
+                <div className="flex flex-row p-10 text-lg tracking-wide">
+                  <div className="flex flex-col">
+                    <div className="p-3 flex flex-wrap">
+                      {schoolSubsites &&
+                        schoolSubsites.map((item: any) => {
+                          return (
+                            <SchoolNavbarSubsite
+                              post_title={item.post_title}
+                              id={item.ID}
+                              key={item.ID}
+                            />
+                          );
+                        })}
+                      {loading && "Ładowanie..."}
+                    </div>
+                  </div>
+                  <div></div>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="relative group">
