@@ -8,9 +8,13 @@ import NavbarSubsite from "./NavbarSubsite";
 import NavbarSubsiteMobile from "./NavbarSubsiteMobile";
 import { ItemType } from "../../types/Subsite";
 
+import SchoolNavbarSubsite from "./SchoolNavbarSubsite";
+
 function Navbar() {
   const [subsites, setSubsites] = useState<any>();
   const [loading, setLoading] = useState<boolean>(true);
+  const [schoolSubsites, setSchoolSubsites] = useState<any>();
+  const [loadingSchool, setSchoolLoading] = useState<boolean>(true);
 
   const fetchSubsitesCategories = useCallback(() => {
     axios
@@ -24,9 +28,23 @@ function Navbar() {
       .catch((error: any) => console.log(error));
   }, []);
 
+  const fetchSchoolSubsites = useCallback(() => {
+    axios
+      .get(`${API_SERVER}wp-json/api/v1/school/subsites`)
+      .then((response: any) => {
+        console.log(response.data);
+        setSchoolSubsites(response.data);
+      })
+      .then((response: any) => {
+        return setSchoolLoading(false);
+      })
+      .catch((error: any) => console.log(error));
+  }, []);
+
   useEffect(() => {
     fetchSubsitesCategories();
-  }, [fetchSubsitesCategories]);
+    fetchSchoolSubsites();
+  }, [fetchSubsitesCategories, fetchSchoolSubsites]);
 
   const [toggle, setToggle] = useState<boolean>(false);
 
@@ -110,16 +128,17 @@ function Navbar() {
               <div className="flex flex-row p-10 text-lg tracking-wide">
                 <div className="flex flex-col">
                   <div className="p-3 flex flex-wrap">
-                    {/* {subsites &&
-                      subsites.map((item: ItemType) => {
+                    {schoolSubsites &&
+                      schoolSubsites.map((item: any) => {
                         return (
-                          <NavbarSubsite
-                            item={item}
-                            key={item.category.term_id}
+                          <SchoolNavbarSubsite
+                            post_title={item.post_title}
+                            id={item.ID}
+                            key={item.ID}
                           />
                         );
                       })}
-                    {loading && "Ładowanie..."} */}
+                    {loading && "Ładowanie..."}
                   </div>
                 </div>
                 <div></div>

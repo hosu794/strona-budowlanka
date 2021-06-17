@@ -14,20 +14,19 @@ const SchoolSubsite = () => {
 
   const fetchSubsite = React.useCallback(() => {
     axios
-      .get(`${API_SERVER}wp-json/api/v1/subsite/${params.id}`)
+      .get(`${API_SERVER}wp-json/api/v1/school/subsite/${params.id}`)
       .then((response) => {
-        console.log(response.data);
-        setSubsite(response.data);
+        return setSubsite(response.data[0]);
       });
   }, [params]);
 
   React.useEffect(() => {
     console.log(params);
     fetchSubsite();
-  }, [fetchSubsite]);
+  }, [fetchSubsite, params]);
 
   return (
-    <CategoryLayout title="Subsite">
+    <CategoryLayout title={subsite && subsite.post_title}>
       {subsite && (
         <div
           className="content mb-10"
