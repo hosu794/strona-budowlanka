@@ -10,6 +10,7 @@ const ShowMore = ({ showMore, length = 300, content }: ShowMoreProps) => {
   return (
     <React.Fragment>
       <div
+        className="flex items-center flex-col"
         dangerouslySetInnerHTML={{
           __html: showMore ? content : `${content.slice(0, length)}...`,
         }}

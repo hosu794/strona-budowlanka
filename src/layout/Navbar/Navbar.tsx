@@ -96,6 +96,40 @@ function Navbar() {
 
         <div className="relative group">
           <button className="flex uppercase flex-row items-center w-screen px-4 py-4 mt-2 text-base text-left uppercase bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
+            <span className="lg:text-sm xl:text-lg font-extrabold">Szkoła</span>
+          </button>
+          <div
+            className="absolute z-10 right-0.5 hidden group-hover:block"
+            style={
+              {
+                // width: "40vw",
+              }
+            }
+          >
+            <div className="text-white px-2 pt-2 pb-4 bg-green-custom shadow-lg rounded-lg">
+              <div className="flex flex-row p-10 text-lg tracking-wide">
+                <div className="flex flex-col">
+                  <div className="p-3 flex flex-wrap">
+                    {/* {subsites &&
+                      subsites.map((item: ItemType) => {
+                        return (
+                          <NavbarSubsite
+                            item={item}
+                            key={item.category.term_id}
+                          />
+                        );
+                      })}
+                    {loading && "Ładowanie..."} */}
+                  </div>
+                </div>
+                <div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="relative group">
+          <button className="flex uppercase flex-row items-center w-screen px-4 py-4 mt-2 text-base text-left uppercase bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
             <span className="lg:text-sm xl:text-lg font-extrabold">
               <Link to="/gallery">Galeria</Link>
             </span>
@@ -200,6 +234,7 @@ function Navbar() {
           </div>
         </div>
       </div>
+
       <div className="md:block lg:hidden absolute top-5 right-5 z-10">
         <div
           className={
