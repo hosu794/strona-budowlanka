@@ -25,7 +25,6 @@ const Subsite = () => {
 
   return (
     <SubsiteLayout title={subsite && subsite.post_title}>
-      <h1>Subsite</h1>
       {subsite && (
         <div
           className="content mb-10"

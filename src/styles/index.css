@@ -69,3 +69,13 @@ a {
 .my-anchor-css-class {
   font-weight: 600;
 }
+
+table,
+th,
+td {
+  border: 1px solid black;
+}
+
+ul {
+  list-style: circle outside none;
+}
