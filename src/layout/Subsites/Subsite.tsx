@@ -15,6 +15,12 @@ const Subsite = () => {
     axios
       .get(`${API_SERVER}wp-json/api/v1/subsite/${params.id}`)
       .then((response) => {
+        const content: string = response.data[0].post_content;
+
+        if (content.substring(0, 4) === "http") {
+          window.location.href = content;
+        }
+
         setSubsite(response.data[0]);
       });
   }, [params]);
