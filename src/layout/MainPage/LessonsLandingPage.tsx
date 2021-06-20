@@ -12,7 +12,7 @@ const LessonsLandingPage = () => {
             <img src={LessonImage} alt="Lessons" />
           </div>
           <button className="mt-16 sm:mt-0 sm:w-1/3 bg-red-500 hover:bg-red-600 text-white xl:text-2xl font-bold py-3 px-10 rounded">
-            Plan Lekcji
+            <a href=""> Plan Lekcji</a>
           </button>
         </div>
 
@@ -26,7 +26,7 @@ const LessonsLandingPage = () => {
             <img src={DiaryImage} alt="Lessons" />
           </div>
           <button className="mt-16 sm:mt-0 sm:w-1/3 bg-red-500 hover:bg-red-600 text-white xl:text-2xl font-bold py-3 px-10 rounded">
-            Dziennik
+            <a href="">Dziennik</a>
           </button>
         </div>
       </div>
