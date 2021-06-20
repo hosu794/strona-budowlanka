@@ -11,6 +11,8 @@ import { ItemType } from "../../types/Subsite";
 import SchoolNavbarSubsite from "./SchoolNavbarSubsite";
 import RecruitationNavbarSubsite from "./RecruitationNavbarSubsite";
 
+import ContactNavbarSubsite from "./ContactNavbarSubsite";
+
 function Navbar() {
   const [subsites, setSubsites] = useState<any>();
   const [loading, setLoading] = useState<boolean>(true);
@@ -20,11 +22,28 @@ function Navbar() {
   const [recruitment, setRecruitment] = useState<any>();
   const [loadingRecruitment, setLoadingRecruitment] = useState<boolean>(false);
 
+  const [contactSubsite, setContactSubsite] = useState<any>();
+  const [loadingContactSubsite, setLoadingContactSubsite] = useState<any>();
+
+  const fetchContactSubsite = useCallback(() => {
+    axios
+      .get(`${API_SERVER}wp-json/api/v1/contact/subsites`)
+      .then((response: any) => {
+        console.log(response.data);
+        setContactSubsite(response.data);
+      })
+      .then((response: any) => {
+        setLoadingContactSubsite(false);
+      })
+      .catch((error: any) => {
+        console.log(error);
+      });
+  }, []);
+
   const fetchRecruitmentSubsite = useCallback(() => {
     axios
       .get(`${API_SERVER}wp-json/api/v1/recrutation/subsites`)
       .then((response: any) => {
-        console.log(response.data);
         setRecruitation(response.data);
       })
       .then((response: any) => {
@@ -64,7 +83,13 @@ function Navbar() {
     fetchSubsitesCategories();
     fetchSchoolSubsites();
     fetchRecruitmentSubsite();
-  }, [fetchSubsitesCategories, fetchSchoolSubsites, fetchRecruitmentSubsite]);
+    fetchContactSubsite();
+  }, [
+    fetchSubsitesCategories,
+    fetchSchoolSubsites,
+    fetchRecruitmentSubsite,
+    fetchContactSubsite,
+  ]);
 
   const [toggle, setToggle] = useState<boolean>(false);
 
@@ -239,12 +264,22 @@ function Navbar() {
           </button>
           <div className="absolute z-10 hidden bg-grey-200 group-hover:block">
             <div className="p-4 font-bold text-white bg-green-custom shadow-lg rounded-lg">
-              <p className="uppercase p-1">
+              {contactSubsite &&
+                contactSubsite.map((item: any) => {
+                  return (
+                    <ContactNavbarSubsite
+                      post_title={item.post_title}
+                      id={item.ID}
+                      key={item.ID}
+                    />
+                  );
+                })}
+              {/* <p className="uppercase p-1">
                 <Link to="/help">Pomoc psychologiczno-prawna</Link>
               </p>
               <p className="uppercase p-1">
                 <Link to="/contact">Kontakt do Szkoły</Link>
-              </p>
+              </p> */}
             </div>
           </div>
         </div>
