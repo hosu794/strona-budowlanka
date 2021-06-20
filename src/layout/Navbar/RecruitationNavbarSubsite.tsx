@@ -7,14 +7,14 @@ type NavbarSubsiteItemProps = {
   id: string;
 };
 
-const SchoolNavbarSubsite: React.FC<NavbarSubsiteItemProps> = ({
+const RecruitationNavbarSubsite: React.FC<NavbarSubsiteItemProps> = ({
   post_title,
   id,
 }: any) => {
-  const link = `/school/subsite/${id}`;
+  const link = `/recruitation/subsite/${id}`;
 
   return (
-    <div className="p-2">
+    <div className="p-2 text-white">
       <Link to={link}>
         <p>{post_title}</p>
       </Link>
@@ -22,4 +22,4 @@ const SchoolNavbarSubsite: React.FC<NavbarSubsiteItemProps> = ({
   );
 };
 
-export default SchoolNavbarSubsite;
+export default RecruitationNavbarSubsite;

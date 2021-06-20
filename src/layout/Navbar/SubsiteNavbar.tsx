@@ -301,7 +301,7 @@ function SubsiteNavbar() {
         >
           <div className="h-screen p-6 bg-red-custom overflow-y-auto">
             <div>
-              <ul className="text-white flex justify-center sm:text-lg md:text-2xl uppercase text-align flex-col h-2/3 mt-10 font-bold">
+              <ul className="text-white list-none flex justify-center sm:text-lg md:text-2xl uppercase text-align flex-col h-2/3 mt-10 font-bold">
                 <li className="p-5 uppercase cursor-pointer">
                   <Link to="/library">Biblioteka</Link>
                 </li>

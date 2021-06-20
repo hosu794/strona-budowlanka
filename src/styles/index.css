@@ -77,5 +77,18 @@ td {
 }
 
 ul {
-  list-style: circle outside none;
+  list-style-type: square;
+  margin-left: 40px;
+}
+
+ol {
+  list-style: decimal;
+}
+
+.list-none {
+  list-style: none;
+}
+
+a {
+  /* font-weight: bold; */
 }
