@@ -7,15 +7,32 @@ import { API_SERVER } from "../../constants";
 import NavbarSubsite from "./NavbarSubsite";
 import NavbarSubsiteMobile from "./NavbarSubsiteMobile";
 import SubsiteNavbarItem from "./SubsiteNavbarItem";
-import { ISubsite } from "../../types/Subsite";
+import { ISubsite, ItemType } from "../../types/Subsite";
+
+import SchoolNavbarSubsite from "./SchoolNavbarSubsite";
 
 function SubsiteNavbar() {
-  const [subsites, setSubsites] = useState<Array<ISubsite>>();
+  const [subsites, setSubsites] = useState<Array<ItemType>>();
   const [loading, setLoading] = useState<boolean>(true);
-  const [categorySubsite, setCategorySubsite] = useState<any>();
-  const [categoryLoading, setCategoryLoading] = useState<any>();
+  const [categorySubsite, setCategorySubsite] = useState<Array<ISubsite>>();
+  const [schoolSubsites, setSchoolSubsites] = useState<any>();
+  const [loadingSchool, setSchoolLoading] = useState<boolean>(true);
+  const [, setCategoryLoading] = useState<boolean>();
 
   const params = useParams<any>();
+
+  const fetchSchoolSubsites = useCallback(() => {
+    axios
+      .get(`${API_SERVER}wp-json/api/v1/school/subsites`)
+      .then((response: any) => {
+        console.log(response.data);
+        setSchoolSubsites(response.data);
+      })
+      .then((response: any) => {
+        return setSchoolLoading(false);
+      })
+      .catch((error: any) => console.log(error));
+  }, []);
 
   const fetchSubsiteByCategory = useCallback(() => {
     axios
@@ -42,7 +59,8 @@ function SubsiteNavbar() {
   useEffect(() => {
     fetchSubsitesCategories();
     fetchSubsiteByCategory();
-  }, [fetchSubsitesCategories, fetchSubsiteByCategory]);
+    fetchSchoolSubsites();
+  }, [fetchSubsitesCategories, fetchSubsiteByCategory, fetchSchoolSubsites]);
 
   const [toggle, setToggle] = useState<boolean>(false);
 
@@ -51,11 +69,6 @@ function SubsiteNavbar() {
   const [lessons, setLessons] = useState<boolean>(false);
   const [contact, setContact] = useState<boolean>(false);
 
-  const [aboutSchool, setAboutSchool] = useState<boolean>(false);
-  const [efs, setEfs] = useState<boolean>(false);
-  const [additionalLearningResource, setAdditionalLearningResource] =
-    useState<boolean>(false);
-  const [schoolBoard, setSchoolBoard] = useState<boolean>(false);
   const [schoolDocuments, setSchoolDocuments] = useState<boolean>(false);
 
   function handleRecruitation(): void {
@@ -74,22 +87,7 @@ function SubsiteNavbar() {
     setAdditionalInfo(!additionalInfo);
   }
 
-  function handleAboutSchool(): void {
-    setAboutSchool(!aboutSchool);
-  }
-
-  function handleEfs(): void {
-    setEfs(!efs);
-  }
-
-  function handleAdditionalLearningResource(): void {
-    setAdditionalInfo(!additionalLearningResource);
-  }
-
-  function handleSchoolBoard(): void {
-    setSchoolBoard(!schoolBoard);
-  }
-
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   function handleSchoolDocuments(): void {
     setSchoolDocuments(!schoolDocuments);
   }
@@ -136,6 +134,43 @@ function SubsiteNavbar() {
                 <Link to="/library">Biblioteka</Link>
               </span>
             </button>
+          </div>
+
+          <div className="relative group">
+            <button className="flex uppercase flex-row items-center w-screen px-4 py-4 mt-2 text-base text-left uppercase bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
+              <span className="lg:text-sm xl:text-lg font-extrabold">
+                Szkoła
+              </span>
+            </button>
+            <div
+              className="absolute z-10 right-0.5 hidden group-hover:block"
+              style={
+                {
+                  // width: "40vw",
+                }
+              }
+            >
+              <div className="text-white px-2 pt-2 pb-4 bg-green-custom shadow-lg rounded-lg">
+                <div className="flex flex-row p-10 text-lg tracking-wide">
+                  <div className="flex flex-col">
+                    <div className="p-3 flex flex-wrap">
+                      {schoolSubsites &&
+                        schoolSubsites.map((item: any) => {
+                          return (
+                            <SchoolNavbarSubsite
+                              post_title={item.post_title}
+                              id={item.ID}
+                              key={item.ID}
+                            />
+                          );
+                        })}
+                      {loading && "Ładowanie..."}
+                    </div>
+                  </div>
+                  <div></div>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="relative group">
@@ -227,7 +262,7 @@ function SubsiteNavbar() {
                   <div className="flex flex-col">
                     <div className="p-3 flex flex-wrap">
                       {subsites &&
-                        subsites.map((item: any) => {
+                        subsites.map((item: ItemType) => {
                           return (
                             <NavbarSubsite
                               item={item}
@@ -266,7 +301,7 @@ function SubsiteNavbar() {
         >
           <div className="h-screen p-6 bg-red-custom overflow-y-auto">
             <div>
-              <ul className="text-white flex justify-center sm:text-lg md:text-2xl uppercase text-align flex-col h-2/3 mt-10 font-bold">
+              <ul className="text-white list-none flex justify-center sm:text-lg md:text-2xl uppercase text-align flex-col h-2/3 mt-10 font-bold">
                 <li className="p-5 uppercase cursor-pointer">
                   <Link to="/library">Biblioteka</Link>
                 </li>
@@ -347,7 +382,7 @@ function SubsiteNavbar() {
                 {additionalInfo ? (
                   <ul className="flex flex-col justify-center align-items text-center">
                     {subsites &&
-                      subsites.map((item: any) => {
+                      subsites.map((item: ItemType) => {
                         return (
                           <NavbarSubsiteMobile
                             item={item}

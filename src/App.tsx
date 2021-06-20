@@ -14,6 +14,9 @@ import Recrutation from "./layout/Recruitation/Recrutation";
 import GalleryFolderMedias from "./Gallery/GalleryFolderMedias";
 import Subsite from "./layout/Subsites/Subsite";
 import Home from "./layout/MainPage";
+import SchoolSubsite from "./layout/Subsites/SchoolSubsite";
+import RecruitationSubsite from "./layout/Subsites/RecruitationSubsite";
+import ContactSubsite from "./layout/Subsites/ContactSubsite";
 
 const App: React.FC<any> = () => {
   return (
@@ -21,6 +24,13 @@ const App: React.FC<any> = () => {
       <Router>
         <Switch>
           <Route component={Subsite} exact path="/subsite/:id/:category" />
+          <Route component={SchoolSubsite} exact path="/school/subsite/:id" />
+          <Route
+            component={RecruitationSubsite}
+            exact
+            path="/recruitation/subsite/:id"
+          />
+          <Route component={ContactSubsite} exact path="/contact/subsite/:id" />
           <Route component={Home} exact path="/" />
           <Route component={Posts} exact path="/posts" />
           <Route component={Gallery} exact path="/gallery" />

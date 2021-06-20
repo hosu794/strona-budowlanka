@@ -2,7 +2,6 @@ import * as React from "react";
 
 import Image from "../../assets/contact.svg";
 
-import * as H from "history";
 import CategoryLayout from "../CategoryLayout";
 
 const Contact = () => {

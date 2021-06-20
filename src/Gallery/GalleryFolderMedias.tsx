@@ -14,11 +14,11 @@ const GalleryFolderMedias: React.FC<null> = () => {
 
   const [currentPage, setCurrentPage] = useState<any>(0);
   const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<boolean>(false);
+  const [, setError] = useState<boolean>(false);
   const [hasMore, setHasMore] = useState<boolean>(false);
   const [content, setContent] = useState<any>([]);
-  const [nextPage, setNextPage] = useState<number>(0);
-  const [previousPage, setPreviousPage] = useState<number>(0);
+  const [, setNextPage] = useState<number>(0);
+  const [, setPreviousPage] = useState<number>(0);
 
   const dispatchPaginatedData = useCallback(
     (data: any): void => {
@@ -48,6 +48,7 @@ const GalleryFolderMedias: React.FC<null> = () => {
 
   useEffect(() => {
     fetchPagedMedias(currentPage);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentPage]);
 
   const handleClick = () => setCurrentPage(Number(currentPage) + 1);

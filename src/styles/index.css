@@ -69,3 +69,26 @@ a {
 .my-anchor-css-class {
   font-weight: 600;
 }
+
+table,
+th,
+td {
+  border: 1px solid black;
+}
+
+ul {
+  list-style-type: square;
+  margin-left: 40px;
+}
+
+ol {
+  list-style: decimal;
+}
+
+.list-none {
+  list-style: none;
+}
+
+a {
+  /* font-weight: bold; */
+}

@@ -1,5 +1,5 @@
 import * as React from "react";
-import Layout, { ILayout } from "./Layout";
+import { ILayout } from "./Layout";
 import SubsiteLayoutChildren from "./SubsiteLayoutChildren";
 
 interface ISubsiteLayout extends ILayout {

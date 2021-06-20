@@ -1,19 +1,20 @@
-import Layout from "../Layout"
-import ContactLandingPage from "./ContactLandingPage"
-import GalleryLandingPage from "./GalleryLandingPage"
-import LandingPage from "./LandingPage"
-import LessonsLandingPage from "./LessonsLandingPage"
+import Layout from "../Layout";
+import ContactLandingPage from "./ContactLandingPage";
+import GalleryLandingPage from "./GalleryLandingPage";
+import LandingPage from "./LandingPage";
+import LessonsLandingPage from "./LessonsLandingPage";
+import ShieldsLandingPage from "./ShieldsLandingPage";
 
- const Home = () => {
+const Home = () => {
   return (
-   <Layout>
+    <Layout>
       <LandingPage />
+      <ShieldsLandingPage />
       <LessonsLandingPage />
       <GalleryLandingPage />
       <ContactLandingPage />
-   </Layout>
-  )
-}
+    </Layout>
+  );
+};
 
-
-export default Home
+export default Home;
