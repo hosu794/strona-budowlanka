@@ -25,6 +25,14 @@ function Navbar() {
   const [contactSubsite, setContactSubsite] = useState<any>();
   const [loadingContactSubsite, setLoadingContactSubsite] = useState<any>();
 
+  const [toggle, setToggle] = useState<boolean>(false);
+
+  const [additionalInfo, setAdditionalInfo] = useState<boolean>(false);
+  const [recruitation, setRecruitation] = useState<boolean>(false);
+  const [recruitationSubsite, setRecruitationSubsite] = useState<any>(false);
+  const [lessons, setLessons] = useState<boolean>(false);
+  const [contact, setContact] = useState<boolean>(false);
+
   const fetchContactSubsite = useCallback(() => {
     axios
       .get(`${API_SERVER}wp-json/api/v1/contact/subsites`)
@@ -44,7 +52,7 @@ function Navbar() {
     axios
       .get(`${API_SERVER}wp-json/api/v1/recrutation/subsites`)
       .then((response: any) => {
-        setRecruitation(response.data);
+        setRecruitationSubsite(response.data);
       })
       .then((response: any) => {
         setLoadingRecruitment(false);
@@ -90,13 +98,6 @@ function Navbar() {
     fetchRecruitmentSubsite,
     fetchContactSubsite,
   ]);
-
-  const [toggle, setToggle] = useState<boolean>(false);
-
-  const [additionalInfo, setAdditionalInfo] = useState<boolean>(false);
-  const [recruitation, setRecruitation] = useState<any>(false);
-  const [lessons, setLessons] = useState<boolean>(false);
-  const [contact, setContact] = useState<boolean>(false);
 
   function handleRecruitation(): void {
     setRecruitation(!recruitation);
@@ -206,13 +207,22 @@ function Navbar() {
         <div className="relative group">
           <button className="flex uppercase flex-row items-center w-screen px-4 py-4 mt-2 text-base text-left uppercase bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
             <span className="lg:text-sm xl:text-lg font-extrabold">
+              <Link to="/gallery">Galeria</Link>
+            </span>
+          </button>
+          <div className="absolute z-10 hidden bg-grey-200 group-hover:block"></div>
+        </div>
+
+        <div className="relative group">
+          <button className="flex uppercase flex-row items-center w-screen px-4 py-4 mt-2 text-base text-left uppercase bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
+            <span className="lg:text-sm xl:text-lg font-extrabold">
               Rekrutacja
             </span>
           </button>
           <div className="absolute z-10 hidden bg-grey-200 group-hover:block">
             <div className="px-2 pt-2 font-bold pb-4 bg-green-custom shadow-lg rounded-lg">
-              {recruitation &&
-                recruitation.map((item: any) => {
+              {recruitationSubsite &&
+                recruitationSubsite.map((item: any) => {
                   return (
                     <RecruitationNavbarSubsite
                       post_title={item.post_title}
@@ -346,9 +356,15 @@ function Navbar() {
             <ul className="text-white list-none flex justify-center sm:text-lg md:text-2xl uppercase text-align flex-col h-2/3 mt-10 font-bold">
               {/* <li className="p-5 uppercase cursor-pointer">
                 <Link to="/library">Biblioteka</Link>
-              </li> */}
+              </li> */}{" "}
+              <li className="p-5 uppercase cursor-pointer">
+                <Link to="/posts">Aktualnośći</Link>
+              </li>
               <li className="p-5 uppercase cursor-pointer">
                 <Link to="/gallery">Galeria</Link>
+              </li>
+              <li className="p-5 uppercase cursor-pointer">
+                <a href="https://zs1mm.bip.gov.pl/">BIP</a>
               </li>
               <li
                 onClick={handleRecruitation}
@@ -362,12 +378,16 @@ function Navbar() {
               </li>
               {recruitation ? (
                 <ul className="flex flex-col justify-center align-items text-center">
-                  <li className="uppercase text-left pl-7 p-2">
-                    <Link to="/education-offer">Oferta edukacyjna</Link>
-                  </li>
-                  <li className="uppercase text-left pl-7 p-2">
-                    <Link to="/recrutation">Proces rekrutacji</Link>
-                  </li>
+                  {recruitationSubsite &&
+                    recruitationSubsite.map((item: any) => {
+                      return (
+                        <RecruitationNavbarSubsite
+                          post_title={item.post_title}
+                          id={item.ID}
+                          key={item.ID}
+                        />
+                      );
+                    })}
                 </ul>
               ) : null}
               <li
@@ -404,11 +424,16 @@ function Navbar() {
               </li>
               {contact ? (
                 <ul className="flex flex-col justify-center align-items text-center">
-                  <li className="uppercase text-left pl-7 pb-2">
-                    <Link to="/mental-law-help">
-                      Pomoc psychologiczno-prawna
-                    </Link>
-                  </li>
+                  {contactSubsite &&
+                    contactSubsite.map((item: any) => {
+                      return (
+                        <ContactNavbarSubsite
+                          post_title={item.post_title}
+                          id={item.ID}
+                          key={item.ID}
+                        />
+                      );
+                    })}
                 </ul>
               ) : null}
               <li

@@ -12,7 +12,7 @@ const LessonsLandingPage = () => {
             <img src={LessonImage} alt="Lessons" />
           </div>
           <button className="mt-16 sm:mt-0 sm:w-1/3 bg-red-500 hover:bg-red-600 text-white xl:text-2xl font-bold py-3 px-10 rounded">
-            <a href=""> Plan Lekcji</a>
+            <a href="https://www.zs1mm.home.pl/plan/"> Plan Lekcji</a>
           </button>
         </div>
 
@@ -26,7 +26,9 @@ const LessonsLandingPage = () => {
             <img src={DiaryImage} alt="Lessons" />
           </div>
           <button className="mt-16 sm:mt-0 sm:w-1/3 bg-red-500 hover:bg-red-600 text-white xl:text-2xl font-bold py-3 px-10 rounded">
-            <a href="">Dziennik</a>
+            <a href="https://uonetplus-uczen.vulcan.net.pl/powiatminski">
+              Dziennik
+            </a>
           </button>
         </div>
       </div>

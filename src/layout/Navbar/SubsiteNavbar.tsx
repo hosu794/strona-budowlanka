@@ -27,6 +27,16 @@ function SubsiteNavbar() {
 
   const [contactSubsite, setContactSubsite] = useState<any>();
   const [loadingContactSubsite, setLoadingContactSubsite] = useState<any>();
+  const [recruitationSubsite, setRecruitationSubsite] = useState<any>(false);
+
+  const [toggle, setToggle] = useState<boolean>(false);
+
+  const [additionalInfo, setAdditionalInfo] = useState<boolean>(false);
+  const [recruitation, setRecruitation] = useState<boolean>(false);
+  const [lessons, setLessons] = useState<boolean>(false);
+  const [contact, setContact] = useState<boolean>(false);
+
+  const [schoolDocuments, setSchoolDocuments] = useState<boolean>(false);
 
   const params = useParams<any>();
 
@@ -49,7 +59,7 @@ function SubsiteNavbar() {
     axios
       .get(`${API_SERVER}wp-json/api/v1/recrutation/subsites`)
       .then((response: any) => {
-        setRecruitment(response.data);
+        setRecruitationSubsite(response.data);
       })
       .then((response: any) => {
         setLoadingRecruitment(false);
@@ -108,15 +118,6 @@ function SubsiteNavbar() {
     fetchRecruitmentSubsite,
     fetchContactSubsite,
   ]);
-
-  const [toggle, setToggle] = useState<boolean>(false);
-
-  const [additionalInfo, setAdditionalInfo] = useState<boolean>(false);
-  const [recruitation, setRecruitation] = useState<boolean>(false);
-  const [lessons, setLessons] = useState<boolean>(false);
-  const [contact, setContact] = useState<boolean>(false);
-
-  const [schoolDocuments, setSchoolDocuments] = useState<boolean>(false);
 
   function handleRecruitation(): void {
     setRecruitation(!recruitation);
@@ -364,11 +365,17 @@ function SubsiteNavbar() {
           <div className="h-screen p-6 bg-red-custom overflow-y-auto">
             <div>
               <ul className="text-white list-none flex justify-center sm:text-lg md:text-2xl uppercase text-align flex-col h-2/3 mt-10 font-bold">
+                {/* <li className="p-5 uppercase cursor-pointer">
+                <Link to="/library">Biblioteka</Link>
+              </li> */}{" "}
                 <li className="p-5 uppercase cursor-pointer">
-                  <Link to="/library">Biblioteka</Link>
+                  <Link to="/posts">Aktualnośći</Link>
                 </li>
                 <li className="p-5 uppercase cursor-pointer">
                   <Link to="/gallery">Galeria</Link>
+                </li>
+                <li className="p-5 uppercase cursor-pointer">
+                  <a href="https://zs1mm.bip.gov.pl/">BIP</a>
                 </li>
                 <li
                   onClick={handleRecruitation}
@@ -382,12 +389,16 @@ function SubsiteNavbar() {
                 </li>
                 {recruitation ? (
                   <ul className="flex flex-col justify-center align-items text-center">
-                    <li className="uppercase text-left pl-7 p-2">
-                      <Link to="/education-offer">Oferta edukacyjna</Link>
-                    </li>
-                    <li className="uppercase text-left pl-7 p-2">
-                      <Link to="/recrutation">Proces rekrutacji</Link>
-                    </li>
+                    {recruitationSubsite &&
+                      recruitationSubsite.map((item: any) => {
+                        return (
+                          <RecruitationNavbarSubsite
+                            post_title={item.post_title}
+                            id={item.ID}
+                            key={item.ID}
+                          />
+                        );
+                      })}
                   </ul>
                 ) : null}
                 <li
@@ -424,11 +435,16 @@ function SubsiteNavbar() {
                 </li>
                 {contact ? (
                   <ul className="flex flex-col justify-center align-items text-center">
-                    <li className="uppercase text-left pl-7 pb-2">
-                      <Link to="/mental-law-helpSubsiteNavbar">
-                        Pomoc psychologiczno-prawna
-                      </Link>
-                    </li>
+                    {contactSubsite &&
+                      contactSubsite.map((item: any) => {
+                        return (
+                          <ContactNavbarSubsite
+                            post_title={item.post_title}
+                            id={item.ID}
+                            key={item.ID}
+                          />
+                        );
+                      })}
                   </ul>
                 ) : null}
                 <li
