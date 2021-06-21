@@ -24,7 +24,7 @@ export default function Footer() {
       </div>
       <div className="text-center p-4">
         <span className="text-white text-base text-center text-lg">
-          Copyright by Zespół Szkół Nr 1 Mińsk Mazowiecki 2010-2020 |{" "}
+          Copyright by Zespół Szkół Nr 1 Mińsk Mazowiecki 2010-2021 |{" "}
           <b>Polityka prywatności</b> | Powered by
           <a href="www.hosuwebsites.com" target="_blank">
             <b className="pointer-click"> HOSU</b>
