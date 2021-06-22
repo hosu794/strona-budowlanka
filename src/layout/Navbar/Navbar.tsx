@@ -207,15 +207,6 @@ function Navbar() {
         <div className="relative group">
           <button className="flex uppercase flex-row items-center w-screen px-4 py-4 mt-2 text-base text-left uppercase bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
             <span className="lg:text-sm xl:text-lg font-extrabold">
-              <Link to="/gallery">Galeria</Link>
-            </span>
-          </button>
-          <div className="absolute z-10 hidden bg-grey-200 group-hover:block"></div>
-        </div>
-
-        <div className="relative group">
-          <button className="flex uppercase flex-row items-center w-screen px-4 py-4 mt-2 text-base text-left uppercase bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
-            <span className="lg:text-sm xl:text-lg font-extrabold">
               Rekrutacja
             </span>
           </button>

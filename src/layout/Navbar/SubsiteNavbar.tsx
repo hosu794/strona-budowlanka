@@ -44,7 +44,6 @@ function SubsiteNavbar() {
     axios
       .get(`${API_SERVER}wp-json/api/v1/contact/subsites`)
       .then((response: any) => {
-        console.log(response.data);
         setContactSubsite(response.data);
       })
       .then((response: any) => {
@@ -233,8 +232,8 @@ function SubsiteNavbar() {
             </button>
             <div className="absolute z-10 hidden bg-grey-200 group-hover:block">
               <div className="px-2 pt-2 font-bold pb-4 bg-green-custom shadow-lg rounded-lg">
-                {recruitment &&
-                  recruitment.map((item: any) => {
+                {recruitationSubsite &&
+                  recruitationSubsite.map((item: any) => {
                     return (
                       <RecruitationNavbarSubsite
                         post_title={item.post_title}
