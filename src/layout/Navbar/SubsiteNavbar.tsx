@@ -445,6 +445,30 @@ function SubsiteNavbar() {
                 </li>
                 {school ? (
                   <ul className="flex flex-col justify-center align-items text-center">
+                    <li
+                      onClick={handleProcedures}
+                      className={
+                        school
+                          ? "p-5 uppercase cursor-pointer underline"
+                          : "p-5 uppercase cursor-pointer"
+                      }
+                    >
+                      Procedury
+                    </li>
+                    {procedures && proceduresSubsites ? (
+                      <ul className="flex flex-col justify-center align-items text-center">
+                        {procedures &&
+                          proceduresSubsites.map((item: any) => {
+                            return (
+                              <ProcedureNavbarSubsite
+                                post_title={item.post_title}
+                                id={item.ID}
+                                key={item.ID}
+                              />
+                            );
+                          })}
+                      </ul>
+                    ) : null}
                     {schoolSubsites &&
                       schoolSubsites.map((item: any) => {
                         return (
