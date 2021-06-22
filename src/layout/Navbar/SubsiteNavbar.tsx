@@ -15,7 +15,10 @@ import RecruitationNavbarSubsite from "./RecruitationNavbarSubsite";
 
 import ContactNavbarSubsite from "./ContactNavbarSubsite";
 
+import ProcedureNavbarSubsite from "./ProceduresNavbarSubsite";
+
 function SubsiteNavbar() {
+  const [school, setSchool] = useState<boolean>(false);
   const [subsites, setSubsites] = useState<Array<ItemType>>();
   const [loading, setLoading] = useState<boolean>(true);
   const [categorySubsite, setCategorySubsite] = useState<Array<ISubsite>>();
@@ -38,7 +41,27 @@ function SubsiteNavbar() {
 
   const [schoolDocuments, setSchoolDocuments] = useState<boolean>(false);
 
+  const [proceduresSubsites, setProceduresSubsites] = useState<any>();
+  const [proceduresLoading, setProceduresLoading] = useState<boolean>();
+  const [proceduresError, setProceduresError] = useState<any>();
+
+  const [procedures, setProcedures] = useState<any>();
   const params = useParams<any>();
+
+  const fetchProceduresSubsite = useCallback(() => {
+    axios
+      .get(`${API_SERVER}wp-json/api/v1/procedures/subsites`)
+      .then((response: any) => {
+        console.log("Procedury", response.data);
+        setProceduresSubsites(response.data);
+      })
+      .then(() => {
+        setProceduresLoading(false);
+      })
+      .catch((error) => {
+        setProceduresLoading(error);
+      });
+  }, []);
 
   const fetchContactSubsite = useCallback(() => {
     axios
@@ -110,12 +133,14 @@ function SubsiteNavbar() {
     fetchSchoolSubsites();
     fetchRecruitmentSubsite();
     fetchContactSubsite();
+    fetchProceduresSubsite();
   }, [
     fetchSubsitesCategories,
     fetchSubsiteByCategory,
     fetchSchoolSubsites,
     fetchRecruitmentSubsite,
     fetchContactSubsite,
+    fetchProceduresSubsite,
   ]);
 
   function handleRecruitation(): void {
@@ -141,6 +166,14 @@ function SubsiteNavbar() {
 
   function tranformHamburger(): void {
     setToggle(!toggle);
+  }
+
+  function handleProcedures(): void {
+    setProcedures(!procedures);
+  }
+
+  function handleSchool(): void {
+    setSchool(!school);
   }
 
   return (
@@ -189,8 +222,35 @@ function SubsiteNavbar() {
                 Szkoła
               </span>
             </button>
-            <div className="absolute z-10 hidden bg-grey-200 group-hover:block">
+            <div
+              style={{
+                width: "50vw",
+              }}
+              className="absolute z-10 hidden bg-grey-200 group-hover:block"
+            >
               <div className="px-2 pt-2 font-bold pb-4 bg-green-custom shadow-lg rounded-lg">
+                <div className="p-2">
+                  <div>
+                    <p
+                      onClick={handleProcedures}
+                      className="uppercase text-white cursor-pointer"
+                    >
+                      Procedury
+                    </p>
+
+                    {proceduresSubsites &&
+                      procedures &&
+                      proceduresSubsites.map((item: any) => {
+                        return (
+                          <ProcedureNavbarSubsite
+                            post_title={item.post_title}
+                            id={item.ID}
+                            key={item.ID}
+                          />
+                        );
+                      })}
+                  </div>
+                </div>
                 {schoolSubsites &&
                   schoolSubsites.map((item: any) => {
                     return (
@@ -373,6 +433,30 @@ function SubsiteNavbar() {
                 <li className="p-5 uppercase cursor-pointer">
                   <Link to="/gallery">Galeria</Link>
                 </li>
+                <li
+                  onClick={handleSchool}
+                  className={
+                    school
+                      ? "p-5 uppercase cursor-pointer underline"
+                      : "p-5 uppercase cursor-pointer"
+                  }
+                >
+                  Szkoła
+                </li>
+                {school ? (
+                  <ul className="flex flex-col justify-center align-items text-center">
+                    {schoolSubsites &&
+                      schoolSubsites.map((item: any) => {
+                        return (
+                          <SchoolNavbarSubsite
+                            post_title={item.post_title}
+                            id={item.ID}
+                            key={item.ID}
+                          />
+                        );
+                      })}
+                  </ul>
+                ) : null}
                 <li className="p-5 uppercase cursor-pointer">
                   <a href="https://zs1mm.bip.gov.pl/">BIP</a>
                 </li>

@@ -41,6 +41,9 @@ function Navbar() {
 
   const [procedures, setProcedures] = useState<any>();
 
+  const [school, setSchool] = useState<boolean>(false);
+  const [proceduresMobile, setProceduresMobile] = useState<boolean>(false);
+
   const fetchProceduresSubsite = useCallback(() => {
     axios
       .get(`${API_SERVER}wp-json/api/v1/procedures/subsites`)
@@ -146,6 +149,10 @@ function Navbar() {
 
   function handleProcedures(): void {
     setProcedures(!procedures);
+  }
+
+  function handleSchool(): void {
+    setSchool(!school);
   }
 
   return (
@@ -410,6 +417,30 @@ function Navbar() {
               <li className="p-5 uppercase cursor-pointer">
                 <Link to="/gallery">Galeria</Link>
               </li>
+              <li
+                onClick={handleSchool}
+                className={
+                  school
+                    ? "p-5 uppercase cursor-pointer underline"
+                    : "p-5 uppercase cursor-pointer"
+                }
+              >
+                Szkoła
+              </li>
+              {school ? (
+                <ul className="flex flex-col justify-center align-items text-center">
+                  {schoolSubsites &&
+                    schoolSubsites.map((item: any) => {
+                      return (
+                        <SchoolNavbarSubsite
+                          post_title={item.post_title}
+                          id={item.ID}
+                          key={item.ID}
+                        />
+                      );
+                    })}
+                </ul>
+              ) : null}
               <li className="p-5 uppercase cursor-pointer">
                 <a href="https://zs1mm.bip.gov.pl/">BIP</a>
               </li>
