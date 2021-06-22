@@ -18,6 +18,7 @@ import SchoolSubsite from "./layout/Subsites/SchoolSubsite";
 import RecruitationSubsite from "./layout/Subsites/RecruitationSubsite";
 import ContactSubsite from "./layout/Subsites/ContactSubsite";
 import ProcedureSubsite from "./layout/Subsites/ProcedureSubsite";
+import RecruitationProcedureSubsite from "./layout/Subsites/RecruitatioProcedureSubsite";
 
 const App: React.FC<any> = () => {
   return (
@@ -30,6 +31,11 @@ const App: React.FC<any> = () => {
             component={RecruitationSubsite}
             exact
             path="/recruitation/subsite/:id"
+          />
+          <Route
+            component={RecruitationProcedureSubsite}
+            exact
+            path="/recruitation/procedures/subsite/:id"
           />
           <Route
             component={ProcedureSubsite}

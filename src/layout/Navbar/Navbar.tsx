@@ -15,6 +15,8 @@ import ContactNavbarSubsite from "./ContactNavbarSubsite";
 
 import ProcedureNavbarSubsite from "./ProceduresNavbarSubsite";
 
+import RecruitationProceduresNavbarSubsite from "./RecruitationProceduresNavbarSubsite";
+
 function Navbar() {
   const [subsites, setSubsites] = useState<any>();
   const [loading, setLoading] = useState<boolean>(true);
@@ -44,20 +46,27 @@ function Navbar() {
   const [school, setSchool] = useState<boolean>(false);
   const [proceduresMobile, setProceduresMobile] = useState<boolean>(false);
 
-  const [recruitationProcedures, setRecruitationProcedures] = useState<any>();
-  const [recruitationProceduresLoading, setRecruitationProceduresLoading] =
+  const [recruitationProceduresSubsites, setRecruitationProceduresSubsites] =
     useState<any>();
+  const [
+    recruitationProceduresLoadingSubsites,
+    setRecruitationProceduresLoadingSubsites,
+  ] = useState<any>();
   const [recruitationProceduresError, setRecruitationProceduresError] =
     useState<any>();
+
+  const [recruitationProcedures, setRecruitationProcedures] =
+    useState<boolean>();
 
   const fetchRetruitationProceduresSubsites = useCallback(() => {
     axios
       .get(`${API_SERVER}wp-json/api/v1/recruitation/procedures/subsites`)
       .then((response: any) => {
         console.log("Recruitation Procedures: ", response.data);
+        setRecruitationProceduresSubsites(response.data);
       })
       .then(() => {
-        setRecruitationProceduresLoading(false);
+        setRecruitationProceduresLoadingSubsites(false);
       })
       .catch((error) => {
         setRecruitationProceduresError(error);
@@ -174,6 +183,10 @@ function Navbar() {
 
   function handleSchool(): void {
     setSchool(!school);
+  }
+
+  function handleRecruitationProcedures(): void {
+    setRecruitationProcedures(!recruitationProcedures);
   }
 
   return (
@@ -294,8 +307,35 @@ function Navbar() {
               Rekrutacja
             </span>
           </button>
-          <div className="absolute z-10 hidden bg-grey-200 group-hover:block">
+          <div
+            style={{
+              width: "30vw",
+            }}
+            className="absolute z-10 hidden bg-grey-200 group-hover:block"
+          >
             <div className="px-2 pt-2 font-bold pb-4 bg-green-custom shadow-lg rounded-lg">
+              <div className="p-2">
+                <div>
+                  <p
+                    onClick={handleRecruitationProcedures}
+                    className="uppercase text-white cursor-pointer"
+                  >
+                    Proces Rekrutacji
+                  </p>
+
+                  {recruitationProceduresSubsites &&
+                    recruitationProcedures &&
+                    recruitationProceduresSubsites.map((item: any) => {
+                      return (
+                        <RecruitationProceduresNavbarSubsite
+                          post_title={item.post_title}
+                          id={item.ID}
+                          key={item.ID}
+                        />
+                      );
+                    })}
+                </div>
+              </div>
               {recruitationSubsite &&
                 recruitationSubsite.map((item: any) => {
                   return (

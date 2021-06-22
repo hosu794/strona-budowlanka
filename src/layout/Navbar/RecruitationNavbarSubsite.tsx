@@ -13,13 +13,17 @@ const RecruitationNavbarSubsite: React.FC<NavbarSubsiteItemProps> = ({
 }: any) => {
   const link = `/recruitation/subsite/${id}`;
 
-  return (
-    <div className="p-2 text-white">
-      <Link to={link}>
-        <p className="uppercase">{post_title}</p>
-      </Link>
-    </div>
-  );
+  if (post_title === "Proces Rekrutacji") {
+    return <div></div>;
+  } else {
+    return (
+      <div className="p-2">
+        <Link to={link}>
+          <p className="uppercase text-white">{post_title}</p>
+        </Link>
+      </div>
+    );
+  }
 };
 
 export default RecruitationNavbarSubsite;
