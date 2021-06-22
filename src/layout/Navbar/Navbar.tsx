@@ -13,6 +13,8 @@ import RecruitationNavbarSubsite from "./RecruitationNavbarSubsite";
 
 import ContactNavbarSubsite from "./ContactNavbarSubsite";
 
+import ProcedureNavbarSubsite from "./ProceduresNavbarSubsite";
+
 function Navbar() {
   const [subsites, setSubsites] = useState<any>();
   const [loading, setLoading] = useState<boolean>(true);
@@ -32,6 +34,27 @@ function Navbar() {
   const [recruitationSubsite, setRecruitationSubsite] = useState<any>(false);
   const [lessons, setLessons] = useState<boolean>(false);
   const [contact, setContact] = useState<boolean>(false);
+
+  const [proceduresSubsites, setProceduresSubsites] = useState<any>();
+  const [proceduresLoading, setProceduresLoading] = useState<boolean>();
+  const [proceduresError, setProceduresError] = useState<any>();
+
+  const [procedures, setProcedures] = useState<any>();
+
+  const fetchProceduresSubsite = useCallback(() => {
+    axios
+      .get(`${API_SERVER}wp-json/api/v1/procedures/subsites`)
+      .then((response: any) => {
+        console.log("Procedury", response.data);
+        setProceduresSubsites(response.data);
+      })
+      .then(() => {
+        setProceduresLoading(false);
+      })
+      .catch((error) => {
+        setProceduresLoading(error);
+      });
+  }, []);
 
   const fetchContactSubsite = useCallback(() => {
     axios
@@ -92,8 +115,10 @@ function Navbar() {
     fetchSchoolSubsites();
     fetchRecruitmentSubsite();
     fetchContactSubsite();
+    fetchProceduresSubsite();
   }, [
     fetchSubsitesCategories,
+    fetchProceduresSubsite,
     fetchSchoolSubsites,
     fetchRecruitmentSubsite,
     fetchContactSubsite,
@@ -117,6 +142,10 @@ function Navbar() {
 
   function tranformHamburger(): void {
     setToggle(!toggle);
+  }
+
+  function handleProcedures(): void {
+    setProcedures(!procedures);
   }
 
   return (
@@ -169,8 +198,35 @@ function Navbar() {
           <button className="flex uppercase flex-row items-center w-screen px-4 py-4 mt-2 text-base text-left uppercase bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
             <span className="lg:text-sm xl:text-lg font-extrabold">Szkoła</span>
           </button>
-          <div className="absolute z-10 hidden bg-grey-200 group-hover:block">
+          <div
+            style={{
+              width: "50vw",
+            }}
+            className="absolute z-10 hidden bg-grey-200 group-hover:block"
+          >
             <div className="px-2 pt-2 font-bold pb-4 bg-green-custom shadow-lg rounded-lg">
+              <div className="p-2">
+                <div>
+                  <p
+                    onClick={handleProcedures}
+                    className="uppercase text-white cursor-pointer"
+                  >
+                    Procedury
+                  </p>
+
+                  {proceduresSubsites &&
+                    procedures &&
+                    proceduresSubsites.map((item: any) => {
+                      return (
+                        <ProcedureNavbarSubsite
+                          post_title={item.post_title}
+                          id={item.ID}
+                          key={item.ID}
+                        />
+                      );
+                    })}
+                </div>
+              </div>
               {schoolSubsites &&
                 schoolSubsites.map((item: any) => {
                   return (
