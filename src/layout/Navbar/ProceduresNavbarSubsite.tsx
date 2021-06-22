@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useEffect } from "react";
 
 import { Link } from "react-router-dom";
 
@@ -11,7 +12,11 @@ const ProcedureNavbarSubsite: React.FC<NavbarSubsiteItemProps> = ({
   post_title,
   id,
 }: any) => {
-  const link = `/procedure/subsite/${id}; `;
+  const link = `/procedure/subsite/${id}`;
+
+  useEffect(() => {
+    console.log(link);
+  }, [link]);
 
   return (
     <div className="p-2 text-white">
