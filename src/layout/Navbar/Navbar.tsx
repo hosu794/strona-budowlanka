@@ -44,18 +44,37 @@ function Navbar() {
   const [school, setSchool] = useState<boolean>(false);
   const [proceduresMobile, setProceduresMobile] = useState<boolean>(false);
 
+  const [recruitationProcedures, setRecruitationProcedures] = useState<any>();
+  const [recruitationProceduresLoading, setRecruitationProceduresLoading] =
+    useState<any>();
+  const [recruitationProceduresError, setRecruitationProceduresError] =
+    useState<any>();
+
+  const fetchRetruitationProceduresSubsites = useCallback(() => {
+    axios
+      .get(`${API_SERVER}wp-json/api/v1/recruitation/procedures/subsites`)
+      .then((response: any) => {
+        console.log("Recruitation Procedures: ", response.data);
+      })
+      .then(() => {
+        setRecruitationProceduresLoading(false);
+      })
+      .catch((error) => {
+        setRecruitationProceduresError(error);
+      });
+  }, []);
+
   const fetchProceduresSubsite = useCallback(() => {
     axios
       .get(`${API_SERVER}wp-json/api/v1/procedures/subsites`)
       .then((response: any) => {
-        console.log("Procedury", response.data);
         setProceduresSubsites(response.data);
       })
       .then(() => {
         setProceduresLoading(false);
       })
       .catch((error) => {
-        setProceduresLoading(error);
+        setProceduresLoading(false);
       });
   }, []);
 
@@ -119,12 +138,14 @@ function Navbar() {
     fetchRecruitmentSubsite();
     fetchContactSubsite();
     fetchProceduresSubsite();
+    fetchRetruitationProceduresSubsites();
   }, [
     fetchSubsitesCategories,
     fetchProceduresSubsite,
     fetchSchoolSubsites,
     fetchRecruitmentSubsite,
     fetchContactSubsite,
+    fetchRetruitationProceduresSubsites,
   ]);
 
   function handleRecruitation(): void {
@@ -207,7 +228,7 @@ function Navbar() {
           </button>
           <div
             style={{
-              width: "50vw",
+              width: "30vw",
             }}
             className="absolute z-10 hidden bg-grey-200 group-hover:block"
           >

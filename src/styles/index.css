@@ -78,7 +78,7 @@ td {
 
 ul {
   list-style-type: square;
-  margin-left: 40px;
+  margin-left: 20px;
 }
 
 ol {
@@ -91,4 +91,8 @@ ol {
 
 a {
   font-weight: bold;
+}
+
+ol {
+  margin-left: 50px;
 }
