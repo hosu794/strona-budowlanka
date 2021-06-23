@@ -17,6 +17,8 @@ import ContactNavbarSubsite from "./ContactNavbarSubsite";
 
 import ProcedureNavbarSubsite from "./ProceduresNavbarSubsite";
 
+import RecruitationProceduresNavbarSubsite from "./RecruitationProceduresNavbarSubsite";
+
 function SubsiteNavbar() {
   const [school, setSchool] = useState<boolean>(false);
   const [subsites, setSubsites] = useState<Array<ItemType>>();
@@ -47,6 +49,36 @@ function SubsiteNavbar() {
 
   const [procedures, setProcedures] = useState<any>();
   const params = useParams<any>();
+
+  const [recruitationProceduresSubsites, setRecruitationProceduresSubsites] =
+    useState<any>();
+  const [
+    recruitationProceduresLoadingSubsites,
+    setRecruitationProceduresLoadingSubsites,
+  ] = useState<any>();
+  const [recruitationProceduresError, setRecruitationProceduresError] =
+    useState<any>();
+
+  const [recruitationProcedures, setRecruitationProcedures] =
+    useState<boolean>();
+
+  const [recruitationProceduresMobile, setRecruitationProceduresMobile] =
+    useState<any>();
+
+  const fetchRetruitationProceduresSubsites = useCallback(() => {
+    axios
+      .get(`${API_SERVER}wp-json/api/v1/recruitation/procedures/subsites`)
+      .then((response: any) => {
+        console.log("Recruitation Procedures: ", response.data);
+        setRecruitationProceduresSubsites(response.data);
+      })
+      .then(() => {
+        setRecruitationProceduresLoadingSubsites(false);
+      })
+      .catch((error) => {
+        setRecruitationProceduresError(error);
+      });
+  }, []);
 
   const fetchProceduresSubsite = useCallback(() => {
     axios
@@ -134,12 +166,14 @@ function SubsiteNavbar() {
     fetchRecruitmentSubsite();
     fetchContactSubsite();
     fetchProceduresSubsite();
+    fetchRetruitationProceduresSubsites();
   }, [
     fetchSubsitesCategories,
     fetchSubsiteByCategory,
     fetchSchoolSubsites,
     fetchRecruitmentSubsite,
     fetchContactSubsite,
+    fetchRetruitationProceduresSubsites,
     fetchProceduresSubsite,
   ]);
 
@@ -174,6 +208,14 @@ function SubsiteNavbar() {
 
   function handleSchool(): void {
     setSchool(!school);
+  }
+
+  function handleRecruitationProcedures(): void {
+    setRecruitationProcedures(!recruitationProcedures);
+  }
+
+  function handleRecruitationProceduresMobile(): void {
+    setRecruitationProceduresMobile(!recruitationProceduresMobile);
   }
 
   return (
@@ -290,8 +332,35 @@ function SubsiteNavbar() {
                 Rekrutacja
               </span>
             </button>
-            <div className="absolute z-10 hidden bg-grey-200 group-hover:block">
+            <div
+              style={{
+                width: "30vw",
+              }}
+              className="absolute z-10 hidden bg-grey-200 group-hover:block"
+            >
               <div className="px-2 pt-2 font-bold pb-4 bg-green-custom shadow-lg rounded-lg">
+                <div className="p-2">
+                  <div>
+                    <p
+                      onClick={handleRecruitationProcedures}
+                      className="uppercase text-white cursor-pointer"
+                    >
+                      Proces Rekrutacji
+                    </p>
+
+                    {recruitationProceduresSubsites &&
+                      recruitationProcedures &&
+                      recruitationProceduresSubsites.map((item: any) => {
+                        return (
+                          <RecruitationProceduresNavbarSubsite
+                            post_title={item.post_title}
+                            id={item.ID}
+                            key={item.ID}
+                          />
+                        );
+                      })}
+                  </div>
+                </div>
                 {recruitationSubsite &&
                   recruitationSubsite.map((item: any) => {
                     return (
@@ -496,16 +565,27 @@ function SubsiteNavbar() {
                 </li>
                 {recruitation ? (
                   <ul className="flex flex-col justify-center align-items text-center">
-                    {recruitationSubsite &&
-                      recruitationSubsite.map((item: any) => {
-                        return (
-                          <RecruitationNavbarSubsite
-                            post_title={item.post_title}
-                            id={item.ID}
-                            key={item.ID}
-                          />
-                        );
-                      })}
+                    <li
+                      className="p-5 uppercase cursor-pointer"
+                      onClick={handleRecruitationProceduresMobile}
+                    >
+                      Proces Rekrutacji
+                    </li>
+                    {recruitationProceduresMobile &&
+                    recruitationProceduresSubsites ? (
+                      <ul className="flex flex-col justify-center align-items text-center">
+                        {recruitationProceduresMobile &&
+                          recruitationProceduresSubsites.map((item: any) => {
+                            return (
+                              <RecruitationProceduresNavbarSubsite
+                                post_title={item.post_title}
+                                id={item.ID}
+                                key={item.ID}
+                              />
+                            );
+                          })}
+                      </ul>
+                    ) : null}
                   </ul>
                 ) : null}
                 <li
