@@ -10,22 +10,31 @@ const Gallery: React.FC<null> = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [data, setData] = useState<IFolder[]>([]);
 
-  const getFolders = () => {
+  const getFolderWithSubfolders = () => {
+    const token = "lW3vC2c6Pe0u4haQK6En1h1OX7DEwPot5CsREdLC";
+
+    const config = {
+      headers: { Authorization: `Bearer ${token}` },
+    };
+
     axios
-      .get(`${API_SERVER}/wp-json/api/v1/folders`)
+      .get(
+        "https://serwer2124775.home.pl/wp-json/filebird/public/v1/folders",
+        config
+      )
       .then((response) => {
-        console.log(response.data);
         setLoading(false);
-        setData(response.data);
+        setData(response.data.data.folders);
+        console.log("SubFOlders: ", response.data.data.folders);
       })
       .catch((err: Error) => {
+        console.log(err);
         setLoading(false);
-        console.error(err);
       });
   };
 
   useEffect(() => {
-    getFolders();
+    getFolderWithSubfolders();
     console.log(`Fetching a feed...`);
   }, []);
 
@@ -44,12 +53,13 @@ const Gallery: React.FC<null> = () => {
         </div>
         <div className="w-auto flex flex-col items-center w-8/12">
           {data &&
-            data.map((item) => (
+            data.map((item: any) => (
               <GalleryFolder
                 key={item.id}
                 id={item.id}
-                title={item.absolute}
-                owner={item.owner}
+                attachemntsCount={Object.values(item.li_attr)[1]}
+                folderChildren={item.children}
+                title={item.text}
               />
             ))}
           {loading && (

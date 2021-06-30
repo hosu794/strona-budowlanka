@@ -6,8 +6,9 @@ export interface IFolder {
 
 export type FolderProps = {
   title: string;
-  id: number;
-  owner: number;
+  folderChildren?: any
+  id: number | string; 
+  attachemntsCount: any; 
 };
 
 export interface IFolderParam {
