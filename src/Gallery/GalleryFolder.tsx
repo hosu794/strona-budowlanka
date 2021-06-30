@@ -45,6 +45,7 @@ const GalleryFolder: React.FC<FolderProps> = ({
     setToggle(!toggle);
   };
 
+  //bg-white rounded-xl shadow-md overflow-hidden w-full md:w-1/2 m-5
   return (
     <div className="bg-white rounded-xl overflow-hidden w-full">
       <div className="md:flex">
@@ -53,7 +54,10 @@ const GalleryFolder: React.FC<FolderProps> = ({
             {/* {loading && "Ładowanie..."} */}
 
             {folderChildren.length > 0 && title ? (
-              <div onClick={handleClick} className="cursor-pointer">
+              <div
+                onClick={handleClick}
+                // className="cursor-pointer shadow-md rounded-md"
+              >
                 <div className="flex flex-row">
                   <h1
                     className="text-xl p-5"

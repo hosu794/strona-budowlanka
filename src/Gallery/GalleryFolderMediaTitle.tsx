@@ -12,16 +12,23 @@ const GalleryFolderMediaTitle: React.FC<GalleryFolderMediaTitleProps> = ({
   const [title, setTitle] = useState("");
 
   const dispatchResponse = (data: any): void => {
-    console.log(data.name);
     setTitle(data.name);
   };
 
   const fetchCurrentFolderName = useCallback((id: string | undefined) => {
-    axios
-      .get(`${API_SERVER}/wp-json/api/v1/folders/${id}`)
+    const token = "lW3vC2c6Pe0u4haQK6En1h1OX7DEwPot5CsREdLC";
 
+    const config = {
+      headers: { Authorization: `Bearer ${token}` },
+    };
+
+    axios
+      .get(
+        `http://serwer2124775.home.pl/wp-json/filebird/public/v1/folder/?folder_id=${id}`,
+        config
+      )
       .then((response) => {
-        return dispatchResponse(response.data);
+        return dispatchResponse(response.data.data.folder);
       })
       .catch((error: any) => {
         console.warn(error);
@@ -34,7 +41,9 @@ const GalleryFolderMediaTitle: React.FC<GalleryFolderMediaTitleProps> = ({
 
   return (
     <React.Fragment>
-      <h1 className="pt-10">{title && title}</h1>
+      <h1 className="pt-20 text-2xl">
+        Nazwa katalogu: <b>{title && title}</b>
+      </h1>
     </React.Fragment>
   );
 };

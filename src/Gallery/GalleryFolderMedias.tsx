@@ -169,8 +169,8 @@ const GalleryFolderMedias: React.FC<null> = () => {
             </svg>
           </div>
         )}
+        <GalleryFolderMediaTitle id={params.id} />
         <div className="flex flex-wrap pt-10 min-h-1/3">
-          <GalleryFolderMediaTitle id={params.id} />
           {content
             ? content.map((item: any, index: number) => (
                 <GalleryFolderMedia guid={item.guid} ID={item.ID} key={index} />
