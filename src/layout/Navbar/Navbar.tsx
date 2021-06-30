@@ -41,6 +41,9 @@ function Navbar() {
   const [proceduresLoading, setProceduresLoading] = useState<boolean>();
   const [proceduresError, setProceduresError] = useState<any>();
 
+  const [recruitationProceduresMobile, setRecruitationProceduresMobile] =
+    useState<any>();
+
   const [procedures, setProcedures] = useState<any>();
 
   const [school, setSchool] = useState<boolean>(false);
@@ -187,6 +190,10 @@ function Navbar() {
 
   function handleRecruitationProcedures(): void {
     setRecruitationProcedures(!recruitationProcedures);
+  }
+
+  function handleRecruitationProceduresMobile(): void {
+    setRecruitationProceduresMobile(!recruitationProceduresMobile);
   }
 
   return (
@@ -541,16 +548,27 @@ function Navbar() {
               </li>
               {recruitation ? (
                 <ul className="flex flex-col justify-center align-items text-center">
-                  {recruitationSubsite &&
-                    recruitationSubsite.map((item: any) => {
-                      return (
-                        <RecruitationNavbarSubsite
-                          post_title={item.post_title}
-                          id={item.ID}
-                          key={item.ID}
-                        />
-                      );
-                    })}
+                  <li
+                    className="p-5 uppercase cursor-pointer"
+                    onClick={handleRecruitationProceduresMobile}
+                  >
+                    Proces Rekrutacji
+                  </li>
+                  {recruitationProceduresMobile &&
+                  recruitationProceduresSubsites ? (
+                    <ul className="flex flex-col justify-center align-items text-center">
+                      {recruitationProceduresMobile &&
+                        recruitationProceduresSubsites.map((item: any) => {
+                          return (
+                            <RecruitationProceduresNavbarSubsite
+                              post_title={item.post_title}
+                              id={item.ID}
+                              key={item.ID}
+                            />
+                          );
+                        })}
+                    </ul>
+                  ) : null}
                 </ul>
               ) : null}
               <li

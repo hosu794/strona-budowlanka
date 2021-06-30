@@ -34,7 +34,9 @@ const GalleryFolderMedias: React.FC<null> = () => {
   const fetchPagedMedias = useCallback(
     (page: number) => {
       axios
-        .get(`${API_SERVER}wp-json/api/v1/images/${params.id}?page=${page}`)
+        .get(
+          `${API_SERVER}wp-json/api/v1/attachments/${params.id}?page=${page}`
+        )
         .then((response) => {
           return dispatchPaginatedData(response.data);
         })
