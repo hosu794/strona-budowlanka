@@ -13,6 +13,8 @@ const GalleryFolder: React.FC<FolderProps> = ({
 }) => {
   const linkToImages = `/gallery/folder/${id}`;
 
+  const [toggle, setToggle] = useState<boolean>(false);
+
   // const [loading, setLoading] = useState<boolean>(true);
   // const [data, setData] = useState<IMediaPagedResponseItem>();
 
@@ -39,6 +41,10 @@ const GalleryFolder: React.FC<FolderProps> = ({
     }
   }, [attachemntsCount]);
 
+  const handleClick = () => {
+    setToggle(!toggle);
+  };
+
   return (
     <div className="bg-white rounded-xl overflow-hidden w-full">
       <div className="md:flex">
@@ -47,10 +53,10 @@ const GalleryFolder: React.FC<FolderProps> = ({
             {/* {loading && "Ładowanie..."} */}
 
             {folderChildren.length > 0 && title ? (
-              <div>
+              <div onClick={handleClick} className="cursor-pointer">
                 <div className="flex flex-row">
                   <h1
-                    className="text-xl p-4"
+                    className="text-xl p-5"
                     style={{
                       color: "#3559A4",
                     }}
@@ -58,12 +64,11 @@ const GalleryFolder: React.FC<FolderProps> = ({
                     {title}
                   </h1>
                 </div>
-                <p className="ml-10">Brak zdjęć </p>
               </div>
             ) : (
               <div>
                 <Link to={linkToImages}>
-                  <div className="flex flex-row">
+                  <div className="flex flex-row ml-10">
                     <h1
                       className="text-xl p-4"
                       style={{
@@ -76,16 +81,17 @@ const GalleryFolder: React.FC<FolderProps> = ({
                 </Link>
               </div>
             )}
-            {folderChildren &&
-              folderChildren.map((item: any) => (
-                <GalleryFolder
-                  title={item.text}
-                  key={item.id}
-                  id={item.id}
-                  attachemntsCount={Object.values(item.li_attr)[1]}
-                  folderChildren={item.children}
-                />
-              ))}
+            {folderChildren && toggle
+              ? folderChildren.map((item: any) => (
+                  <GalleryFolder
+                    title={item.text}
+                    key={item.id}
+                    id={item.id}
+                    attachemntsCount={Object.values(item.li_attr)[1]}
+                    folderChildren={item.children}
+                  />
+                ))
+              : null}
           </div>
         </div>
       </div>
