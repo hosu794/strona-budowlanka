@@ -34,12 +34,12 @@ const GalleryFolder: React.FC<FolderProps> = ({
   //     });
   // }, [id]);
 
-  useEffect(() => {
-    console.log("Folder count... ", folderChildren.length);
-    if (attachemntsCount > 0) {
-      // getFirstElelemt();
-    }
-  }, [attachemntsCount]);
+  // useEffect(() => {
+  //   console.log("Folder count... ", folderChildren.length);
+  //   if (attachemntsCount > 0) {
+  //     // getFirstElelemt();
+  //   }
+  // }, [attachemntsCount]);
 
   const handleClick = () => {
     setToggle(!toggle);
@@ -56,11 +56,11 @@ const GalleryFolder: React.FC<FolderProps> = ({
             {folderChildren.length > 0 && title ? (
               <div
                 onClick={handleClick}
-                // className="cursor-pointer shadow-md rounded-md"
+                className="cursor-pointer shadow-md rounded-md"
               >
                 <div className="flex flex-row">
                   <h1
-                    className="text-xl p-5"
+                    className="text-2xl p-5"
                     style={{
                       color: "#3559A4",
                     }}
@@ -70,11 +70,11 @@ const GalleryFolder: React.FC<FolderProps> = ({
                 </div>
               </div>
             ) : (
-              <div>
+              <div className="cursor-pointer shadow-md rounded-md">
                 <Link to={linkToImages}>
                   <div className="flex flex-row ml-10">
                     <h1
-                      className="text-xl p-4"
+                      className="text-2xl p-4"
                       style={{
                         color: "#3559A4",
                       }}

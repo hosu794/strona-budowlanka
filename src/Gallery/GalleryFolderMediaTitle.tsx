@@ -41,9 +41,7 @@ const GalleryFolderMediaTitle: React.FC<GalleryFolderMediaTitleProps> = ({
 
   return (
     <React.Fragment>
-      <h1 className="pt-20 text-2xl">
-        Nazwa katalogu: <b>{title && title}</b>
-      </h1>
+      <h1 className="pt-20 text-2xl">{title && title}</h1>
     </React.Fragment>
   );
 };
