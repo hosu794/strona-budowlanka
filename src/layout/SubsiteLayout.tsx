@@ -12,7 +12,7 @@ const SubsiteLayout = ({ children, title }: ISubsiteLayout) => {
       <div className="min-h-screen flex flex-col justify-center items-center mt-20">
         <div className="flex flex-row space-between pb-20 pt-20 w-8/12 justify-between">
           <h1
-            className="uppercase text-2xl font-extrabold"
+            className="text-2xl font-extrabold"
             style={{
               color: "#3559A4",
             }}

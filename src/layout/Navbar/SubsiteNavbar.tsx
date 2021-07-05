@@ -235,7 +235,7 @@ function SubsiteNavbar() {
             />
           </Link>
           <Link className="link-none" to="/">
-            <h1 className="uppercase font-bold text-3xl tracking-wide cursor-pointer">
+            <h1 className="font-bold text-3xl tracking-wide cursor-pointer">
               ZS1MMZ
             </h1>
           </Link>
@@ -243,7 +243,7 @@ function SubsiteNavbar() {
 
         <div className="hidden flex items-center justify-start lg:flex">
           <div className="relative group">
-            <button className="flex flex-row items-center w-screen px-4 py-4 mt-2 text-base text-left uppercase bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
+            <button className="flex flex-row items-center w-screen px-4 py-4 mt-2 text-base text-left bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
               <span className="lg:text-sm xl:text-lg font-extrabold">
                 <Link className="link-none" to="/posts">
                   Aktualności
@@ -253,7 +253,7 @@ function SubsiteNavbar() {
           </div>
 
           <div className="relative group">
-            <button className="flex flex-row items-center w-screen px-4 py-4 mt-2 text-base text-left uppercase bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
+            <button className="flex flex-row items-center w-screen px-4 py-4 mt-2 text-base text-left bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
               <span className="lg:text-sm xl:text-lg font-extrabold">
                 <a className="link-none" href="https://zs1mm.bip.gov.pl/">
                   BIP
@@ -263,7 +263,7 @@ function SubsiteNavbar() {
           </div>
 
           <div className="relative group">
-            <button className="flex uppercase flex-row items-center w-screen px-4 py-4 mt-2 text-base text-left uppercase bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
+            <button className="flex flex-row items-center w-screen px-4 py-4 mt-2 text-base text-left bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
               <span className="lg:text-sm xl:text-lg font-extrabold">
                 Szkoła
               </span>
@@ -279,7 +279,7 @@ function SubsiteNavbar() {
                   <div>
                     <p
                       onClick={handleProcedures}
-                      className="uppercase text-white cursor-pointer"
+                      className="text-white cursor-pointer"
                     >
                       Procedury
                       <i className="ml-1 fas fa-scroll"></i>
@@ -309,12 +309,12 @@ function SubsiteNavbar() {
                     );
                   })}
                 {/* <div className="p-2">
-                <p className="uppercase text-white text-lg">
+                <p className="text-white text-lg">
                   <Link to="/education-offer">Oferta edukacyjna</Link>
                 </p>
               </div>
               <div className="p-2">
-                <p className="uppercase text-white text-lg">
+                <p className="text-white text-lg">
                   <Link to="/recrutation">Proces rekrutacji</Link>
                 </p>
               </div> */}
@@ -323,7 +323,7 @@ function SubsiteNavbar() {
           </div>
 
           <div className="relative group">
-            <button className="flex uppercase flex-row items-center w-screen px-4 py-4 mt-2 text-base text-left uppercase bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
+            <button className="flex flex-row items-center w-screen px-4 py-4 mt-2 text-base text-left bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
               <span className="lg:text-sm xl:text-lg font-extrabold">
                 <Link className="link-none" to="/gallery">
                   Galeria
@@ -334,7 +334,7 @@ function SubsiteNavbar() {
           </div>
 
           <div className="relative group">
-            <button className="flex uppercase flex-row items-center w-screen px-4 py-4 mt-2 text-base text-left uppercase bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
+            <button className="flex flex-row items-center w-screen px-4 py-4 mt-2 text-base text-left bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
               <span className="lg:text-sm xl:text-lg font-extrabold">
                 Rekrutacja
               </span>
@@ -350,7 +350,7 @@ function SubsiteNavbar() {
                   <div>
                     <p
                       onClick={handleRecruitationProcedures}
-                      className="uppercase text-white cursor-pointer"
+                      className="text-white cursor-pointer"
                     >
                       Proces Rekrutacji
                       <i className="ml-1 fas fa-scroll"></i>
@@ -380,12 +380,12 @@ function SubsiteNavbar() {
                     );
                   })}
                 {/* <div className="p-2">
-                <p className="uppercase text-white text-lg">
+                <p className="text-white text-lg">
                   <Link to="/education-offer">Oferta edukacyjna</Link>
                 </p>
               </div>
               <div className="p-2">
-                <p className="uppercase text-white text-lg">
+                <p className="text-white text-lg">
                   <Link to="/recrutation">Proces rekrutacji</Link>
                 </p>
               </div> */}
@@ -394,14 +394,14 @@ function SubsiteNavbar() {
           </div>
 
           <div className="relative group">
-            <button className="flex uppercase flex-row items-center w-screen px-4 py-4 mt-2 text-base text-left uppercase bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
+            <button className="flex flex-row items-center w-screen px-4 py-4 mt-2 text-base text-left bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
               <span className="lg:text-sm xl:text-lg font-extrabold">
                 Dziennik
               </span>
             </button>
             <div className="absolute z-10 hidden bg-grey-200 group-hover:block">
               <div className="p-4 font-bold text-white bg-green-custom shadow-lg rounded-lg">
-                <p className="uppercase p-1">
+                <p className="p-1">
                   <a
                     className="link-none"
                     href="https://uonetplus-uczen.vulcan.net.pl/powiatminski"
@@ -410,17 +410,21 @@ function SubsiteNavbar() {
                     Vulcan
                   </a>
                 </p>
-                <p className="uppercase p-1">
-                  <Link className="link-none" to="/lessons">
-                    Plan Lekcji
-                  </Link>
+                <p className="p-1">
+                  <a
+                    className="link-none"
+                    href="https://uonetplus-uczen.vulcan.net.pl/powiatminski"
+                    target="no_blank"
+                  >
+                    Vulcan
+                  </a>
                 </p>
               </div>
             </div>
           </div>
 
           <div className="relative group">
-            <button className="flex uppercase flex-row items-center w-screen px-4 py-4 mt-2 text-base text-left uppercase bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
+            <button className="flex flex-row items-center w-screen px-4 py-4 mt-2 text-base text-left bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
               <span className="lg:text-sm xl:text-lg font-extrabold">
                 Kontakt
               </span>
@@ -437,10 +441,10 @@ function SubsiteNavbar() {
                       />
                     );
                   })}
-                {/* <p className="uppercase p-1">
+                {/* <p className="p-1">
                 <Link to="/help">Pomoc psychologiczno-prawna</Link>
               </p>
-              <p className="uppercase p-1">
+              <p className="p-1">
                 <Link to="/contact">Kontakt do Szkoły</Link>
               </p> */}
               </div>
@@ -448,7 +452,7 @@ function SubsiteNavbar() {
           </div>
 
           <div className="relative group">
-            <button className="flex uppercase flex-row items-center w-screen px-4 py-4 mt-2 text-base text-left uppercase bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
+            <button className="flex flex-row items-center w-screen px-4 py-4 mt-2 text-base text-left bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
               <span className="lg:text-sm xl:text-lg font-extrabold">
                 Dodatkowe informacje
               </span>
@@ -503,16 +507,16 @@ function SubsiteNavbar() {
         >
           <div className="h-screen p-6 bg-red-custom overflow-y-auto">
             <div>
-              <ul className="text-white list-none flex justify-center sm:text-lg md:text-2xl uppercase text-align flex-col h-2/3 mt-10 font-bold">
-                {/* <li className="p-5 uppercase cursor-pointer">
+              <ul className="text-white list-none flex justify-center sm:text-lg md:text-2xl text-align flex-col h-2/3 mt-10 font-bold">
+                {/* <li className="p-5 cursor-pointer">
                 <Link to="/library">Biblioteka</Link>
               </li> */}{" "}
-                <li className="p-5 uppercase cursor-pointer">
+                <li className="p-5 cursor-pointer">
                   <Link className="link-none" to="/posts">
                     Aktualnośći
                   </Link>
                 </li>
-                <li className="p-5 uppercase cursor-pointer">
+                <li className="p-5 cursor-pointer">
                   <Link className="link-none" to="/gallery">
                     Galeria
                   </Link>
@@ -521,8 +525,8 @@ function SubsiteNavbar() {
                   onClick={handleSchool}
                   className={
                     school
-                      ? "p-5 uppercase cursor-pointer underline"
-                      : "p-5 uppercase cursor-pointer"
+                      ? "p-5 cursor-pointer underline"
+                      : "p-5 cursor-pointer"
                   }
                 >
                   Szkoła
@@ -533,8 +537,8 @@ function SubsiteNavbar() {
                       onClick={handleProcedures}
                       className={
                         school
-                          ? "p-5 uppercase cursor-pointer underline"
-                          : "p-5 uppercase cursor-pointer"
+                          ? "p-5 cursor-pointer underline"
+                          : "p-5 cursor-pointer"
                       }
                     >
                       Procedury
@@ -566,7 +570,7 @@ function SubsiteNavbar() {
                       })}
                   </ul>
                 ) : null}
-                <li className="p-5 uppercase cursor-pointer">
+                <li className="p-5 cursor-pointer">
                   <a className="link-none" href="https://zs1mm.bip.gov.pl/">
                     BIP
                   </a>
@@ -575,8 +579,8 @@ function SubsiteNavbar() {
                   onClick={handleRecruitation}
                   className={
                     recruitation
-                      ? "p-5 uppercase cursor-pointer underline"
-                      : "p-5 uppercase cursor-pointer"
+                      ? "p-5 cursor-pointer underline"
+                      : "p-5 cursor-pointer"
                   }
                 >
                   Rekrutacja
@@ -584,7 +588,7 @@ function SubsiteNavbar() {
                 {recruitation ? (
                   <ul className="flex flex-col justify-center align-items text-center">
                     <li
-                      className="p-5 uppercase cursor-pointer"
+                      className="p-5 cursor-pointer"
                       onClick={handleRecruitationProceduresMobile}
                     >
                       Proces Rekrutacji
@@ -611,18 +615,23 @@ function SubsiteNavbar() {
                   onClick={handleLessons}
                   className={
                     lessons
-                      ? "p-5 uppercase cursor-pointer underline"
-                      : "p-5 uppercase cursor-pointer"
+                      ? "p-5 cursor-pointer underline"
+                      : "p-5 cursor-pointer"
                   }
                 >
                   Dziennik
                 </li>
                 {lessons ? (
                   <ul className="flex flex-col justify-center align-items">
-                    <li className="uppercase text-left pl-7 pb-2">
-                      <Link to="/lesson-plan">Plan Lekcji</Link>
+                    <li className="text-left pl-7 pb-2">
+                      <a
+                        className="link-none"
+                        href="http://www.zs1mm.home.pl/plan/"
+                      >
+                        Plan Lekcji
+                      </a>
                     </li>
-                    <li className="uppercase text-left pl-7 pb-2">
+                    <li className="text-left pl-7 pb-2">
                       <a href="https://uonetplus.vulcan.net.pl/powiatminski">
                         Dziennik
                       </a>
@@ -633,8 +642,8 @@ function SubsiteNavbar() {
                   onClick={handleContact}
                   className={
                     contact
-                      ? "p-5 uppercase cursor-pointer underline"
-                      : "p-5 uppercase cursor-pointer"
+                      ? "p-5 cursor-pointer underline"
+                      : "p-5 cursor-pointer"
                   }
                 >
                   Kontakt
@@ -657,8 +666,8 @@ function SubsiteNavbar() {
                   onClick={handleAdditionalInfo}
                   className={
                     additionalInfo
-                      ? "p-5 uppercase cursor-pointer underline"
-                      : "p-5 uppercase cursor-pointer"
+                      ? "p-5 cursor-pointer underline"
+                      : "p-5 cursor-pointer"
                   }
                 >
                   Dodatkowe informacje
