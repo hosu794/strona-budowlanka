@@ -234,7 +234,7 @@ function SubsiteNavbar() {
               src={BrandIcon}
             />
           </Link>
-          <Link to="/">
+          <Link className="link-none" to="/">
             <h1 className="uppercase font-bold text-3xl tracking-wide cursor-pointer">
               ZS1MMZ
             </h1>
@@ -245,7 +245,9 @@ function SubsiteNavbar() {
           <div className="relative group">
             <button className="flex flex-row items-center w-screen px-4 py-4 mt-2 text-base text-left uppercase bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
               <span className="lg:text-sm xl:text-lg font-extrabold">
-                <Link to="/posts">Aktualności</Link>
+                <Link className="link-none" to="/posts">
+                  Aktualności
+                </Link>
               </span>
             </button>
           </div>
@@ -253,7 +255,9 @@ function SubsiteNavbar() {
           <div className="relative group">
             <button className="flex flex-row items-center w-screen px-4 py-4 mt-2 text-base text-left uppercase bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
               <span className="lg:text-sm xl:text-lg font-extrabold">
-                <a href="https://zs1mm.bip.gov.pl/">BIP</a>
+                <a className="link-none" href="https://zs1mm.bip.gov.pl/">
+                  BIP
+                </a>
               </span>
             </button>
           </div>
@@ -278,6 +282,7 @@ function SubsiteNavbar() {
                       className="uppercase text-white cursor-pointer"
                     >
                       Procedury
+                      <i className="ml-1 fas fa-scroll"></i>
                     </p>
 
                     {proceduresSubsites &&
@@ -320,7 +325,9 @@ function SubsiteNavbar() {
           <div className="relative group">
             <button className="flex uppercase flex-row items-center w-screen px-4 py-4 mt-2 text-base text-left uppercase bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
               <span className="lg:text-sm xl:text-lg font-extrabold">
-                <Link to="/gallery">Galeria</Link>
+                <Link className="link-none" to="/gallery">
+                  Galeria
+                </Link>
               </span>
             </button>
             <div className="absolute z-10 hidden bg-grey-200 group-hover:block"></div>
@@ -346,6 +353,7 @@ function SubsiteNavbar() {
                       className="uppercase text-white cursor-pointer"
                     >
                       Proces Rekrutacji
+                      <i className="ml-1 fas fa-scroll"></i>
                     </p>
 
                     {recruitationProceduresSubsites &&
@@ -395,6 +403,7 @@ function SubsiteNavbar() {
               <div className="p-4 font-bold text-white bg-green-custom shadow-lg rounded-lg">
                 <p className="uppercase p-1">
                   <a
+                    className="link-none"
                     href="https://uonetplus-uczen.vulcan.net.pl/powiatminski"
                     target="no_blank"
                   >
@@ -402,7 +411,9 @@ function SubsiteNavbar() {
                   </a>
                 </p>
                 <p className="uppercase p-1">
-                  <Link to="/lessons">Plan Lekcji</Link>
+                  <Link className="link-none" to="/lessons">
+                    Plan Lekcji
+                  </Link>
                 </p>
               </div>
             </div>
@@ -497,10 +508,14 @@ function SubsiteNavbar() {
                 <Link to="/library">Biblioteka</Link>
               </li> */}{" "}
                 <li className="p-5 uppercase cursor-pointer">
-                  <Link to="/posts">Aktualnośći</Link>
+                  <Link className="link-none" to="/posts">
+                    Aktualnośći
+                  </Link>
                 </li>
                 <li className="p-5 uppercase cursor-pointer">
-                  <Link to="/gallery">Galeria</Link>
+                  <Link className="link-none" to="/gallery">
+                    Galeria
+                  </Link>
                 </li>
                 <li
                   onClick={handleSchool}
@@ -523,6 +538,7 @@ function SubsiteNavbar() {
                       }
                     >
                       Procedury
+                      <i className="ml-1 fas fa-scroll"></i>
                     </li>
                     {procedures && proceduresSubsites ? (
                       <ul className="flex flex-col justify-center align-items text-center">
@@ -551,7 +567,9 @@ function SubsiteNavbar() {
                   </ul>
                 ) : null}
                 <li className="p-5 uppercase cursor-pointer">
-                  <a href="https://zs1mm.bip.gov.pl/">BIP</a>
+                  <a className="link-none" href="https://zs1mm.bip.gov.pl/">
+                    BIP
+                  </a>
                 </li>
                 <li
                   onClick={handleRecruitation}
@@ -570,6 +588,7 @@ function SubsiteNavbar() {
                       onClick={handleRecruitationProceduresMobile}
                     >
                       Proces Rekrutacji
+                      <i className="ml-1 fas fa-scroll"></i>
                     </li>
                     {recruitationProceduresMobile &&
                     recruitationProceduresSubsites ? (

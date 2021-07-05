@@ -38,7 +38,7 @@ const NavbarSubsiteItem: React.FC<NavbarSubsiteItemProps> = ({
   const link = `/subsite/${id}/${categoryId}`;
 
   return (
-    <Link to={link}>
+    <Link className="link-none" to={link}>
       <p className="font-normal">{post_title}</p>
     </Link>
   );

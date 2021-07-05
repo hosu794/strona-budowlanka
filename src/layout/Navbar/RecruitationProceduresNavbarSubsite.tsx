@@ -15,7 +15,7 @@ const RecruitationProceduresNavbarSubsite: React.FC<NavbarSubsiteItemProps> = ({
 
   return (
     <div className="p-2 text-white">
-      <Link to={link}>
+      <Link className="link-none" to={link}>
         <p className="uppercase font-normal">{post_title}</p>
       </Link>
     </div>

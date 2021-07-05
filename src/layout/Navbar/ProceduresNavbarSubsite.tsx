@@ -20,7 +20,7 @@ const ProcedureNavbarSubsite: React.FC<NavbarSubsiteItemProps> = ({
 
   return (
     <div className="p-2 text-white">
-      <Link to={link}>
+      <Link className="link-none" to={link}>
         <p className="font-normal">{post_title}</p>
       </Link>
     </div>

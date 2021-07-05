@@ -202,7 +202,7 @@ function Navbar() {
       className="fixed p-2 w-screen bg-white shadow z-20 flex-col flex-grow pb-4 md:flex md:justify-center md:flex-row"
     >
       <div className="flex mr-0 xl:mr-20 items-center">
-        <Link to="/">
+        <Link className="link-none" to="/">
           <img
             alt="Brand icon"
             className="cursor-pointer"
@@ -211,7 +211,7 @@ function Navbar() {
             src={BrandIcon}
           />
         </Link>
-        <Link to="/">
+        <Link className="link-none" to="/">
           <h1 className="uppercase font-bold text-3xl tracking-wide cursor-pointer">
             ZS1MMZ
           </h1>
@@ -222,14 +222,18 @@ function Navbar() {
         <div className="relative group">
           <button className="flex flex-row items-center w-screen px-4 py-4 mt-2 text-base text-left uppercase bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
             <span className="lg:text-sm xl:text-lg font-extrabold">
-              <Link to="/posts">Aktualności</Link>
+              <Link className="link-none" to="/posts">
+                Aktualności
+              </Link>
             </span>
           </button>
         </div>
         <div className="relative group">
           <button className="flex flex-row items-center w-screen px-4 py-4 mt-2 text-base text-left uppercase bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
             <span className="lg:text-sm xl:text-lg font-extrabold">
-              <a href="https://zs1mm.bip.gov.pl/">BIP</a>
+              <a className="link-none" href="https://zs1mm.bip.gov.pl/">
+                BIP
+              </a>
             </span>
           </button>
         </div>
@@ -237,7 +241,7 @@ function Navbar() {
         {/* <div className="relative group">
           <button className="flex uppercase flex-row items-center w-screen px-4 py-4 mt-2 text-base text-left uppercase bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
             <span className="lg:text-sm xl:text-lg font-extrabold">
-              <Link to="/library">Biblioteka</Link>
+              <Link className="link-none" to="/library">Biblioteka</Link>
             </span>
           </button>
         </div> */}
@@ -260,6 +264,7 @@ function Navbar() {
                     className="uppercase text-white cursor-pointer"
                   >
                     Procedury
+                    <i className="ml-1 fas fa-scroll"></i>
                   </p>
 
                   {proceduresSubsites &&
@@ -287,12 +292,12 @@ function Navbar() {
                 })}
               {/* <div className="p-2">
                 <p className="uppercase text-white text-lg">
-                  <Link to="/education-offer">Oferta edukacyjna</Link>
+                  <Link className="link-none" to="/education-offer">Oferta edukacyjna</Link>
                 </p>
               </div>
               <div className="p-2">
                 <p className="uppercase text-white text-lg">
-                  <Link to="/recrutation">Proces rekrutacji</Link>
+                  <Link className="link-none" to="/recrutation">Proces rekrutacji</Link>
                 </p>
               </div> */}
             </div>
@@ -302,7 +307,9 @@ function Navbar() {
         <div className="relative group">
           <button className="flex uppercase flex-row items-center w-screen px-4 py-4 mt-2 text-base text-left uppercase bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
             <span className="lg:text-sm xl:text-lg font-extrabold">
-              <Link to="/gallery">Galeria</Link>
+              <Link className="link-none" to="/gallery">
+                Galeria
+              </Link>
             </span>
           </button>
           <div className="absolute z-10 hidden bg-grey-200 group-hover:block"></div>
@@ -328,6 +335,7 @@ function Navbar() {
                     className="uppercase text-white cursor-pointer"
                   >
                     Proces Rekrutacji
+                    <i className="ml-1 fas fa-scroll"></i>
                   </p>
 
                   {recruitationProceduresSubsites &&
@@ -355,12 +363,12 @@ function Navbar() {
                 })}
               {/* <div className="p-2">
                 <p className="uppercase text-white text-lg">
-                  <Link to="/education-offer">Oferta edukacyjna</Link>
+                  <Link className="link-none" to="/education-offer">Oferta edukacyjna</Link>
                 </p>
               </div>
               <div className="p-2">
                 <p className="uppercase text-white text-lg">
-                  <Link to="/recrutation">Proces rekrutacji</Link>
+                  <Link className="link-none" to="/recrutation">Proces rekrutacji</Link>
                 </p>
               </div> */}
             </div>
@@ -377,6 +385,7 @@ function Navbar() {
             <div className="p-4 font-bold text-white bg-green-custom shadow-lg rounded-lg">
               <p className="uppercase p-1">
                 <a
+                  className="link-none"
                   href="https://uonetplus-uczen.vulcan.net.pl/powiatminski"
                   target="no_blank"
                 >
@@ -384,7 +393,9 @@ function Navbar() {
                 </a>
               </p>
               <p className="uppercase p-1">
-                <Link to="/lessons">Plan Lekcji</Link>
+                <Link className="link-none" to="/lessons">
+                  Plan Lekcji
+                </Link>
               </p>
             </div>
           </div>
@@ -409,10 +420,10 @@ function Navbar() {
                   );
                 })}
               {/* <p className="uppercase p-1">
-                <Link to="/help">Pomoc psychologiczno-prawna</Link>
+                <Link className="link-none" to="/help">Pomoc psychologiczno-prawna</Link>
               </p>
               <p className="uppercase p-1">
-                <Link to="/contact">Kontakt do Szkoły</Link>
+                <Link className="link-none" to="/contact">Kontakt do Szkoły</Link>
               </p> */}
             </div>
           </div>
@@ -477,13 +488,17 @@ function Navbar() {
           <div>
             <ul className="text-white list-none flex justify-center sm:text-lg md:text-2xl uppercase text-align flex-col h-2/3 mt-10 font-bold">
               {/* <li className="p-5 uppercase cursor-pointer">
-                <Link to="/library">Biblioteka</Link>
+                <Link className="link-none" to="/library">Biblioteka</Link>
               </li> */}{" "}
               <li className="p-5 uppercase cursor-pointer">
-                <Link to="/posts">Aktualnośći</Link>
+                <Link className="link-none" to="/posts">
+                  Aktualnośći
+                </Link>
               </li>
               <li className="p-5 uppercase cursor-pointer">
-                <Link to="/gallery">Galeria</Link>
+                <Link className="link-none" to="/gallery">
+                  Galeria
+                </Link>
               </li>
               <li
                 onClick={handleSchool}
@@ -506,6 +521,7 @@ function Navbar() {
                     }
                   >
                     Procedury
+                    <i className="ml-1 fas fa-scroll"></i>
                   </li>
                   {procedures && proceduresSubsites ? (
                     <ul className="flex flex-col justify-center align-items text-center">
@@ -553,6 +569,7 @@ function Navbar() {
                     onClick={handleRecruitationProceduresMobile}
                   >
                     Proces Rekrutacji
+                    <i className="ml-1 fas fa-scroll"></i>
                   </li>
                   {recruitationProceduresMobile &&
                   recruitationProceduresSubsites ? (
@@ -584,10 +601,15 @@ function Navbar() {
               {lessons ? (
                 <ul className="flex flex-col justify-center align-items">
                   <li className="uppercase text-left pl-7 pb-2">
-                    <Link to="/lesson-plan">Plan Lekcji</Link>
+                    <Link className="link-none" to="/lesson-plan">
+                      Plan Lekcji
+                    </Link>
                   </li>
                   <li className="uppercase text-left pl-7 pb-2">
-                    <a href="https://uonetplus.vulcan.net.pl/powiatminski">
+                    <a
+                      className="link-none"
+                      href="https://uonetplus.vulcan.net.pl/powiatminski"
+                    >
                       Dziennik
                     </a>
                   </li>

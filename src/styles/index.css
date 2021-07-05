@@ -91,6 +91,11 @@ ol {
 
 a {
   font-weight: bold;
+  text-decoration: underline;
+}
+
+.link-none {
+  text-decoration: none;
 }
 
 ol {
