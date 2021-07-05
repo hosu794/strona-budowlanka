@@ -495,7 +495,7 @@ function Navbar() {
                   Aktualnośći
                 </Link>
               </li>
-              <li className="p-5  cursor-pointer">
+              <li className="p-5 cursor-pointer">
                 <Link className="link-none" to="/gallery">
                   Galeria
                 </Link>

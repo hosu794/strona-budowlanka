@@ -16,7 +16,7 @@ const ContactNavbarSubsite: React.FC<NavbarSubsiteItemProps> = ({
   return (
     <div className="p-2 text-white">
       <Link className="link-none" to={link}>
-        <p className="uppercase">{post_title}</p>
+        <p className="">{post_title}</p>
       </Link>
     </div>
   );
