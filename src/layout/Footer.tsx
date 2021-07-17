@@ -20,6 +20,12 @@ export default function Footer() {
           <p>ul. Budowlana</p>
           <p>05-300 Mińsk Mazowiecki</p>
           <p>tel/fax 25 758 25 64</p>
+
+          <p>
+            <a href="https://www.facebook.com/budowlankamm">
+              <i className="fab fa-facebook-square fa-4x "></i>
+            </a>
+          </p>
         </div>
       </div>
       <div className="text-center p-4">

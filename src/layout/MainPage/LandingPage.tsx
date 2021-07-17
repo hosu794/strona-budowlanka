@@ -7,9 +7,6 @@ const LandingPage = () => {
     <main className="flex items-center justify-center h-screen">
       <div className="h-auto w-screen flex justify-center space-x-10 flex-col-reverse  xl:flex-row">
         <div className="ml-6 xl:ml-0 flex flex-col justify-center align-items">
-          <span className="text-left sm:text-center md:text-left text-base lg:text-2xl lg:font-bold ml-6 uppercase text-light-blue">
-            Strona
-          </span>
           <span className="text-2xl text-left sm:text-center md:text-left sm:text-3xl lg:text-3xl lg:font-black xl:text-6xl p-3 text-blue">
             Zespół Szkół nr 1
           </span>

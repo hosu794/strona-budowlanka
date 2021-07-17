@@ -23,7 +23,7 @@ const Post: React.FC<PostProp> = ({ title, content, date }) => {
       </div>
       <ShowMore content={content} showMore={toggle} />
       <button className="font-bold" onClick={onClick}>
-        {toggle ? "Pokaz mniej" : "Pokaz wiecej"}
+        {toggle ? "Zwiń" : "Czytaj więcej"}
       </button>
     </div>
   );
