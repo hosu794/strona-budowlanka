@@ -279,7 +279,7 @@ function SubsiteNavbar() {
                   <div>
                     <p
                       onClick={handleProcedures}
-                      className="text-white cursor-pointer"
+                      className="cursor-pointer text-white hover:text-gray-200"
                     >
                       Procedury
                       <i className="ml-1 fas fa-scroll"></i>
@@ -350,7 +350,7 @@ function SubsiteNavbar() {
                   <div>
                     <p
                       onClick={handleRecruitationProcedures}
-                      className="text-white cursor-pointer"
+                      className="text-white hover:text-gray-200 cursor-pointer"
                     >
                       Proces Rekrutacji
                       <i className="ml-1 fas fa-scroll"></i>
@@ -401,7 +401,7 @@ function SubsiteNavbar() {
             </button>
             <div className="absolute z-10 hidden bg-grey-200 group-hover:block">
               <div className="p-4 font-bold text-white bg-green-custom shadow-lg rounded-lg">
-                <p className="p-1">
+                <p className="p-1 text-white hover:text-gray-200">
                   <a
                     className="link-none"
                     href="https://uonetplus-uczen.vulcan.net.pl/powiatminski"
@@ -410,13 +410,12 @@ function SubsiteNavbar() {
                     Vulcan
                   </a>
                 </p>
-                <p className="p-1">
+                <p className="p-1 text-white hover:text-gray-200">
                   <a
                     className="link-none"
-                    href="https://uonetplus-uczen.vulcan.net.pl/powiatminski"
-                    target="no_blank"
+                    href="http://www.zs1mm.home.pl/plan/"
                   >
-                    Vulcan
+                    Plan Lekcji
                   </a>
                 </p>
               </div>

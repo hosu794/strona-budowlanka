@@ -19,7 +19,7 @@ const SchoolNavbarSubsite: React.FC<NavbarSubsiteItemProps> = ({
     return (
       <div className="p-2">
         <Link className="link-none" to={link}>
-          <p className="text-white">{post_title}</p>
+          <p className="text-white hover:text-gray-200">{post_title}</p>
         </Link>
       </div>
     );

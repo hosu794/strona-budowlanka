@@ -66,6 +66,7 @@ function Navbar() {
       .get(`${API_SERVER}wp-json/api/v1/recruitation/procedures/subsites`)
       .then((response: any) => {
         console.log("Recruitation Procedures: ", response.data);
+        console.log(response.data);
         setRecruitationProceduresSubsites(response.data);
       })
       .then(() => {
@@ -261,7 +262,7 @@ function Navbar() {
                 <div>
                   <p
                     onClick={handleProcedures}
-                    className=" text-white cursor-pointer"
+                    className=" text-white cursor-pointer hover:text-gray-200"
                   >
                     Procedury
                     <i className="ml-1 fas fa-scroll"></i>
@@ -332,12 +333,11 @@ function Navbar() {
                 <div>
                   <p
                     onClick={handleRecruitationProcedures}
-                    className=" text-white cursor-pointer"
+                    className="text-white hover:text-gray-200 cursor-pointer"
                   >
                     Proces Rekrutacji
                     <i className="ml-1 fas fa-scroll"></i>
                   </p>
-
                   {recruitationProceduresSubsites &&
                     recruitationProcedures &&
                     recruitationProceduresSubsites.map((item: any) => {
@@ -377,13 +377,13 @@ function Navbar() {
 
         <div className="relative group">
           <button className="flex  flex-row items-center w-screen px-4 py-4 mt-2 text-base text-left  bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
-            <span className="lg:text-sm xl:text-lg font-extrabold">
+            <span className="lg:text-sm xl:text-lg font-extrabold ">
               Dziennik
             </span>
           </button>
           <div className="absolute z-10 hidden bg-grey-200 group-hover:block">
             <div className="p-4 font-bold text-white bg-green-custom shadow-lg rounded-lg">
-              <p className=" p-1">
+              <p className="p-1 text-white hover:text-gray-200">
                 <a
                   className="link-none"
                   href="https://uonetplus-uczen.vulcan.net.pl/powiatminski"
@@ -392,7 +392,7 @@ function Navbar() {
                   Vulcan
                 </a>
               </p>
-              <p className=" p-1">
+              <p className="p-1 text-white hover:text-gray-200">
                 <a className="link-none" href="http://www.zs1mm.home.pl/plan/">
                   Plan Lekcji
                 </a>

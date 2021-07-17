@@ -18,10 +18,7 @@ const Gallery: React.FC<null> = () => {
     };
 
     axios
-      .get(
-        "https://serwer2124775.home.pl/wp-json/filebird/public/v1/folders",
-        config
-      )
+      .get(`${API_SERVER}wp-json/filebird/public/v1/folders`, config)
       .then((response) => {
         setLoading(false);
         setData(response.data.data.folders);

@@ -14,9 +14,9 @@ const RecruitationProceduresNavbarSubsite: React.FC<NavbarSubsiteItemProps> = ({
   const link = `/recruitation/procedures/subsite/${id}`;
 
   return (
-    <div className="p-2 text-white">
+    <div className="p-2 text-white hover:text-gray-200">
       <Link className="link-none" to={link}>
-        <p className=" font-normal">{post_title}</p>
+        <p className="font-normal hover:font-extrabold">{post_title}</p>
       </Link>
     </div>
   );
