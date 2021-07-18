@@ -16,7 +16,8 @@ const GalleryFolderMediaTitle: React.FC<GalleryFolderMediaTitleProps> = ({
   };
 
   const fetchCurrentFolderName = useCallback((id: string | undefined) => {
-    const token = "lW3vC2c6Pe0u4haQK6En1h1OX7DEwPot5CsREdLC";
+    // const token = "lW3vC2c6Pe0u4haQK6En1h1OX7DEwPot5CsREdLC";
+    const token = "lQzszC0O7cStDXm6zOLfLgbaAfmpJsOKFFgkhhlG";
 
     const config = {
       headers: { Authorization: `Bearer ${token}` },
@@ -24,7 +25,7 @@ const GalleryFolderMediaTitle: React.FC<GalleryFolderMediaTitleProps> = ({
 
     axios
       .get(
-        `http://serwer2124775.home.pl/wp-json/filebird/public/v1/folder/?folder_id=${id}`,
+        `${API_SERVER}wp-json/filebird/public/v1/folder/?folder_id=${id}`,
         config
       )
       .then((response) => {

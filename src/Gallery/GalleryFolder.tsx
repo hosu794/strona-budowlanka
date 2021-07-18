@@ -3,7 +3,6 @@ import { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { API_SERVER } from "../constants";
 import { FolderProps } from "../types/Folder";
-import { IMediaPagedResponseItem } from "../types/MediaItem";
 
 const GalleryFolder: React.FC<FolderProps> = ({
   title,
