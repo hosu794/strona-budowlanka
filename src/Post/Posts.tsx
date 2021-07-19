@@ -186,15 +186,18 @@ const Posts: React.FC<null> = () => {
               </svg>
             </div>
           )}
-          {data &&
-            data.posts.edges.map((item: IPost) => (
-              <Post
-                key={item.node.id}
-                content={item.node.content}
-                date={item.node.date}
-                title={item.node.title}
-              />
-            ))}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {data &&
+              data.posts.edges.map((item: IPost) => (
+                <Post
+                  key={item.node.id}
+                  content={item.node.content}
+                  date={item.node.date}
+                  title={item.node.title}
+                />
+              ))}
+          </div>
+
           {hasMore && !loading ? (
             <button className="text-xl font-bold p-7" onClick={getMoreResults}>
               Załaduj więcej
