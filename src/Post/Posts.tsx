@@ -190,6 +190,7 @@ const Posts: React.FC<null> = () => {
             {data &&
               data.posts.edges.map((item: IPost) => (
                 <Post
+                  id={item.node.id}
                   key={item.node.id}
                   content={item.node.content}
                   date={item.node.date}
