@@ -19,12 +19,15 @@ import RecruitationSubsite from "./layout/Subsites/RecruitationSubsite";
 import ContactSubsite from "./layout/Subsites/ContactSubsite";
 import ProcedureSubsite from "./layout/Subsites/ProcedureSubsite";
 import RecruitationProcedureSubsite from "./layout/Subsites/RecruitatioProcedureSubsite";
+import PostPage from "./Post/PostPage";
+import PostSubsite from "./Post/PostSubsite";
 
 const App: React.FC<any> = () => {
   return (
     <div>
       <Router>
         <Switch>
+          <Route component={PostSubsite} exact path="/post/:id" />
           <Route component={Subsite} exact path="/subsite/:id/:category" />
           <Route component={SchoolSubsite} exact path="/school/subsite/:id" />
           <Route
