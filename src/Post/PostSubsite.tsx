@@ -9,10 +9,24 @@ const PostSubsite: React.FC<any> = () => {
   const params = useParams<any>();
 
   const GET_POST_BY_ID: DocumentNode = gql`
-    query MyQuery($bread: ID!) {
+    query getPosts($bread: ID!) {
       post(id: $bread) {
-        id
         content
+        id
+        title
+        date
+        categories {
+          edges {
+            node {
+              id
+            }
+          }
+        }
+        author {
+          node {
+            id
+          }
+        }
       }
     }
   `;
@@ -24,26 +38,22 @@ const PostSubsite: React.FC<any> = () => {
     }
   );
 
-  React.useEffect(() => {
-    console.log(data);
-  }, [data, params.id]);
+  React.useEffect(() => {}, [data, params.id]);
 
   return (
     <CategoryLayout title="">
       {loading && "Ładowanie..."}
-      {/* {data && (
+      {data && (
         <div>
           <PostPage
-            id={data.posts.edges[0].node.id}
-            key={data.posts.edges[0].node.id}
-            content={data.posts.edges[0].node.content}
-            date={data.posts.edges[0].node.date}
-            title={data.posts.edges[0].node.title}
+            id={data.post.id}
+            key={data.post.id}
+            content={data.post.content}
+            date={data.post.date}
+            title={data.post.title}
           />
         </div>
       )}
-       */}
-      <h1>Dupa {data && data.title}</h1>
     </CategoryLayout>
   );
 };
