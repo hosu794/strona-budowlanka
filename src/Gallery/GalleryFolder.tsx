@@ -59,7 +59,7 @@ const GalleryFolder: React.FC<FolderProps> = ({
               >
                 <div className="flex flex-row">
                   <h1
-                    className="text-2xl p-5"
+                    className="text-2xl p-4"
                     style={{
                       color: "#3559A4",
                     }}
@@ -71,7 +71,7 @@ const GalleryFolder: React.FC<FolderProps> = ({
             ) : (
               <div className="cursor-pointer shadow-md rounded-md">
                 <Link to={linkToImages}>
-                  <div className="flex flex-row ml-10">
+                  <div className="flex flex-row">
                     <h1
                       className="text-2xl p-4"
                       style={{
@@ -84,17 +84,19 @@ const GalleryFolder: React.FC<FolderProps> = ({
                 </Link>
               </div>
             )}
-            {folderChildren && toggle
-              ? folderChildren.map((item: any) => (
-                  <GalleryFolder
-                    title={item.text}
-                    key={item.id}
-                    id={item.id}
-                    attachemntsCount={Object.values(item.li_attr)[1]}
-                    folderChildren={item.children}
-                  />
-                ))
-              : null}
+            <div className="ml-5 mt-1">
+              {folderChildren && toggle
+                ? folderChildren.map((item: any) => (
+                    <GalleryFolder
+                      title={item.text}
+                      key={item.id}
+                      id={item.id}
+                      attachemntsCount={Object.values(item.li_attr)[1]}
+                      folderChildren={item.children}
+                    />
+                  ))
+                : null}
+            </div>
           </div>
         </div>
       </div>
