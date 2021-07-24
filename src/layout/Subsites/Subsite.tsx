@@ -5,11 +5,14 @@ import { IFolderParam } from "../../types/Folder";
 import axios from "axios";
 import { API_SERVER } from "../../constants";
 import SubsiteLayout from "../SubsiteLayout";
+import { useHistory } from "react-router-dom";
 
 const Subsite = () => {
   const [subsite, setSubsite] = React.useState<any>({});
 
   const params: IFolderParam = useParams();
+
+  const history = useHistory();
 
   const fetchSubsite = React.useCallback(() => {
     axios
@@ -18,7 +21,8 @@ const Subsite = () => {
         const content: string = response.data[0].post_content;
 
         if (content.substring(0, 4) === "http") {
-          window.location.href = content;
+          window.open(content, "_blank");
+          history.goBack();
         }
 
         setSubsite(response.data[0]);

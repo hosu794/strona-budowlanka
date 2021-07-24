@@ -6,11 +6,14 @@ import axios from "axios";
 import { API_SERVER } from "../../constants";
 import SubsiteLayout from "../SubsiteLayout";
 import CategoryLayout from "../CategoryLayout";
+import { useHistory } from "react-router-dom";
 
 const ProcedureSubsite = () => {
   const [subsite, setSubsite] = React.useState<any>({});
 
   const params: IFolderParam = useParams();
+
+  const history = useHistory();
 
   const fetchSubsite = React.useCallback(() => {
     axios
@@ -19,7 +22,8 @@ const ProcedureSubsite = () => {
         const content: string = response.data[0].post_content;
 
         if (content.substring(0, 4) === "http") {
-          window.location.href = content;
+          window.open(content, "_blank");
+          history.goBack();
         }
 
         return setSubsite(response.data[0]);
