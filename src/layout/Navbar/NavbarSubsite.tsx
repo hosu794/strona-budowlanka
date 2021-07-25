@@ -9,7 +9,14 @@ type NavbarSubsiteProps = {
 const NavbarSubsite: React.FC<NavbarSubsiteProps> = ({ item }) => {
   return (
     <div className="p-4">
-      <h1 className="font-bold">{item.category.name}</h1>
+      <h1
+        className="font-bold"
+        style={{
+          maxWidth: "300px",
+        }}
+      >
+        {item.category.name}
+      </h1>
       {item &&
         item.content.map((i: any) => (
           <NavbarSubsiteItem
