@@ -55,11 +55,11 @@ const GalleryFolder: React.FC<FolderProps> = ({
             {folderChildren.length > 0 && title ? (
               <div
                 onClick={handleClick}
-                className="cursor-pointer shadow-md rounded-md"
+                className="cursor-pointer shadow-md rounded-md break-all"
               >
                 <div className="flex flex-row">
                   <h1
-                    className="text-2xl p-4"
+                    className="text-sm md:text-2xl p-4"
                     style={{
                       color: "#3559A4",
                     }}
@@ -69,11 +69,11 @@ const GalleryFolder: React.FC<FolderProps> = ({
                 </div>
               </div>
             ) : (
-              <div className="cursor-pointer shadow-md rounded-md">
+              <div className="cursor-pointer shadow-md rounded-md break-all">
                 <Link to={linkToImages}>
                   <div className="flex flex-row">
                     <h1
-                      className="text-2xl p-4"
+                      className="text-sm md:text-2xl p-4"
                       style={{
                         color: "#3559A4",
                       }}
