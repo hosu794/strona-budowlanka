@@ -38,7 +38,9 @@ const PostSubsite: React.FC<any> = () => {
     }
   );
 
-  React.useEffect(() => {}, [data, params.id]);
+  React.useEffect(() => {
+    // console.log(data.post);
+  }, [data, params.id]);
 
   return (
     <CategoryLayout title="">

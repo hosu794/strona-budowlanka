@@ -6,6 +6,8 @@ import axios from "axios";
 import { API_SERVER } from "../../constants";
 import SubsiteLayout from "../SubsiteLayout";
 import { useHistory } from "react-router-dom";
+import CategoryLayout from "../CategoryLayout";
+import PostPage from "../../Post/PostPage";
 
 const Subsite = () => {
   const [subsite, setSubsite] = React.useState<any>({});
@@ -31,17 +33,23 @@ const Subsite = () => {
 
   React.useEffect(() => {
     fetchSubsite();
+    console.log("Additional Subsites content: ", subsite);
   }, [fetchSubsite]);
 
   return (
-    <SubsiteLayout title={subsite && subsite.post_title}>
+    <CategoryLayout title="">
       {subsite && (
-        <div
-          className="content mb-10"
-          dangerouslySetInnerHTML={{ __html: subsite.post_content }}
-        ></div>
+        <div>
+          <PostPage
+            id={subsite.id}
+            key={subsite.id}
+            content={subsite.post_content}
+            date={subsite.date}
+            title={subsite.title}
+          />
+        </div>
       )}
-    </SubsiteLayout>
+    </CategoryLayout>
   );
 };
 
