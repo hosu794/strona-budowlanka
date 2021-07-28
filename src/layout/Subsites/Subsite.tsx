@@ -22,8 +22,11 @@ const Subsite = () => {
       .then((response) => {
         const content: string = response.data[0].post_content;
 
-        if (content.substring(0, 4) === "http") {
-          window.open(content, "_blank");
+        console.log(content);
+
+        if (content.substring(0, 7) === "<p>http") {
+          const cleanContent: string = content.replace(/<[^>]*>?/gm, "");
+          window.open(cleanContent, "_blank");
           history.goBack();
         }
 

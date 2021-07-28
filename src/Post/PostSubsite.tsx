@@ -39,7 +39,7 @@ const PostSubsite: React.FC<any> = () => {
   );
 
   React.useEffect(() => {
-    // console.log(data.post);
+    // conso  le.log(data.post);
   }, [data, params.id]);
 
   return (
