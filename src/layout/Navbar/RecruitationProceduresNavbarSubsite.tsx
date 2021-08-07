@@ -15,8 +15,15 @@ const RecruitationProceduresNavbarSubsite: React.FC<NavbarSubsiteItemProps> = ({
 
   return (
     <div className="p-2 text-white hover:text-gray-200">
-      <Link className="link-none" to={link}>
-        <p className="font-normal hover:font-extrabold">{post_title}</p>
+      <Link className="link-none mb-0" to={link}>
+        <p
+          style={{
+            marginBottom: "0",
+          }}
+          className="font-normal hover:font-extrabold"
+        >
+          {post_title}
+        </p>
       </Link>
     </div>
   );

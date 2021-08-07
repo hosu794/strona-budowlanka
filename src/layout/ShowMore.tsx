@@ -17,7 +17,7 @@ const ShowMore = ({ length = 300, content, link }: ShowMoreProps) => {
         }}
       ></div>
       <Link to={link}>
-        <button className="font-bold">Go to page</button>
+        <button className="font-bold">Czytaj dalej</button>
       </Link>
     </React.Fragment>
   );

@@ -46,7 +46,14 @@ const NavbarSubsiteItem: React.FC<NavbarSubsiteItemProps> = ({
 
   return (
     <Link className="link-none" to={link}>
-      <p className="text-white hover:text-gray-200">{post_title}</p>
+      <p
+        style={{
+          marginBottom: "0",
+        }}
+        className="text-white hover:text-gray-200"
+      >
+        {post_title}
+      </p>
     </Link>
   );
 };

@@ -39,7 +39,7 @@ const NavbarSubsiteItem: React.FC<NavbarSubsiteItemProps> = ({
 
   return (
     <Link className="link-none" to={link}>
-      <p className="font-normal">{post_title}</p>
+      <span className="font-normal">{post_title}</span>
     </Link>
   );
 };

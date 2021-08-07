@@ -16,7 +16,7 @@ const ContactNavbarSubsite: React.FC<NavbarSubsiteItemProps> = ({
   return (
     <div className="p-2 text-white hover:text-gray-200">
       <Link className="link-none" to={link}>
-        <p className="">{post_title}</p>
+        <span className="">{post_title}</span>
       </Link>
     </div>
   );
