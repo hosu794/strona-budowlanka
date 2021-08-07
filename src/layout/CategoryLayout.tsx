@@ -1,6 +1,7 @@
 import * as React from "react";
 
 import Layout, { ILayout } from "./Layout";
+import SubsiteLayout from "./SubsiteLayout";
 
 interface ICategoryLayout extends ILayout {
   title: string;
@@ -8,7 +9,7 @@ interface ICategoryLayout extends ILayout {
 
 const CategoryLayout = ({ children, title }: ICategoryLayout) => {
   return (
-    <Layout>
+    <SubsiteLayout title="">
       <div className="min-h-screen flex flex-col justify-center items-center mt-20">
         <div className="flex flex-row space-between pb-20 pt-20 w-8/12 justify-between">
           <h1
@@ -24,7 +25,7 @@ const CategoryLayout = ({ children, title }: ICategoryLayout) => {
           <div>{children}</div>
         </div>
       </div>
-    </Layout>
+    </SubsiteLayout>
   );
 };
 

@@ -11,8 +11,8 @@ const Gallery: React.FC<null> = () => {
   const [data, setData] = useState<IFolder[]>([]);
 
   const getFolderWithSubfolders = () => {
-    // const token = "lW3vC2c6Pe0u4haQK6En1h1OX7DEwPot5CsREdLC";
-    const token = "lQzszC0O7cStDXm6zOLfLgbaAfmpJsOKFFgkhhlG";
+    const token = "lW3vC2c6Pe0u4haQK6En1h1OX7DEwPot5CsREdLC";
+    // const token = "lQzszC0O7cStDXm6zOLfLgbaAfmpJsOKFFgkhhlG";
 
     const config = {
       headers: { Authorization: `Bearer ${token}` },

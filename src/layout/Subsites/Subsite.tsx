@@ -22,7 +22,7 @@ const Subsite = () => {
       .then((response) => {
         const content: string = response.data[0].post_content;
 
-        console.log(content);
+        console.log("Response: ", response.data[0]);
 
         if (content.substring(0, 7) === "<p>http") {
           const cleanContent: string = content.replace(/<[^>]*>?/gm, "");
@@ -48,7 +48,7 @@ const Subsite = () => {
             key={subsite.id}
             content={subsite.post_content}
             date={subsite.date}
-            title={subsite.title}
+            title={subsite.post_title}
           />
         </div>
       )}
