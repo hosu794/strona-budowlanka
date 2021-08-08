@@ -3,6 +3,7 @@ import { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { API_SERVER } from "../constants";
 import { FolderProps } from "../types/Folder";
+import { IMediaPagedResponseItem } from "../types/MediaItem";
 
 const GalleryFolder: React.FC<FolderProps> = ({
   title,
@@ -14,8 +15,26 @@ const GalleryFolder: React.FC<FolderProps> = ({
 
   const [toggle, setToggle] = useState<boolean>(false);
 
-  // const [loading, setLoading] = useState<boolean>(true);
-  // const [data, setData] = useState<IMediaPagedResponseItem>();
+  const [loading, setLoading] = useState<boolean>(true);
+  const [image, setImage] = useState<string>();
+
+  const fetchPagedMedias = useCallback(() => {
+    axios
+      .get(`${API_SERVER}wp-json/api/v1/attachments/${id}?page=0`)
+      .then((response) => {
+        console.log(response.data.content[0].guid);
+        setImage(response.data.content[0].guid);
+      })
+      .then(() => setLoading(false))
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [id]);
+
+  useEffect(() => {
+    fetchPagedMedias();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // const getFirstElelemt = useCallback(() => {
   //   axios
@@ -34,11 +53,8 @@ const GalleryFolder: React.FC<FolderProps> = ({
   // }, [id]);
 
   // useEffect(() => {
-  //   console.log("Folder count... ", folderChildren.length);
-  //   if (attachemntsCount > 0) {
-  //     // getFirstElelemt();
-  //   }
-  // }, [attachemntsCount]);
+  //   getFirstElelemt();
+  // }, []);
 
   const handleClick = () => {
     setToggle(!toggle);
@@ -72,14 +88,24 @@ const GalleryFolder: React.FC<FolderProps> = ({
               <div className="cursor-pointer shadow-md rounded-md break-all">
                 <Link to={linkToImages}>
                   <div className="flex flex-row">
-                    <h1
-                      className="text-sm md:text-2xl p-4"
-                      style={{
-                        color: "#3559A4",
-                      }}
-                    >
-                      {title}
-                    </h1>
+                    <div className="p-10">
+                      <img
+                        src={image}
+                        alt="first"
+                        height="100px"
+                        width="100px"
+                      />
+                    </div>
+                    <div className="flex flex-row">
+                      <h1
+                        className="text-sm md:text-2xl p-4"
+                        style={{
+                          color: "#3559A4",
+                        }}
+                      >
+                        {title}
+                      </h1>
+                    </div>
                   </div>
                 </Link>
               </div>

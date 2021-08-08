@@ -5,6 +5,7 @@ import { API_SERVER } from "../constants";
 import axios from "axios";
 import { IFolder } from "../types/Folder";
 import GalleryFolder from "./GalleryFolder";
+import { responsePathAsArray } from "graphql";
 
 const Gallery: React.FC<null> = () => {
   const [loading, setLoading] = useState<boolean>(true);
@@ -22,6 +23,7 @@ const Gallery: React.FC<null> = () => {
       .get(`${API_SERVER}wp-json/filebird/public/v1/folders`, config)
       .then((response) => {
         setLoading(false);
+        console.log(response.data.data.folders);
         setData(response.data.data.folders);
       })
       .catch((err: Error) => {
