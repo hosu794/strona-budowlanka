@@ -222,34 +222,34 @@ function Navbar() {
       <div className="hidden flex items-center justify-start lg:flex">
         <div className="relative group">
           <button className="flex flex-row items-center w-screen px-4 py-4 mt-2 text-base text-left  bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
-            <span className="lg:text-sm xl:text-lg font-extrabold">
+            <p className="lg:text-sm xl:text-lg font-extrabold mb-0">
               <Link className="link-none" to="/posts">
                 Aktualności
               </Link>
-            </span>
+            </p>
           </button>
         </div>
         <div className="relative group">
           <button className="flex flex-row items-center w-screen px-4 py-4 mt-2 text-base text-left  bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
-            <span className="lg:text-sm xl:text-lg font-extrabold">
+            <p className="lg:text-sm xl:text-lg font-extrabold mb-0">
               <a className="link-none" href="https://zs1mm.bip.gov.pl/">
                 BIP
               </a>
-            </span>
+            </p>
           </button>
         </div>
 
         {/* <div className="relative group">
           <button className="flex  flex-row items-center w-screen px-4 py-4 mt-2 text-base text-left  bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
-            <span className="lg:text-sm xl:text-lg font-extrabold">
+            <p className="lg:text-sm xl:text-lg font-extrabold">
               <Link className="link-none" to="/library">Biblioteka</Link>
-            </span>
+            </p>
           </button>
         </div> */}
 
         <div className="relative group">
           <button className="flex  flex-row items-center w-screen px-4 py-4 mt-2 text-base text-left  bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
-            <span className="lg:text-sm xl:text-lg font-extrabold">Szkoła</span>
+            <p className="lg:text-sm xl:text-lg font-extrabold mb-0">Szkoła</p>
           </button>
           <div
             style={{
@@ -260,13 +260,13 @@ function Navbar() {
             <div className="px-2 pt-2 font-bold pb-4 bg-green-custom shadow-lg rounded-lg">
               <div className="p-2">
                 <div>
-                  <span
+                  <p
                     onClick={handleProcedures}
-                    className=" text-white cursor-pointer hover:text-gray-200"
+                    className=" text-white cursor-pointer hover:text-gray-200 mb-0"
                   >
                     Procedury
                     <i className="ml-1 fas fa-scroll"></i>
-                  </span>
+                  </p>
 
                   {proceduresSubsites &&
                     procedures &&
@@ -294,12 +294,12 @@ function Navbar() {
               {/* <div className="p-2">
                 <p className=" text-white text-lg">
                   <Link className="link-none" to="/education-offer">Oferta edukacyjna</Link>
-                </span>
+                </p>
               </div>
               <div className="p-2">
                 <p className=" text-white text-lg">
                   <Link className="link-none" to="/recrutation">Proces rekrutacji</Link>
-                </span>
+                </p>
               </div> */}
             </div>
           </div>
@@ -307,20 +307,20 @@ function Navbar() {
 
         <div className="relative group">
           <button className="flex  flex-row items-center w-screen px-4 py-4 mt-2 text-base text-left  bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
-            <span className="lg:text-sm xl:text-lg font-extrabold">
+            <p className="lg:text-sm xl:text-lg font-extrabold mb-0">
               <Link className="link-none" to="/gallery">
                 Galeria
               </Link>
-            </span>
+            </p>
           </button>
           <div className="absolute z-10 hidden bg-grey-200 group-hover:block"></div>
         </div>
 
         <div className="relative group">
           <button className="flex  flex-row items-center w-screen px-4 py-4 mt-2 text-base text-left  bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
-            <span className="lg:text-sm xl:text-lg font-extrabold">
+            <p className="lg:text-sm xl:text-lg font-extrabold mb-0">
               Rekrutacja
-            </span>
+            </p>
           </button>
           <div
             style={{
@@ -331,13 +331,13 @@ function Navbar() {
             <div className="px-2 pt-2 font-bold pb-4 bg-green-custom shadow-lg rounded-lg">
               <div className="p-2">
                 <div>
-                  <span
+                  <p
                     onClick={handleRecruitationProcedures}
-                    className="text-white hover:text-gray-200 cursor-pointer"
+                    className="text-white hover:text-gray-200 cursor-pointer mb-0"
                   >
                     Proces Rekrutacji
                     <i className="ml-1 fas fa-scroll"></i>
-                  </span>
+                  </p>
                   {recruitationProceduresSubsites &&
                     recruitationProcedures &&
                     recruitationProceduresSubsites.map((item: any) => {
@@ -364,12 +364,12 @@ function Navbar() {
               {/* <div className="p-2">
                 <p className=" text-white text-lg">
                   <Link className="link-none" to="/education-offer">Oferta edukacyjna</Link>
-                </span>
+                </p>
               </div>
               <div className="p-2">
                 <p className=" text-white text-lg">
                   <Link className="link-none" to="/recrutation">Proces rekrutacji</Link>
-                </span>
+                </p>
               </div> */}
             </div>
           </div>
@@ -377,13 +377,13 @@ function Navbar() {
 
         <div className="relative group">
           <button className="flex  flex-row items-center w-screen px-4 py-4 mt-2 text-base text-left  bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
-            <span className="lg:text-sm xl:text-lg font-extrabold ">
+            <p className="lg:text-sm xl:text-lg font-extrabold mb-0">
               Dziennik
-            </span>
+            </p>
           </button>
           <div className="absolute z-10 hidden bg-grey-200 group-hover:block">
             <div className="p-4 font-bold text-white bg-green-custom shadow-lg rounded-lg">
-              <span className="p-1 text-white hover:text-gray-200">
+              <p className="p-1 text-white hover:text-gray-200 mb-0">
                 <a
                   className="link-none"
                   href="https://uonetplus-uczen.vulcan.net.pl/powiatminski"
@@ -391,21 +391,19 @@ function Navbar() {
                 >
                   Vulcan
                 </a>
-              </span>
-              <span className="p-1 text-white hover:text-gray-200">
+              </p>
+              <p className="p-1 text-white hover:text-gray-200 mb-0">
                 <a className="link-none" href="http://www.zs1mm.home.pl/plan/">
                   Plan Lekcji
                 </a>
-              </span>
+              </p>
             </div>
           </div>
         </div>
 
         <div className="relative group">
           <button className="flex  flex-row items-center w-screen px-4 py-4 mt-2 text-base text-left  bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
-            <span className="lg:text-sm xl:text-lg font-extrabold">
-              Kontakt
-            </span>
+            <p className="lg:text-sm xl:text-lg font-extrabold mb-0">Kontakt</p>
           </button>
           <div className="absolute z-10 hidden bg-grey-200 group-hover:block">
             <div className="p-4 font-bold text-white bg-green-custom shadow-lg rounded-lg">
@@ -421,19 +419,19 @@ function Navbar() {
                 })}
               {/* <p className=" p-1">
                 <Link className="link-none" to="/help">Pomoc psychologiczno-prawna</Link>
-              </span>
+              </p>
               <p className=" p-1">
                 <Link className="link-none" to="/contact">Kontakt do Szkoły</Link>
-              </span> */}
+              </p> */}
             </div>
           </div>
         </div>
 
         <div className="relative group">
           <button className="flex  flex-row items-center w-screen px-4 py-4 mt-2 text-base text-left  bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
-            <span className="lg:text-sm xl:text-lg font-extrabold">
+            <p className="lg:text-sm xl:text-lg font-extrabold mb-0">
               Dodatkowe informacje
-            </span>
+            </p>
           </button>
           <div
             className="absolute z-10 right-0.5 hidden group-hover:block"
@@ -516,8 +514,8 @@ function Navbar() {
                     onClick={handleProcedures}
                     className={
                       school
-                        ? "p-5  cursor-pointer underline"
-                        : "p-5  cursor-pointer"
+                        ? "p-5  cursor-pointer underline mb-0"
+                        : "p-5  cursor-pointer mb-0"
                     }
                   >
                     Procedury

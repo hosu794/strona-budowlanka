@@ -19,16 +19,14 @@ const ProcedureNavbarSubsite: React.FC<NavbarSubsiteItemProps> = ({
   }, [link]);
 
   return (
-    <div className="p-2 text-white hover:text-gray-200">
+    <div
+      className="p-2 text-white hover:text-gray-200"
+      style={{
+        marginBottom: "0",
+      }}
+    >
       <Link className="link-none" to={link}>
-        <p
-          style={{
-            marginBottom: "0",
-          }}
-          className="font-normal"
-        >
-          {post_title}
-        </p>
+        <p className="font-normal mb-0">{post_title}</p>
       </Link>
     </div>
   );
