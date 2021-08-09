@@ -40,7 +40,7 @@ const Subsite = () => {
   }, [fetchSubsite]);
 
   return (
-    <CategoryLayout title="">
+    <SubsiteLayout title="">
       {subsite && (
         <div>
           <PostPage
@@ -52,7 +52,7 @@ const Subsite = () => {
           />
         </div>
       )}
-    </CategoryLayout>
+    </SubsiteLayout>
   );
 };
 
