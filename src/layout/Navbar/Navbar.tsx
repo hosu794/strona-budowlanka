@@ -16,6 +16,7 @@ import ContactNavbarSubsite from "./ContactNavbarSubsite";
 import ProcedureNavbarSubsite from "./ProceduresNavbarSubsite";
 
 import RecruitationProceduresNavbarSubsite from "./RecruitationProceduresNavbarSubsite";
+import DropdownRecruitationNavbar from "./DropdownRecruitationNavbar";
 
 function Navbar() {
   const [subsites, setSubsites] = useState<any>();
@@ -330,6 +331,7 @@ function Navbar() {
           >
             <div className="px-2 pt-2 font-bold pb-4 bg-green-custom shadow-lg rounded-lg">
               <div className="p-2">
+                <DropdownRecruitationNavbar />
                 <div>
                   <p
                     onClick={handleRecruitationProcedures}
