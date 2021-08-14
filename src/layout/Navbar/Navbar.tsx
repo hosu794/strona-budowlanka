@@ -16,7 +16,7 @@ import ContactNavbarSubsite from "./ContactNavbarSubsite";
 import ProcedureNavbarSubsite from "./ProceduresNavbarSubsite";
 
 import RecruitationProceduresNavbarSubsite from "./RecruitationProceduresNavbarSubsite";
-import DropdownRecruitationNavbar from "./DropdownRecruitationNavbar";
+import DropdownRecruitationNavbar from "./Dropdown/DropdownRecruitationNavbar";
 
 function Navbar() {
   const [subsites, setSubsites] = useState<any>();
