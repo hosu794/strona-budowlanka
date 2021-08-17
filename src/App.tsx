@@ -19,8 +19,12 @@ import RecruitationSubsite from "./layout/Subsites/RecruitationSubsite";
 import ContactSubsite from "./layout/Subsites/ContactSubsite";
 import ProcedureSubsite from "./layout/Subsites/ProcedureSubsite";
 import RecruitationProcedureSubsite from "./layout/Subsites/RecruitatioProcedureSubsite";
-import PostPage from "./Post/PostPage";
 import PostSubsite from "./Post/PostSubsite";
+import DropdownContactNavbar from "./layout/Navbar/Dropdown/DropdownContactNavbar";
+import DropdownContactSubsite from "./layout/Navbar/Dropdown/DropdownContactSubsite";
+import DropdownSchoolNavbar from "./layout/Navbar/Dropdown/DropdownSchoolNavbar";
+import DropdownSchoolSubsite from "./layout/Navbar/Dropdown/DropdownSchoolSubsite";
+import DropdownRecruitationSubsite from "./layout/Navbar/Dropdown/DropdownRecruitationSubsite";
 
 const App: React.FC<any> = () => {
   return (
@@ -30,6 +34,21 @@ const App: React.FC<any> = () => {
           <Route component={PostSubsite} exact path="/post/:id" />
           <Route component={Subsite} exact path="/subsite/:id/:category" />
           <Route component={SchoolSubsite} exact path="/school/subsite/:id" />
+          <Route
+            component={DropdownContactSubsite}
+            exact
+            path="/dropdown/contact/:id"
+          />
+          <Route
+            component={DropdownSchoolSubsite}
+            exact
+            path="/dropdown/school/:id"
+          />
+          <Route
+            component={DropdownRecruitationSubsite}
+            exact
+            path="/dropdown/recruitation/:id"
+          />
           <Route
             component={RecruitationSubsite}
             exact

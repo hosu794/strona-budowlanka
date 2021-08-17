@@ -4,6 +4,7 @@ import { DocumentNode, gql, QueryResult, useQuery } from "@apollo/react-hooks";
 import Post from "./Post";
 import { IPost, IPostsResult } from "../types/Post";
 import { IPaginationInfo } from "../types/grapql";
+import { useEffect } from "react";
 
 const Posts: React.FC<null> = () => {
   const [hasMore, setHasMore] = useState<boolean>(true);
@@ -42,6 +43,10 @@ const Posts: React.FC<null> = () => {
     useQuery(GET_POSTS, {
       variables: { after: null },
     });
+
+  useEffect(() => {
+    console.log("Posts:", data);
+  }, [data]);
 
   const getMoreResults = (): void => {
     const { endCursor, hasNextPage }: IPaginationInfo = data.posts.pageInfo;
