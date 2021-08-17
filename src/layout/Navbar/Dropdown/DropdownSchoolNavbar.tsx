@@ -30,7 +30,7 @@ const DropdownSchoolNavbar = () => {
     <React.Fragment>
       {data &&
         data.map((item: any) => {
-          return <DropdownItem item={item} />;
+          return <DropdownItem link="dropdown/school" item={item} />;
         })}
     </React.Fragment>
   );

@@ -27,7 +27,7 @@ const DropdownRecruitationNavbar = () => {
     <React.Fragment>
       {data &&
         data.map((item: any) => {
-          return <DropdownItem item={item} />;
+          return <DropdownItem link="dropdown/recruitation" item={item} />;
         })}
     </React.Fragment>
   );
