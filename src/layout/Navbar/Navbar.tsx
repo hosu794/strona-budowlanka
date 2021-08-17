@@ -17,6 +17,8 @@ import ProcedureNavbarSubsite from "./ProceduresNavbarSubsite";
 
 import RecruitationProceduresNavbarSubsite from "./RecruitationProceduresNavbarSubsite";
 import DropdownRecruitationNavbar from "./Dropdown/DropdownRecruitationNavbar";
+import DropdownSchoolNavbar from "./Dropdown/DropdownSchoolNavbar";
+import DropdownContactNavbar from "./Dropdown/DropdownContactNavbar";
 
 function Navbar() {
   const [subsites, setSubsites] = useState<any>();
@@ -260,6 +262,7 @@ function Navbar() {
           >
             <div className="px-2 pt-2 font-bold pb-4 bg-green-custom shadow-lg rounded-lg">
               <div className="p-2">
+                <DropdownSchoolNavbar />
                 <div>
                   <p
                     onClick={handleProcedures}
@@ -409,6 +412,7 @@ function Navbar() {
           </button>
           <div className="absolute z-10 hidden bg-grey-200 group-hover:block">
             <div className="p-4 font-bold text-white bg-green-custom shadow-lg rounded-lg">
+              <DropdownContactNavbar />
               {contactSubsite &&
                 contactSubsite.map((item: any) => {
                   return (

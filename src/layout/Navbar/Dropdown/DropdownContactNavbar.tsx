@@ -7,14 +7,13 @@ import { useEffect } from "react";
 import { API_SERVER } from "../../../constants";
 import DropdownItem from "./DropdownItems";
 
-const DropdownRecruitationNavbar = () => {
+const DropdownContactNavbar = () => {
   const [data, setData] = useState<any>();
 
   const fetchRecruitationDropdown = useCallback(() => {
     axios
-      .get(`${API_SERVER}wp-json/api/v1/dropdown/recruitation/subsites`)
+      .get(`${API_SERVER}wp-json/api/v1/dropdown/contact/subsites`)
       .then((response: any) => {
-        console.log("Dropdown: ", response.data);
         return setData(response.data);
       });
   }, []);
@@ -27,10 +26,10 @@ const DropdownRecruitationNavbar = () => {
     <React.Fragment>
       {data &&
         data.map((item: any) => {
-          return <DropdownItem item={item} />;
+          return <DropdownItem link="dropdown/contact" item={item} />;
         })}
     </React.Fragment>
   );
 };
 
-export default DropdownRecruitationNavbar;
+export default DropdownContactNavbar;

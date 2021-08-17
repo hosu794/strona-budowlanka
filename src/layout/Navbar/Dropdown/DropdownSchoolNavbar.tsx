@@ -7,15 +7,18 @@ import { useEffect } from "react";
 import { API_SERVER } from "../../../constants";
 import DropdownItem from "./DropdownItems";
 
-const DropdownRecruitationNavbar = () => {
+const DropdownSchoolNavbar = () => {
   const [data, setData] = useState<any>();
 
   const fetchRecruitationDropdown = useCallback(() => {
     axios
-      .get(`${API_SERVER}wp-json/api/v1/dropdown/recruitation/subsites`)
+      .get(`${API_SERVER}wp-json/api/v1/dropdown/school/subsites`)
       .then((response: any) => {
         console.log("Dropdown: ", response.data);
         return setData(response.data);
+      })
+      .catch((error: any) => {
+        console.log(error);
       });
   }, []);
 
@@ -33,4 +36,4 @@ const DropdownRecruitationNavbar = () => {
   );
 };
 
-export default DropdownRecruitationNavbar;
+export default DropdownSchoolNavbar;

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import DropdownItem from "./DropdownItem";
 
-const DropdownItems = ({ item }: any) => {
+const DropdownItems = ({ item, link }: any) => {
   const [toggle, setToggle] = useState<boolean>(false);
 
   const onToggle = () => {
@@ -11,14 +11,20 @@ const DropdownItems = ({ item }: any) => {
   };
 
   return (
-    <React.Fragment>
-      <h1 onClick={onToggle}>{item.category.name}</h1>
+    <div className="pb-4">
+      <h1
+        className="text-white hover:text-gray-200 cursor-pointer mb-0"
+        onClick={onToggle}
+      >
+        {item.category.name}
+        <i className="ml-1 fas fa-scroll"></i>
+      </h1>
       {item.content &&
         toggle &&
         item.content.map((i: any) => {
-          return <DropdownItem item={i} />;
+          return <DropdownItem item={i} link={link} />;
         })}
-    </React.Fragment>
+    </div>
   );
 };
 
