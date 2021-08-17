@@ -6,16 +6,27 @@ import axios from "axios";
 import { API_SERVER } from "../../constants";
 import SubsiteLayout from "../SubsiteLayout";
 import CategoryLayout from "../CategoryLayout";
+import { useHistory } from "react-router-dom";
 
 const RecruitationSubsite = () => {
   const [subsite, setSubsite] = React.useState<any>({});
 
   const params: IFolderParam = useParams();
 
+  const history = useHistory();
+
   const fetchSubsite = React.useCallback(() => {
     axios
       .get(`${API_SERVER}wp-json/api/v1/recrutation/subsite/${params.id}`)
       .then((response) => {
+        const content: string = response.data[0].post_content;
+
+        if (content.substring(0, 7) === "<p>http") {
+          const cleanContent: string = content.replace(/<[^>]*>?/gm, "");
+          window.open(cleanContent, "_blank");
+          history.goBack();
+        }
+
         return setSubsite(response.data[0]);
       });
   }, [params]);
