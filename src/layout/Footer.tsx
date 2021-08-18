@@ -5,7 +5,8 @@ export default function Footer() {
     <footer className="bg-green-custom">
       <div className="text-white font-bold flex flex-row align-items justify-center">
         <div className="w-1/3 p-5">
-          <h2 className="text-lg">Inspektor Ochrony danych Osobowych</h2>
+          <h2 className="text-lg">Inspektor Ochrony danych Osobowych:</h2>
+          <h3>iod@zs1mm.edu.pl</h3>
         </div>
         <div className="w-1/3 p-5 flex flex-col">
           <h2 className="text-lg">Kadra Kierownicza: </h2>
@@ -17,11 +18,11 @@ export default function Footer() {
         </div>
         <div className="w-1/3 p-5 font-normal">
           <p className="text-lg">Zespół Szkół nr 1 im. Kazimierza Wielkiego</p>
-          <p>ul. Budowlana</p>
-          <p>05-300 Mińsk Mazowiecki</p>
-          <p>tel/fax 25 758 25 64</p>
+          <p className="mb-0">ul. Budowlana</p>
+          <p className="mb-0">05-300 Mińsk Mazowiecki</p>
+          <p className="mb-0">tel/fax 25 758 25 64</p>
 
-          <p>
+          <p className="mb-0">
             <a href="https://www.facebook.com/budowlankamm">
               <i className="fab fa-facebook-square fa-4x "></i>
             </a>
