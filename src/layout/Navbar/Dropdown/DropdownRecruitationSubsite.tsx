@@ -22,6 +22,14 @@ const DropdownRecruitationSubsite = () => {
         `${API_SERVER}wp-json/api/v1/dropdown/recruitation/subsite/${params.id}`
       )
       .then((response) => {
+        const content: string = response.data[0].post_content;
+
+        if (content.substring(0, 7) === "<p>http") {
+          const cleanContent: string = content.replace(/<[^>]*>?/gm, "");
+          window.open(cleanContent, "_blank");
+          history.goBack();
+        }
+
         setSubsite(response.data[0]);
       });
   }, [params]);
