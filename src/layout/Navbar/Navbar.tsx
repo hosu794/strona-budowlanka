@@ -64,35 +64,35 @@ function Navbar() {
   const [recruitationProcedures, setRecruitationProcedures] =
     useState<boolean>();
 
-  const fetchRetruitationProceduresSubsites = useCallback(() => {
-    axios
-      .get(`${API_SERVER}wp-json/api/v1/recruitation/procedures/subsites`)
-      .then((response: any) => {
-        console.log("Recruitation Procedures: ", response.data);
-        console.log(response.data);
-        setRecruitationProceduresSubsites(response.data);
-      })
-      .then(() => {
-        setRecruitationProceduresLoadingSubsites(false);
-      })
-      .catch((error) => {
-        setRecruitationProceduresError(error);
-      });
-  }, []);
+  // const fetchRetruitationProceduresSubsites = useCallback(() => {
+  //   axios
+  //     .get(`${API_SERVER}wp-json/api/v1/recruitation/procedures/subsites`)
+  //     .then((response: any) => {
+  //       console.log("Recruitation Procedures: ", response.data);
+  //       console.log(response.data);
+  //       setRecruitationProceduresSubsites(response.data);
+  //     })
+  //     .then(() => {
+  //       setRecruitationProceduresLoadingSubsites(false);
+  //     })
+  //     .catch((error) => {
+  //       setRecruitationProceduresError(error);
+  //     });
+  // }, []);
 
-  const fetchProceduresSubsite = useCallback(() => {
-    axios
-      .get(`${API_SERVER}wp-json/api/v1/procedures/subsites`)
-      .then((response: any) => {
-        setProceduresSubsites(response.data);
-      })
-      .then(() => {
-        setProceduresLoading(false);
-      })
-      .catch((error) => {
-        setProceduresLoading(false);
-      });
-  }, []);
+  // const fetchProceduresSubsite = useCallback(() => {
+  //   axios
+  //     .get(`${API_SERVER}wp-json/api/v1/procedures/subsites`)
+  //     .then((response: any) => {
+  //       setProceduresSubsites(response.data);
+  //     })
+  //     .then(() => {
+  //       setProceduresLoading(false);
+  //     })
+  //     .catch((error) => {
+  //       setProceduresLoading(false);
+  //     });
+  // }, []);
 
   const fetchContactSubsite = useCallback(() => {
     axios
@@ -153,15 +153,11 @@ function Navbar() {
     fetchSchoolSubsites();
     fetchRecruitmentSubsite();
     fetchContactSubsite();
-    fetchProceduresSubsite();
-    fetchRetruitationProceduresSubsites();
   }, [
     fetchSubsitesCategories,
-    fetchProceduresSubsite,
     fetchSchoolSubsites,
     fetchRecruitmentSubsite,
     fetchContactSubsite,
-    fetchRetruitationProceduresSubsites,
   ]);
 
   function handleRecruitation(): void {
@@ -263,7 +259,8 @@ function Navbar() {
             <div className="px-2 pt-2 font-bold pb-4 bg-green-custom shadow-lg rounded-lg">
               <div className="p-2">
                 <DropdownSchoolNavbar />
-                <div>
+
+                {/* <div>
                   <p
                     onClick={handleProcedures}
                     className=" text-white cursor-pointer hover:text-gray-200 mb-0"
@@ -283,7 +280,7 @@ function Navbar() {
                         />
                       );
                     })}
-                </div>
+                </div> */}
               </div>
               {schoolSubsites &&
                 schoolSubsites.map((item: any) => {
@@ -335,7 +332,7 @@ function Navbar() {
             <div className="px-2 pt-2 font-bold pb-4 bg-green-custom shadow-lg rounded-lg">
               <div className="p-2">
                 <DropdownRecruitationNavbar />
-                <div>
+                {/* <div>
                   <p
                     onClick={handleRecruitationProcedures}
                     className="text-white hover:text-gray-200 cursor-pointer mb-0"
@@ -354,7 +351,7 @@ function Navbar() {
                         />
                       );
                     })}
-                </div>
+                </div> */}
               </div>
               {recruitationSubsite &&
                 recruitationSubsite.map((item: any) => {

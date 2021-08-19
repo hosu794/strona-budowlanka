@@ -11,7 +11,7 @@ const DropdownItems = ({ item, link }: any) => {
   };
 
   return (
-    <div className="pb-4">
+    <div className="">
       <h1
         className="text-white hover:text-gray-200 cursor-pointer mb-0"
         onClick={onToggle}
