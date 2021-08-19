@@ -18,6 +18,9 @@ import ContactNavbarSubsite from "./ContactNavbarSubsite";
 import ProcedureNavbarSubsite from "./ProceduresNavbarSubsite";
 
 import RecruitationProceduresNavbarSubsite from "./RecruitationProceduresNavbarSubsite";
+import DropdownRecruitationNavbar from "./Dropdown/DropdownRecruitationNavbar";
+import DropdownSchoolNavbar from "./Dropdown/DropdownSchoolNavbar";
+import DropdownContactNavbar from "./Dropdown/DropdownContactNavbar";
 
 function SubsiteNavbar() {
   const [school, setSchool] = useState<boolean>(false);
@@ -263,40 +266,41 @@ function SubsiteNavbar() {
           </div>
 
           <div className="relative group">
-            <button className="flex flex-row items-center w-screen px-4 py-4 mt-2 text-base text-left bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
-              <span className="lg:text-sm xl:text-lg font-extrabold">
+            <button className="flex  flex-row items-center w-screen px-4 py-4 mt-2 text-base text-left  bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
+              <p className="lg:text-sm xl:text-lg font-extrabold mb-0">
                 Szkoła
-              </span>
+              </p>
             </button>
             <div
               style={{
-                width: "50vw",
+                width: "30vw",
               }}
               className="absolute z-10 hidden bg-grey-200 group-hover:block"
             >
               <div className="px-2 pt-2 font-bold pb-4 bg-green-custom shadow-lg rounded-lg">
                 <div className="p-2">
-                  <div>
-                    <p
-                      onClick={handleProcedures}
-                      className="cursor-pointer text-white hover:text-gray-200 mb-0"
-                    >
-                      Procedury
-                      <i className="ml-1 fas fa-scroll"></i>
-                    </p>
+                  <DropdownSchoolNavbar />
+                  {/* <div>
+                  <p
+                    onClick={handleProcedures}
+                    className=" text-white cursor-pointer hover:text-gray-200 mb-0"
+                  >
+                    Procedury
+                    <i className="ml-1 fas fa-scroll"></i>
+                  </p>
 
-                    {proceduresSubsites &&
-                      procedures &&
-                      proceduresSubsites.map((item: any) => {
-                        return (
-                          <ProcedureNavbarSubsite
-                            post_title={item.post_title}
-                            id={item.ID}
-                            key={item.ID}
-                          />
-                        );
-                      })}
-                  </div>
+                  {proceduresSubsites &&
+                    procedures &&
+                    proceduresSubsites.map((item: any) => {
+                      return (
+                        <ProcedureNavbarSubsite
+                          post_title={item.post_title}
+                          id={item.ID}
+                          key={item.ID}
+                        />
+                      );
+                    })}
+                </div> */}
                 </div>
                 {schoolSubsites &&
                   schoolSubsites.map((item: any) => {
@@ -309,13 +313,13 @@ function SubsiteNavbar() {
                     );
                   })}
                 {/* <div className="p-2">
-                <p className="text-white text-lg">
-                  <Link to="/education-offer">Oferta edukacyjna</Link>
+                <p className=" text-white text-lg">
+                  <Link className="link-none" to="/education-offer">Oferta edukacyjna</Link>
                 </p>
               </div>
               <div className="p-2">
-                <p className="text-white text-lg">
-                  <Link to="/recrutation">Proces rekrutacji</Link>
+                <p className=" text-white text-lg">
+                  <Link className="link-none" to="/recrutation">Proces rekrutacji</Link>
                 </p>
               </div> */}
               </div>
@@ -323,21 +327,10 @@ function SubsiteNavbar() {
           </div>
 
           <div className="relative group">
-            <button className="flex flex-row items-center w-screen px-4 py-4 mt-2 text-base text-left bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
-              <span className="lg:text-sm xl:text-lg font-extrabold">
-                <Link className="link-none" to="/gallery">
-                  Galeria
-                </Link>
-              </span>
-            </button>
-            <div className="absolute z-10 hidden bg-grey-200 group-hover:block"></div>
-          </div>
-
-          <div className="relative group">
-            <button className="flex flex-row items-center w-screen px-4 py-4 mt-2 text-base text-left bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
-              <span className="lg:text-sm xl:text-lg font-extrabold">
+            <button className="flex  flex-row items-center w-screen px-4 py-4 mt-2 text-base text-left  bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
+              <p className="lg:text-sm xl:text-lg font-extrabold mb-0">
                 Rekrutacja
-              </span>
+              </p>
             </button>
             <div
               style={{
@@ -347,27 +340,27 @@ function SubsiteNavbar() {
             >
               <div className="px-2 pt-2 font-bold pb-4 bg-green-custom shadow-lg rounded-lg">
                 <div className="p-2">
-                  <div>
-                    <p
-                      onClick={handleRecruitationProcedures}
-                      className="text-white hover:text-gray-200 cursor-pointer mb-0"
-                    >
-                      Proces Rekrutacji
-                      <i className="ml-1 fas fa-scroll"></i>
-                    </p>
-
-                    {recruitationProceduresSubsites &&
-                      recruitationProcedures &&
-                      recruitationProceduresSubsites.map((item: any) => {
-                        return (
-                          <RecruitationProceduresNavbarSubsite
-                            post_title={item.post_title}
-                            id={item.ID}
-                            key={item.ID}
-                          />
-                        );
-                      })}
-                  </div>
+                  <DropdownRecruitationNavbar />
+                  {/* <div>
+                  <p
+                    onClick={handleRecruitationProcedures}
+                    className="text-white hover:text-gray-200 cursor-pointer mb-0"
+                  >
+                    Proces Rekrutacji
+                    <i className="ml-1 fas fa-scroll"></i>
+                  </p>
+                  {recruitationProceduresSubsites &&
+                    recruitationProcedures &&
+                    recruitationProceduresSubsites.map((item: any) => {
+                      return (
+                        <RecruitationProceduresNavbarSubsite
+                          post_title={item.post_title}
+                          id={item.ID}
+                          key={item.ID}
+                        />
+                      );
+                    })}
+                </div> */}
                 </div>
                 {recruitationSubsite &&
                   recruitationSubsite.map((item: any) => {
@@ -380,13 +373,13 @@ function SubsiteNavbar() {
                     );
                   })}
                 {/* <div className="p-2">
-                <p className="text-white text-lg">
-                  <Link to="/education-offer">Oferta edukacyjna</Link>
+                <p className=" text-white text-lg">
+                  <Link className="link-none" to="/education-offer">Oferta edukacyjna</Link>
                 </p>
               </div>
               <div className="p-2">
-                <p className="text-white text-lg">
-                  <Link to="/recrutation">Proces rekrutacji</Link>
+                <p className=" text-white text-lg">
+                  <Link className="link-none" to="/recrutation">Proces rekrutacji</Link>
                 </p>
               </div> */}
               </div>
@@ -423,13 +416,14 @@ function SubsiteNavbar() {
           </div>
 
           <div className="relative group">
-            <button className="flex flex-row items-center w-screen px-4 py-4 mt-2 text-base text-left bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
-              <span className="lg:text-sm xl:text-lg font-extrabold">
+            <button className="flex  flex-row items-center w-screen px-4 py-4 mt-2 text-base text-left  bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
+              <p className="lg:text-sm xl:text-lg font-extrabold mb-0">
                 Kontakt
-              </span>
+              </p>
             </button>
             <div className="absolute z-10 hidden bg-grey-200 group-hover:block">
               <div className="p-4 font-bold text-white bg-green-custom shadow-lg rounded-lg">
+                <DropdownContactNavbar />
                 {contactSubsite &&
                   contactSubsite.map((item: any) => {
                     return (
@@ -440,11 +434,11 @@ function SubsiteNavbar() {
                       />
                     );
                   })}
-                {/* <p className="p-1">
-                <Link to="/help">Pomoc psychologiczno-prawna</Link>
+                {/* <p className=" p-1">
+                <Link className="link-none" to="/help">Pomoc psychologiczno-prawna</Link>
               </p>
-              <p className="p-1">
-                <Link to="/contact">Kontakt do Szkoły</Link>
+              <p className=" p-1">
+                <Link className="link-none" to="/contact">Kontakt do Szkoły</Link>
               </p> */}
               </div>
             </div>
@@ -524,39 +518,15 @@ function SubsiteNavbar() {
                   onClick={handleSchool}
                   className={
                     school
-                      ? "p-5 cursor-pointer underline"
-                      : "p-5 cursor-pointer"
+                      ? "p-5  cursor-pointer underline"
+                      : "p-5  cursor-pointer"
                   }
                 >
                   Szkoła
                 </li>
                 {school ? (
                   <ul className="flex flex-col justify-center align-items text-center">
-                    <li
-                      onClick={handleProcedures}
-                      className={
-                        school
-                          ? "p-5 cursor-pointer underline"
-                          : "p-5 cursor-pointer"
-                      }
-                    >
-                      Procedury
-                      <i className="ml-1 fas fa-scroll"></i>
-                    </li>
-                    {procedures && proceduresSubsites ? (
-                      <ul className="flex flex-col justify-center align-items text-center">
-                        {procedures &&
-                          proceduresSubsites.map((item: any) => {
-                            return (
-                              <ProcedureNavbarSubsite
-                                post_title={item.post_title}
-                                id={item.ID}
-                                key={item.ID}
-                              />
-                            );
-                          })}
-                      </ul>
-                    ) : null}
+                    <DropdownSchoolNavbar />
                     {schoolSubsites &&
                       schoolSubsites.map((item: any) => {
                         return (
@@ -578,36 +548,25 @@ function SubsiteNavbar() {
                   onClick={handleRecruitation}
                   className={
                     recruitation
-                      ? "p-5 cursor-pointer underline"
-                      : "p-5 cursor-pointer"
+                      ? "p-5  cursor-pointer underline"
+                      : "p-5  cursor-pointer"
                   }
                 >
                   Rekrutacja
                 </li>
                 {recruitation ? (
                   <ul className="flex flex-col justify-center align-items text-center">
-                    <li
-                      className="p-5 cursor-pointer"
-                      onClick={handleRecruitationProceduresMobile}
-                    >
-                      Proces Rekrutacji
-                      <i className="ml-1 fas fa-scroll"></i>
-                    </li>
-                    {recruitationProceduresMobile &&
-                    recruitationProceduresSubsites ? (
-                      <ul className="flex flex-col justify-center align-items text-center">
-                        {recruitationProceduresMobile &&
-                          recruitationProceduresSubsites.map((item: any) => {
-                            return (
-                              <RecruitationProceduresNavbarSubsite
-                                post_title={item.post_title}
-                                id={item.ID}
-                                key={item.ID}
-                              />
-                            );
-                          })}
-                      </ul>
-                    ) : null}
+                    <DropdownRecruitationNavbar />
+                    {recruitationSubsite &&
+                      recruitationSubsite.map((item: any) => {
+                        return (
+                          <RecruitationNavbarSubsite
+                            post_title={item.post_title}
+                            id={item.ID}
+                            key={item.ID}
+                          />
+                        );
+                      })}
                   </ul>
                 ) : null}
                 <li
@@ -641,14 +600,15 @@ function SubsiteNavbar() {
                   onClick={handleContact}
                   className={
                     contact
-                      ? "p-5 cursor-pointer underline"
-                      : "p-5 cursor-pointer"
+                      ? "p-5  cursor-pointer underline"
+                      : "p-5  cursor-pointer"
                   }
                 >
                   Kontakt
                 </li>
                 {contact ? (
                   <ul className="flex flex-col justify-center align-items text-center">
+                    <DropdownContactNavbar />
                     {contactSubsite &&
                       contactSubsite.map((item: any) => {
                         return (
