@@ -24,6 +24,7 @@ const NavbarSubsite: React.FC<NavbarSubsiteProps> = ({ item }) => {
         onClick={onToggle}
       >
         {item.category.name}
+        <i className="ml-1 fas fa-scroll"></i>
       </h1>
       {item &&
         toggle &&
