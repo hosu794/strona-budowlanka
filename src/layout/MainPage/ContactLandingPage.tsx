@@ -14,12 +14,12 @@ const ContactLandingPage = () => {
               <h1 className="font-bold">
                 Zespół Szkół nr 1 im. Kazimierza Wielkiego
               </h1>
-              <p>ul. Budowlana 4</p>
-              <p>05-300 Mińsk Mazowiecki</p>
-              <p>woj. mazowiecki</p>
+              <p className="mb-0">ul. Budowlana 4</p>
+              <p className="mb-0">05-300 Mińsk Mazowiecki</p>
+              <p className="mb-0">woj. mazowiecki</p>
               <br />
               <h1>tel/fax 25 758 25 64, 25 758 35 11</h1>
-              <p>e-mail: zs1mm@zs1mm.edu.pl</p>
+              <p className="mb-0">e-mail: zs1mm@zs1mm.edu.pl</p>
               <br />
               <span>
                 Sekretariat szkoły zaprasza od poniedziałku do piątku w
@@ -36,7 +36,7 @@ const ContactLandingPage = () => {
                 INTERNAT Zespołu Szkół nr 1 im. K. Wielkiego w Mińsku
                 Mazowieckim tel: 518 345 155
               </h1>
-              <p>tel: 518 345 155</p>
+              <p className="mb-0">tel: 518 345 155</p>
             </div>
           </div>
         </div>

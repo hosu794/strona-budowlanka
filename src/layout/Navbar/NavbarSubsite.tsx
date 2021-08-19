@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ItemType } from "../../types/Subsite";
 
@@ -7,17 +8,25 @@ type NavbarSubsiteProps = {
 };
 
 const NavbarSubsite: React.FC<NavbarSubsiteProps> = ({ item }) => {
+  const [toggle, setToggle] = useState<boolean>(false);
+
+  const onToggle = () => {
+    setToggle(!toggle);
+  };
+
   return (
     <div className="p-4">
       <h1
-        className="font-bold"
+        className="font-bold cursor-pointer"
         style={{
           maxWidth: "300px",
         }}
+        onClick={onToggle}
       >
         {item.category.name}
       </h1>
       {item &&
+        toggle &&
         item.content.map((i: any) => (
           <NavbarSubsiteItem
             categoryId={item.category.term_id}
@@ -50,7 +59,7 @@ const NavbarSubsiteItem: React.FC<NavbarSubsiteItemProps> = ({
         style={{
           marginBottom: "0",
         }}
-        className="text-white hover:text-gray-200"
+        className="text-white font-normal hover:text-gray-200"
       >
         {post_title}
       </p>
