@@ -259,7 +259,6 @@ function Navbar() {
             <div className="px-2 pt-2 font-bold pb-4 bg-green-custom shadow-lg rounded-lg">
               <div className="p-2">
                 <DropdownSchoolNavbar />
-
                 {/* <div>
                   <p
                     onClick={handleProcedures}
@@ -513,7 +512,7 @@ function Navbar() {
               </li>
               {school ? (
                 <ul className="flex flex-col justify-center align-items text-center">
-                  <li
+                  {/* <li
                     onClick={handleProcedures}
                     className={
                       school
@@ -523,8 +522,8 @@ function Navbar() {
                   >
                     Procedury
                     <i className="ml-1 fas fa-scroll"></i>
-                  </li>
-                  {procedures && proceduresSubsites ? (
+                  </li> */}
+                  {/* {procedures && proceduresSubsites ? (
                     <ul className="flex flex-col justify-center align-items text-center">
                       {procedures &&
                         proceduresSubsites.map((item: any) => {
@@ -537,7 +536,8 @@ function Navbar() {
                           );
                         })}
                     </ul>
-                  ) : null}
+                  ) : null} */}
+                  <DropdownSchoolNavbar />
                   {schoolSubsites &&
                     schoolSubsites.map((item: any) => {
                       return (
@@ -565,28 +565,17 @@ function Navbar() {
               </li>
               {recruitation ? (
                 <ul className="flex flex-col justify-center align-items text-center">
-                  <li
-                    className="p-5  cursor-pointer"
-                    onClick={handleRecruitationProceduresMobile}
-                  >
-                    Proces Rekrutacji
-                    <i className="ml-1 fas fa-scroll"></i>
-                  </li>
-                  {recruitationProceduresMobile &&
-                  recruitationProceduresSubsites ? (
-                    <ul className="flex flex-col justify-center align-items text-center">
-                      {recruitationProceduresMobile &&
-                        recruitationProceduresSubsites.map((item: any) => {
-                          return (
-                            <RecruitationProceduresNavbarSubsite
-                              post_title={item.post_title}
-                              id={item.ID}
-                              key={item.ID}
-                            />
-                          );
-                        })}
-                    </ul>
-                  ) : null}
+                  <DropdownRecruitationNavbar />
+                  {recruitationSubsite &&
+                    recruitationSubsite.map((item: any) => {
+                      return (
+                        <RecruitationNavbarSubsite
+                          post_title={item.post_title}
+                          id={item.ID}
+                          key={item.ID}
+                        />
+                      );
+                    })}
                 </ul>
               ) : null}
               <li
@@ -631,6 +620,7 @@ function Navbar() {
               </li>
               {contact ? (
                 <ul className="flex flex-col justify-center align-items text-center">
+                  <DropdownContactNavbar />
                   {contactSubsite &&
                     contactSubsite.map((item: any) => {
                       return (
