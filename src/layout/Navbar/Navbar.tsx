@@ -512,31 +512,6 @@ function Navbar() {
               </li>
               {school ? (
                 <ul className="flex flex-col justify-center align-items text-center">
-                  {/* <li
-                    onClick={handleProcedures}
-                    className={
-                      school
-                        ? "p-5  cursor-pointer underline mb-0"
-                        : "p-5  cursor-pointer mb-0"
-                    }
-                  >
-                    Procedury
-                    <i className="ml-1 fas fa-scroll"></i>
-                  </li> */}
-                  {/* {procedures && proceduresSubsites ? (
-                    <ul className="flex flex-col justify-center align-items text-center">
-                      {procedures &&
-                        proceduresSubsites.map((item: any) => {
-                          return (
-                            <ProcedureNavbarSubsite
-                              post_title={item.post_title}
-                              id={item.ID}
-                              key={item.ID}
-                            />
-                          );
-                        })}
-                    </ul>
-                  ) : null} */}
                   <DropdownSchoolNavbar />
                   {schoolSubsites &&
                     schoolSubsites.map((item: any) => {
