@@ -6,7 +6,7 @@ export interface ILayout {
 }
 
 const CategoryLayoutChildren = ({ children }: ILayout) => (
-  <div className="h-screen overflow-x-hidden">
+  <div className="h-screen overflow-x-hidden bg-image-king">
     <Navbar />
     {children}
     <Footer />

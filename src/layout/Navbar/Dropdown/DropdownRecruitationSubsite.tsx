@@ -40,7 +40,7 @@ const DropdownRecruitationSubsite = () => {
   }, [fetchSubsite]);
 
   return (
-    <CategoryLayout title="">
+    <CategoryLayout title={subsite.post_title}>
       {subsite && (
         <div>
           <PostPage

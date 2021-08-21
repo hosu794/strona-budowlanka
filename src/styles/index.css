@@ -105,3 +105,18 @@ ol {
 p {
   margin-bottom: 2em;
 }
+
+.bg-image-king::after {
+  background-image: url("../assets//kazimierz.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+  content: "";
+  opacity: 0.4;
+}

@@ -43,7 +43,7 @@ const PostSubsite: React.FC<any> = () => {
   }, [data, params.id]);
 
   return (
-    <CategoryLayout title="">
+    <CategoryLayout title={data && data.post.title}>
       {loading && "Ładowanie..."}
       {data && (
         <div>

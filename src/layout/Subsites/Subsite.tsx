@@ -38,7 +38,7 @@ const Subsite = () => {
   }, [fetchSubsite]);
 
   return (
-    <SubsiteLayout title="">
+    <SubsiteLayout title={subsite.post_title}>
       {subsite && (
         <div>
           <PostPage

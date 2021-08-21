@@ -5,6 +5,7 @@ import Post from "./Post";
 import { IPost, IPostsResult } from "../types/Post";
 import { IPaginationInfo } from "../types/grapql";
 import { useEffect } from "react";
+import PostsLayout from "../layout/PostsLayout";
 
 const Posts: React.FC<null> = () => {
   const [hasMore, setHasMore] = useState<boolean>(true);
@@ -66,7 +67,7 @@ const Posts: React.FC<null> = () => {
   };
 
   return (
-    <Layout>
+    <PostsLayout>
       <div className="min-h-screen flex flex-col justify-center items-center mt-20">
         <div className="flex flex-row space-between pb-5 pt-5 md:pb-20 md:pt-20 w-8/12 justify-between">
           <h1
@@ -213,7 +214,7 @@ const Posts: React.FC<null> = () => {
           )}
         </div>
       </div>
-    </Layout>
+    </PostsLayout>
   );
 };
 

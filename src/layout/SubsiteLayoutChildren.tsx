@@ -7,7 +7,7 @@ export interface ILayout {
 }
 
 const SubsiteLayoutChildren = ({ children }: ILayout) => (
-  <div className="h-screen overflow-x-hidden">
+  <div className="h-screen overflow-x-hidden bg-image-king">
     <SubsiteNavbar />
     {children}
     <Footer />
