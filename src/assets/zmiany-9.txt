@@ -1,0 +1,11 @@
+usuń kazimierza z głównej
+
+tło w galerii na przezroczyste
+tytuł po wejściu do folderu w galerii
+
+mniejsze marginesy w dodatkowe informacje w menu
+
+jak podstrona ma mało tekstu żeby tytuł i tresć była wyżej
+
+
+
