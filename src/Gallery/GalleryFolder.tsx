@@ -62,10 +62,10 @@ const GalleryFolder: React.FC<FolderProps> = ({
 
   //bg-white rounded-xl shadow-md overflow-hidden w-full md:w-1/2 m-5
   return (
-    <div className="bg-white rounded-xl overflow-hidden w-full">
+    <div className="bg-transparent rounded-xl overflow-hidden w-full">
       <div className="md:flex">
         <div className="p-2">
-          <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold ">
+          <div className="bg-white uppercase tracking-wide text-sm text-indigo-500 font-semibold">
             {/* {loading && "Ładowanie..."} */}
 
             {folderChildren.length > 0 && title ? (

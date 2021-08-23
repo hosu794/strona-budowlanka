@@ -50,7 +50,7 @@ const Gallery: React.FC<null> = () => {
             Galeria
           </h1>
         </div>
-        <div className="w-auto flex flex-col items-center w-8/12">
+        <div className="w-auto flex flex-col items-center w-8/12 ">
           {data &&
             data.map((item: any) => (
               <GalleryFolder
