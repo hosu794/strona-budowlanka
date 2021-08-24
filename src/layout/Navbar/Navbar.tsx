@@ -441,8 +441,8 @@ function Navbar() {
               width: "70vw",
             }}
           >
-            <div className="pl-16 text-white bg-green-custom shadow-lg rounded-lg">
-              <div className="flex flex-row p-2 text-lg tracking-wide">
+            <div className="text-white bg-green-custom shadow-lg rounded-lg">
+              <div className="flex flex-row p-2 text-lg tracking-wide justify-center">
                 <div className="flex flex-col">
                   <div className="flex flex-wrap">
                     {subsites &&

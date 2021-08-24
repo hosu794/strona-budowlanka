@@ -11,7 +11,7 @@ interface ICategoryLayout extends ILayout {
 const CategoryLayout = ({ children, title }: ICategoryLayout) => {
   return (
     <CategoryLayoutChildren>
-      <div className="min-h-screen flex flex-col items-center mt-20 justify-evenly">
+      <div className="min-h-screen flex flex-col items-center mt-20 justify-start">
         <div className="flex flex-row space-between pb-20 pt-20 w-8/12 justify-between">
           <h1
             className="text-2xl font-extrabold"
