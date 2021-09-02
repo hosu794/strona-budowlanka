@@ -19,7 +19,7 @@ const ShowMore = ({ length = 700, content, link }: ShowMoreProps) => {
   return (
     <React.Fragment>
       <div
-        className="flex items-center flex-col break-all"
+        className="flex items-center flex-col "
         dangerouslySetInnerHTML={{
           __html: slicedString,
         }}

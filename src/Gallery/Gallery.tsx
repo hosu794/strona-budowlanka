@@ -19,6 +19,8 @@ const Gallery: React.FC<null> = () => {
       headers: { Authorization: `Bearer ${token}` },
     };
 
+    axios.defaults.headers.post["Access-Control-Allow-Origin"] = "*";
+
     axios
       .get(`${API_SERVER}wp-json/filebird/public/v1/folders`, config)
       .then((response) => {

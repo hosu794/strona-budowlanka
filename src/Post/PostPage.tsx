@@ -10,7 +10,7 @@ const PostPage: React.FC<any> = ({ id, content, title, date }) => {
     <React.Fragment>
       {/* <h1 className="text-2xl pb-4">{title}</h1> */}
       <div
-        className="flex items-center flex-col break-all p-5"
+        className="flex items-center flex-col  p-5"
         dangerouslySetInnerHTML={{
           __html: content,
         }}

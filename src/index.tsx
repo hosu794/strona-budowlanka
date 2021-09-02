@@ -1,29 +1,23 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './styles/index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import {
-  ApolloClient,
-  ApolloProvider,
-  InMemoryCache,
-} from '@apollo/client'
-import { HttpLink } from '@apollo/react-hooks';
-
-
+import React from "react";
+import ReactDOM from "react-dom";
+import "./styles/index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import { HttpLink } from "@apollo/react-hooks";
 
 const client = new ApolloClient({
- cache: new InMemoryCache(), 
- link: new HttpLink({
-   uri: "https://serwer2124775.home.pl/graphql"
- })
+  cache: new InMemoryCache(),
+  link: new HttpLink({
+    uri: "http://www.zs1mm.home.pl/strona2021/graphql",
+  }),
 });
 
 ReactDOM.render(
   <ApolloProvider client={client}>
-  <App />
-</ApolloProvider>,
-  document.getElementById('root')
+    <App />
+  </ApolloProvider>,
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function

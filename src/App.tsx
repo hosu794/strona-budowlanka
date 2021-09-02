@@ -25,6 +25,8 @@ import DropdownContactSubsite from "./layout/Navbar/Dropdown/DropdownContactSubs
 import DropdownSchoolNavbar from "./layout/Navbar/Dropdown/DropdownSchoolNavbar";
 import DropdownSchoolSubsite from "./layout/Navbar/Dropdown/DropdownSchoolSubsite";
 import DropdownRecruitationSubsite from "./layout/Navbar/Dropdown/DropdownRecruitationSubsite";
+import { useEffect } from "react";
+import DropdownJournalSubsite from "./layout/Navbar/Dropdown/DropdownJournalSubsite";
 
 const App: React.FC<any> = () => {
   return (
@@ -48,6 +50,11 @@ const App: React.FC<any> = () => {
             component={DropdownRecruitationSubsite}
             exact
             path="/dropdown/recruitation/:id"
+          />
+          <Route
+            component={DropdownJournalSubsite}
+            exact
+            path="/dropdown/journal/:id"
           />
           <Route
             component={RecruitationSubsite}
@@ -81,7 +88,7 @@ const App: React.FC<any> = () => {
           <Route component={NotFound} />
         </Switch>
       </Router>
-      <CookieConsent
+      {/* <CookieConsent
         overlay
         location="bottom"
         buttonText="Wyrażam zgodę"
@@ -98,7 +105,7 @@ const App: React.FC<any> = () => {
           urządzeniu końcowym. Pamiętaj, że zawsze możesz zmienić te ustawienia.
           Szczegóły znajdziesz w Polityce Prywatności.
         </span>
-      </CookieConsent>
+      </CookieConsent> */}
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import BrandIcon from "../../assets/favicon.png";
 
 import axios from "axios";
@@ -19,6 +19,7 @@ import RecruitationProceduresNavbarSubsite from "./RecruitationProceduresNavbarS
 import DropdownRecruitationNavbar from "./Dropdown/DropdownRecruitationNavbar";
 import DropdownSchoolNavbar from "./Dropdown/DropdownSchoolNavbar";
 import DropdownContactNavbar from "./Dropdown/DropdownContactNavbar";
+import DropdownJournalNavbar from "./Dropdown/DropdownJournalNavbar";
 
 function Navbar() {
   const [subsites, setSubsites] = useState<any>();
@@ -64,35 +65,23 @@ function Navbar() {
   const [recruitationProcedures, setRecruitationProcedures] =
     useState<boolean>();
 
-  // const fetchRetruitationProceduresSubsites = useCallback(() => {
-  //   axios
-  //     .get(`${API_SERVER}wp-json/api/v1/recruitation/procedures/subsites`)
-  //     .then((response: any) => {
-  //       console.log("Recruitation Procedures: ", response.data);
-  //       console.log(response.data);
-  //       setRecruitationProceduresSubsites(response.data);
-  //     })
-  //     .then(() => {
-  //       setRecruitationProceduresLoadingSubsites(false);
-  //     })
-  //     .catch((error) => {
-  //       setRecruitationProceduresError(error);
-  //     });
-  // }, []);
+  const [journalSubsite, setJournalSubsite] = useState<any>({});
+  const [loadingJournalSubsite, setLoadingJournalSubsite] = useState<any>({});
 
-  // const fetchProceduresSubsite = useCallback(() => {
-  //   axios
-  //     .get(`${API_SERVER}wp-json/api/v1/procedures/subsites`)
-  //     .then((response: any) => {
-  //       setProceduresSubsites(response.data);
-  //     })
-  //     .then(() => {
-  //       setProceduresLoading(false);
-  //     })
-  //     .catch((error) => {
-  //       setProceduresLoading(false);
-  //     });
-  // }, []);
+  const fetchJournalSubsite = useCallback(() => {
+    axios
+      .get(`${API_SERVER}wp-json/api/v1/journal/subsites`)
+      .then((response: any) => {
+        console.log(response.data);
+        setJournalSubsite(response.data);
+      })
+      .then((response: any) => {
+        setLoadingJournalSubsite(false);
+      })
+      .catch((error: any) => {
+        console.log(error);
+      });
+  }, []);
 
   const fetchContactSubsite = useCallback(() => {
     axios
@@ -125,7 +114,7 @@ function Navbar() {
 
   const fetchSubsitesCategories = useCallback(() => {
     axios
-      .get(`${API_SERVER}wp-json/api/v1/categories/subsites`)
+      .get(`${API_SERVER}wp-json/api/v1/categories/subsites`, {})
       .then((response: any) => {
         setSubsites(response.data);
       })
@@ -384,6 +373,7 @@ function Navbar() {
           </button>
           <div className="absolute z-10 hidden bg-grey-200 group-hover:block">
             <div className="p-4 font-bold text-white bg-green-custom shadow-lg rounded-lg">
+              <DropdownJournalNavbar />
               <p className="p-1 text-white hover:text-gray-200 mb-0">
                 <a
                   className="link-none"

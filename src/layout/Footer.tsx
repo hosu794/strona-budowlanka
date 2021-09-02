@@ -10,10 +10,10 @@ export default function Footer() {
         </div>
         <div className="w-1/3 p-5 flex flex-col">
           <h2 className="text-lg">Kadra Kierownicza: </h2>
-          <span className="mt-2">Dyrektor - Małgorzata Beczek</span>
-          <span className="mt-2">Wicedyrektor - Elżbieta Parol</span>
-          <span className="mt-2">Wicedyrektor - Paweł Domagała</span>
-          <span className="mt-2">Wicedyrektor - Wojciech Jackowski</span>
+          <span className="mt-2">Dyrektor - Adam Trześkowski</span>
+          <span className="mt-2">Wicedyrektor - Ewa Drużbalska-Kopka</span>
+          <span className="mt-2">Wicedyrektor - Monika Pszonka</span>
+          <span className="mt-2">Wicedyrektor - Monika Skrzydlewska</span>
           <span className="mt-2">Kierownik Internatu - Jolanta Binkowska</span>
         </div>
         <div className="w-1/3 p-5 font-normal">
