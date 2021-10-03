@@ -19,7 +19,7 @@ const DropdownJournalNavbar = () => {
   }, []);
 
   useEffect(() => {
-    // fetchJournalDropdown();
+    fetchJournalDropdown();
   }, [fetchJournalDropdown]);
 
   return (

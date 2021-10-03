@@ -33,9 +33,7 @@ export default function Footer() {
         <span className="text-white text-base text-center text-lg">
           Copyright by Zespół Szkół Nr 1 Mińsk Mazowiecki 2010-2021 |{" "}
           <b>Polityka prywatności</b> | Powered by
-          <a href="www.hosuwebsites.com" target="_blank">
-            <b className="pointer-click"> HOSU</b>
-          </a>
+          <b className="pointer-click"> Grzegorz Szczęsny</b>
         </span>
       </div>
     </footer>

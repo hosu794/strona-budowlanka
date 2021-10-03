@@ -27,6 +27,7 @@ import DropdownSchoolSubsite from "./layout/Navbar/Dropdown/DropdownSchoolSubsit
 import DropdownRecruitationSubsite from "./layout/Navbar/Dropdown/DropdownRecruitationSubsite";
 import { useEffect } from "react";
 import DropdownJournalSubsite from "./layout/Navbar/Dropdown/DropdownJournalSubsite";
+import JournalSubsite from "./layout/Subsites/JournalSubiste";
 
 const App: React.FC<any> = () => {
   return (
@@ -61,6 +62,7 @@ const App: React.FC<any> = () => {
             exact
             path="/recruitation/subsite/:id"
           />
+          <Route component={JournalSubsite} exact path="/journal/subsite/:id" />
           <Route
             component={RecruitationProcedureSubsite}
             exact

@@ -20,6 +20,7 @@ import DropdownRecruitationNavbar from "./Dropdown/DropdownRecruitationNavbar";
 import DropdownSchoolNavbar from "./Dropdown/DropdownSchoolNavbar";
 import DropdownContactNavbar from "./Dropdown/DropdownContactNavbar";
 import DropdownJournalNavbar from "./Dropdown/DropdownJournalNavbar";
+import JournalNavbarSubsite from "./JournalNavbarSubsite";
 
 function Navbar() {
   const [subsites, setSubsites] = useState<any>();
@@ -72,8 +73,7 @@ function Navbar() {
     axios
       .get(`${API_SERVER}wp-json/api/v1/journal/subsites`)
       .then((response: any) => {
-        console.log(response.data);
-        setJournalSubsite(response.data);
+        return setJournalSubsite(response.data);
       })
       .then((response: any) => {
         setLoadingJournalSubsite(false);
@@ -142,11 +142,13 @@ function Navbar() {
     fetchSchoolSubsites();
     fetchRecruitmentSubsite();
     fetchContactSubsite();
+    fetchJournalSubsite();
   }, [
     fetchSubsitesCategories,
     fetchSchoolSubsites,
     fetchRecruitmentSubsite,
     fetchContactSubsite,
+    fetchJournalSubsite,
   ]);
 
   function handleRecruitation(): void {
@@ -374,20 +376,16 @@ function Navbar() {
           <div className="absolute z-10 hidden bg-grey-200 group-hover:block">
             <div className="p-4 font-bold text-white bg-green-custom shadow-lg rounded-lg">
               <DropdownJournalNavbar />
-              <p className="p-1 text-white hover:text-gray-200 mb-0">
-                <a
-                  className="link-none"
-                  href="https://uonetplus-uczen.vulcan.net.pl/powiatminski"
-                  target="no_blank"
-                >
-                  Vulcan
-                </a>
-              </p>
-              <p className="p-1 text-white hover:text-gray-200 mb-0">
-                <a className="link-none" href="http://www.zs1mm.home.pl/plan/">
-                  Plan Lekcji
-                </a>
-              </p>
+              {journalSubsite[0] &&
+                journalSubsite.map((item: any) => {
+                  return (
+                    <JournalNavbarSubsite
+                      post_title={item.post_title}
+                      id={item.ID}
+                      key={item.ID}
+                    />
+                  );
+                })}
             </div>
           </div>
         </div>
@@ -555,22 +553,17 @@ function Navbar() {
               </li>
               {lessons ? (
                 <ul className="flex flex-col justify-center align-items">
-                  <li className=" text-left pl-7 pb-2">
-                    <a
-                      className="link-none"
-                      href="http://www.zs1mm.home.pl/plan/"
-                    >
-                      Plan Lekcji
-                    </a>
-                  </li>
-                  <li className=" text-left pl-7 pb-2">
-                    <a
-                      className="link-none"
-                      href="https://uonetplus.vulcan.net.pl/powiatminski"
-                    >
-                      Dziennik
-                    </a>
-                  </li>
+                  <DropdownJournalNavbar />
+                  {journalSubsite[0] &&
+                    journalSubsite.map((item: any) => {
+                      return (
+                        <JournalNavbarSubsite
+                          post_title={item.post_title}
+                          id={item.ID}
+                          key={item.ID}
+                        />
+                      );
+                    })}
                 </ul>
               ) : null}
               <li
